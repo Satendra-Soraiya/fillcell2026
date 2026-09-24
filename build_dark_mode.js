@@ -1,0 +1,1282 @@
+const fs = require('fs');
+
+const darkHtml = `<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Madhya Pradesh Film Facilitation Cell — Single Window Filming Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              950: "#050508",
+              900: "#09090d",
+              850: "#0d0d14",
+              800: "#12121a",
+              750: "#151522",
+              700: "#1a1a28"
+            },
+            charcoal: {
+              900: "#101015",
+              800: "#15151c",
+              700: "#1c1c25",
+              600: "#242432"
+            },
+            gold: {
+              300: "#fde047",
+              400: "#facc15",
+              500: "#eab308",
+              600: "#ca8a04"
+            },
+            primary: "#f97316",
+            "primary-hover": "#ea580c",
+            "primary-wash": "rgba(249, 115, 22, 0.12)",
+            secondary: "#f59e0b",
+            "secondary-hover": "#d97706",
+            "secondary-wash": "rgba(245, 158, 11, 0.12)",
+            amber: {
+              accent: "#f59e0b",
+              glow: "rgba(245, 158, 11, 0.25)"
+            },
+            tertiary: "#38bdf8",
+            "border-crisp": "rgba(255, 255, 255, 0.08)",
+            "border-muted": "rgba(255, 255, 255, 0.15)",
+            "border-gold": "rgba(245, 158, 11, 0.35)",
+            "text-primary": "#f8fafc",
+            "text-secondary": "#cbd5e1",
+            "text-muted": "#94a3b8",
+            "surface-ground": "#09090d",
+            "surface-subtle": "#12121a"
+          },
+          fontFamily: {
+            sans: ["Montserrat", "sans-serif"],
+            serif: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        background-color: #09090d;
+        color: #f1f5f9;
+        font-family: 'Montserrat', sans-serif;
+      }
+      * {
+        font-family: 'Montserrat', sans-serif;
+      }
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #07070a; }
+    ::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.35); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(245, 158, 11, 0.65); }
+    
+    .gold-text-glow {
+      text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    }
+    .gold-box-glow {
+      box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
+    }
+    .gold-border-glow:hover {
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 0 25px -4px rgba(245, 158, 11, 0.2);
+    }
+    .gold-badge {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(234, 88, 12, 0.15) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#09090d] font-sans text-slate-100 antialiased selection:bg-amber-500/25 selection:text-amber-300">
+
+  <!-- =========================================================================
+       TRANSPARENT / DARK GLASS TWO-TIER NAVIGATION HEADER
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#09090d]/85 backdrop-blur-xl border-b border-white/10 shadow-2xl">
+    <!-- TIER 1: Main Brand Bar -->
+    <div class="w-full py-2.5 px-4 md:px-8 xl:px-12 border-b border-white/5">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <!-- Logo & Emblem -->
+        <a class="flex items-center gap-3.5 group" href="#home">
+          <div class="p-1 rounded-xl bg-white/95 border border-amber-400/40 shadow-sm transition-transform group-hover:scale-105">
+            <img alt="Madhya Pradesh Film Facilitation Cell" class="h-10 md:h-12 w-auto object-contain" src="logo.png">
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-base sm:text-lg text-white tracking-tight group-hover:text-amber-400 transition-colors">Film Cell</span>
+              <span class="hidden sm:inline-block px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider rounded-full gold-badge text-amber-300">Single Window Portal</span>
+            </div>
+            <span class="text-xs text-amber-400/90 font-medium">Madhya Pradesh Tourism Board</span>
+          </div>
+        </a>
+
+        <!-- Desktop Quick Nav Links (Matching Hero Reference) -->
+        <nav class="hidden lg:flex items-center gap-1.5 text-xs font-semibold">
+          <a class="px-3.5 py-1.5 rounded-full bg-white/10 text-amber-300 border border-amber-500/30 font-bold transition-all shadow-xs" href="#home">Home</a>
+          <a class="px-3 py-1.5 text-slate-300 hover:text-amber-400 transition-colors" href="#why-mp">About FFCMP</a>
+          <a class="px-3 py-1.5 text-slate-300 hover:text-amber-400 transition-colors" href="#locations">Locations</a>
+          <a class="px-3 py-1.5 text-slate-300 hover:text-amber-400 transition-colors" href="#policy">Incentives</a>
+          <a class="px-3 py-1.5 text-slate-300 hover:text-amber-400 transition-colors" href="#how-it-works">Apply</a>
+          <a class="px-3 py-1.5 text-slate-300 hover:text-amber-400 transition-colors" href="#quick-access">Track</a>
+        </nav>
+
+        <!-- Accessibility, Language & Primary Actions -->
+        <div class="flex items-center gap-2.5 sm:gap-3.5">
+          <div class="hidden xl:flex items-center gap-1 border border-white/10 rounded-lg px-2 py-1 bg-white/5 text-xs font-semibold text-slate-300">
+            <button class="hover:text-amber-400 px-1 transition-colors" type="button">A-</button>
+            <span class="text-white/20">|</span>
+            <button class="hover:text-amber-400 px-1 transition-colors" type="button">A</button>
+            <span class="text-white/20">|</span>
+            <button class="hover:text-amber-400 px-1 transition-colors" type="button">A+</button>
+          </div>
+          <div class="hidden sm:flex items-center border border-white/10 rounded-lg p-0.5 bg-white/5 text-xs font-medium">
+            <span class="px-2 py-0.5 rounded-md bg-amber-500 text-black font-extrabold shadow-xs">EN</span>
+            <button class="px-2 py-0.5 text-slate-400 hover:text-white transition-colors" type="button">हिन्दी</button>
+          </div>
+          <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-slate-200 text-xs font-semibold transition-all group" href="#dashboard">
+            <span class="material-symbols-outlined text-base text-amber-400 group-hover:scale-110 transition-transform">verified_user</span>
+            <span>Producer Login</span>
+          </a>
+          <a class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-black text-xs font-black tracking-wide transition-all shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02]" href="#how-it-works">
+            <span>Apply Now</span>
+            <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2: Secondary Exploration Strip -->
+    <div class="w-full bg-[#07070a]/90 border-b border-white/5 py-1">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex items-center justify-between h-9 text-xs">
+        <nav class="flex items-center gap-2 sm:gap-6 overflow-x-auto scrollbar-none font-semibold text-[11px] uppercase tracking-wider">
+          <a class="text-amber-400 font-bold flex items-center gap-1 hover:text-amber-300 transition-colors" href="#home">Home</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#why-mp">Why MP</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#locations">1,200+ Locations</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#how-it-works">Process & Workflow</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#dashboard">Public Dashboard</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#policy">Film Policy 2025</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#films">Films Shot in MP</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#ecosystem">Ecosystem</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#cell-members">Cell Members</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#faqs">FAQs</a>
+        </nav>
+        <a class="hidden md:inline-flex items-center gap-1 text-[11px] uppercase tracking-wider text-amber-400 hover:text-amber-300 font-bold transition-colors py-0.5 px-2 rounded-md bg-amber-500/10 border border-amber-500/20 shrink-0" href="#locations">
+          <span class="material-symbols-outlined text-xs">search</span>
+          <span>Location Directory</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-[100px] bg-[#09090d]">
+    <!-- =========================================================================
+         1. HERO SECTION: Full Dark Cinematic Background with Gold/Orange Highlights
+         (Matching User Reference Mockup with Gwalior Fort Backdrop hero-bg.jpg)
+         ========================================================================= -->
+    <section class="relative w-full min-h-[92vh] flex items-center justify-center overflow-hidden bg-[#09090d]" id="home">
+      <!-- High-resolution Cinematic Image Backdrop -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <div class="w-full h-full bg-cover bg-center filter brightness-[0.72] contrast-[1.12] scale-[1.03] transition-transform duration-1000 ease-out" style="background-image: url('hero-bg.jpg');"></div>
+        <!-- Dark Obsidian Vignette Scrim & Amber Radial Glow -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/65 to-[#09090d]/80"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/18 via-black/45 to-black/85"></div>
+      </div>
+
+      <div class="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-8 py-16 flex flex-col items-center justify-center text-center gap-6">
+        <!-- Hero Capsule Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gold-badge shadow-lg backdrop-blur-md">
+          <span class="material-symbols-outlined text-amber-400 text-sm">movie</span>
+          <span class="text-xs uppercase tracking-widest text-amber-300 font-bold">Film Facilitation Cell — Madhya Pradesh</span>
+        </div>
+
+        <!-- Monumental Cinema Headline -->
+        <div class="flex flex-col gap-2 max-w-4xl">
+          <h1 class="font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1]">
+            Lights, Camera,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-orange-500 gold-text-glow font-black">Madhya Pradesh</span>
+          </h1>
+          <p class="text-slate-300 text-base sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed mt-3">
+            Your single-window portal for film shooting permissions across the Heart of Incredible India. From heritage forts to dense forests, sacred ghats to vibrant cities — get permission within 15 days.
+          </p>
+        </div>
+
+        <!-- High-Contrast Luxury Actions -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-black bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-black shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transition-all" href="#how-it-works">
+            <span>Apply for Permission</span>
+            <span class="material-symbols-outlined text-lg font-bold">arrow_forward</span>
+          </a>
+          <a class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold bg-white/10 hover:bg-white/15 backdrop-blur-md text-white border border-white/20 hover:border-amber-400/60 shadow-lg transition-all" href="#locations">
+            <span class="material-symbols-outlined text-amber-400 text-xl">movie_filter</span>
+            <span>Explore Locations</span>
+          </a>
+        </div>
+
+        <!-- Key Metrics Triad (Matching Reference Screenshot) -->
+        <div class="grid grid-cols-3 gap-6 sm:gap-14 mt-8 pt-8 border-t border-white/10 max-w-2xl w-full">
+          <div class="flex flex-col items-center">
+            <span class="material-symbols-outlined text-amber-400 text-2xl mb-1">location_on</span>
+            <span class="text-2xl sm:text-3xl font-black text-white">15 Days</span>
+            <span class="text-xs text-slate-400 font-medium mt-0.5">Permission Timeline</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="material-symbols-outlined text-amber-400 text-2xl mb-1">movie</span>
+            <span class="text-2xl sm:text-3xl font-black text-white">9</span>
+            <span class="text-xs text-slate-400 font-medium mt-0.5">Film Categories</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="material-symbols-outlined text-amber-400 text-2xl mb-1">calendar_today</span>
+            <span class="text-2xl sm:text-3xl font-black text-white">Single</span>
+            <span class="text-xs text-slate-400 font-medium mt-0.5">Window System</span>
+          </div>
+        </div>
+
+        <!-- Downward Indicator -->
+        <a aria-label="Scroll to Facilitation Suite" class="mt-4 text-slate-500 hover:text-amber-400 transition-colors animate-bounce" href="#quick-access">
+          <span class="material-symbols-outlined text-2xl">keyboard_arrow_down</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         2. FEATURE CARDS: Dark Elevated Surfaces with Gold Icon Accents
+         ========================================================================= -->
+    <section class="w-full relative z-20 -mt-10 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="quick-access">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-[#12121a]/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
+        <!-- 01 Apply -->
+        <a class="group flex flex-col justify-between p-5 rounded-xl bg-[#171722] hover:bg-[#1d1d2b] border border-white/5 hover:border-amber-500/40 transition-all gold-border-glow" href="#how-it-works">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-amber-400 font-black">01</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-sm">
+              <span class="material-symbols-outlined text-xl">stylus_note</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Apply for Permission</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-normal">Fast single-window clearances with OTP verification.</p>
+          </div>
+          <div class="mt-4 flex items-center gap-1 text-amber-400 text-xs font-bold">
+            <span>Start Application</span>
+            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- 02 Track Application -->
+        <div class="flex flex-col justify-between p-5 rounded-xl bg-[#171722] border border-white/5 hover:border-amber-500/40 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-orange-400 font-black">02</span>
+            <div class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/25 flex items-center justify-center text-orange-400 shadow-sm">
+              <span class="material-symbols-outlined text-xl">manage_search</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-sm font-bold text-white">Track Application</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-normal">Check 55-district departmental review status.</p>
+          </div>
+          <form class="mt-4 flex items-center gap-1.5" onsubmit="event.preventDefault(); alert('Tracking application: ' + this.elements.ref.value);">
+            <input class="w-full bg-[#0c0c12] border border-white/10 text-xs px-2.5 py-2 rounded-lg text-white placeholder-slate-500 outline-none focus:border-amber-500 font-mono" name="ref" placeholder="MPFFC-2026-..." required="">
+            <button class="px-3 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-black font-bold rounded-lg hover:opacity-90 transition-all text-xs flex items-center justify-center" type="submit">
+              <span class="material-symbols-outlined text-sm">search</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- 03 Explore Locations -->
+        <a class="group flex flex-col justify-between p-5 rounded-xl bg-[#171722] hover:bg-[#1d1d2b] border border-white/5 hover:border-amber-500/40 transition-all gold-border-glow" href="#locations">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-amber-400 font-black">03</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-sm">
+              <span class="material-symbols-outlined text-xl">travel_explore</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Explore 14+ Zones</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-normal">Monuments, wild sanctuaries, river rapids &amp; heritage.</p>
+          </div>
+          <div class="mt-4 flex items-center gap-1 text-amber-400 text-xs font-bold">
+            <span>Search Locations</span>
+            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </div>
+        </a>
+
+        <!-- 04 Public Dashboard -->
+        <a class="group flex flex-col justify-between p-5 rounded-xl bg-[#171722] hover:bg-[#1d1d2b] border border-white/5 hover:border-amber-500/40 transition-all gold-border-glow" href="#dashboard">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-orange-400 font-black">04</span>
+            <div class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/25 flex items-center justify-center text-orange-400 group-hover:bg-orange-500 group-hover:text-black transition-all shadow-sm">
+              <span class="material-symbols-outlined text-xl">insights</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors">Public Dashboard</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-normal">Live processing statistics &amp; ₹20+ Cr subsidy records.</p>
+          </div>
+          <div class="mt-4 flex items-center gap-1 text-orange-400 text-xs font-bold">
+            <span>View Real-Time Metrics</span>
+            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. LOCATION CATEGORIES: Cinematic Image Tiles with Dark Overlays
+         ========================================================================= -->
+    <section class="w-full py-24 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="why-mp">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10">
+        <div class="max-w-2xl flex flex-col gap-1.5">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Unrivaled Filming Canvas</span>
+          <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">One State. Endless Stories.</h2>
+          <p class="text-slate-300 mt-1 leading-relaxed">
+            Madhya Pradesh offers an extraordinary range of terrain: pristine wildlife reserves, ancient fortresses, dramatic canyons, and modern metropolitan infrastructure across 55 districts.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#14141e] border border-white/10 shadow-lg flex items-center gap-3">
+          <span class="material-symbols-outlined text-amber-400 text-3xl">verified</span>
+          <div>
+            <div class="text-sm font-bold text-white">Single-Window Portal</div>
+            <div class="text-xs text-slate-400">Backed by MP Tourism Policy 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mosaic Grid of Dark Cinematic Tiles -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- 01 Heritage -->
+        <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcfZ3hUjN92C_O3nSsIAm3Z-huJhVN4YVbIdiSB_swYlzMH3JZuUq7pJZ917CRVHrpGmd-BKvNNWEuCvyN8SVzXNV89Veoe4QzV-EFVQzFQiQJFojN5-ckDVKFtRj0WZZDVz2pUvhJUVI5NaoOhFETYcNlaA_JbxZZEALsWfOtItl76ZQO3u9jlKh3WxfBV_moatBaKdjMJzO_GIItwO-mKE88juqWFqoVmctKtE1VzXa5_gIKxMux')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">01 • UNESCO &amp; Fortresses</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Heritage &amp; Monuments</h3>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2">Khajuraho temples, Orchha Betwa palaces, Gwalior Fort ramparts, and Mandu’s Jahaz Mahal.</p>
+          </div>
+        </div>
+
+        <!-- 02 Forests -->
+        <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM_RZH3HXUMajsRkM0y7RBUB1-wiaWTdi8BI5jk261O-jQvhPalFmvxXqy7jKneilk_e8vvZyrf5LCt2G5fA7pBayOYZ7WNF00l7FN_AIUcWwL0aK7d_FM6IsgA1gXghytEoIeA3l6GZmD7glu4O2wCschyL-lHD4r9KPlEPsofNbd_dKvI1qLXMLjvNJNIdLxT27nXTLZtZNiFuXl4Kj-dxM8TgU3q_auUtAr5Z-hWt8jMb3Q2R2D')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">02 • Untamed Biospheres</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Forests &amp; Wildlife</h3>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2">Kanha, Bandhavgarh, Pench, and Panna national parks.</p>
+          </div>
+        </div>
+
+        <!-- 03 Rivers -->
+        <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqOVZTQY1GrGQJB3jqh9DXrxIdH_TjPZiCfCVi6M4eIKxqEN5cjxxgdi-ZWUfYyySgjnJ8qK1aVsT54PIT6ywb1gF6QKrxdR6K4uxUM8_yD0ZMky3Vzlg3gsrWkCTzYvVmLw93meO-Os6UvratovIJfBhk8ByEBVsA7ETBAl1ptWNj3W9aYJaprn2ryvz2Qc0gur_GwxKM5Gqk9fiLHt5RfixFfLTRugjXG29uZjjcsdHXFctoaTh_')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">03 • Sacred Waterways</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Rivers &amp; Waterfalls</h3>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2">Narmada Ghats, Bhedaghat marble gorge, and Dhuandhar falls.</p>
+          </div>
+        </div>
+
+        <!-- 04 Cities -->
+        <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZX-V2jXVSZbvROte35H2OlKHBNZjvGcEe0Lepim5ll8d2SOPY6yZ60I3g2qD65dW0X1f9zqwMqSjvSGBQtgyA8pPDAPqcGiVYMpme6YQJUthXZV827VB6tCkcNQD701vMAwzpPg0Xhx0jW57pZADUj99bLe5h96FSwxecRWrawgAwKUyDN4DJGEThMxWoZZb1wXX_PvbtUxrm4vfraoKrInmtYBl2MOKrVZwZnY_5KMzUfJsYv35J')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">04 • Urban &amp; Heritage Mix</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Cities &amp; Skylines</h3>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2">Bhopal lakeside promenades, Indore culinary hubs, and Gwalior bazaars.</p>
+          </div>
+        </div>
+
+        <!-- 05 Villages -->
+        <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALdK9fXXG-clxaG40vsKXJZYY85S1J06Wz75YdVucqXSy4KadddRsZAH93URMPHbqHSZFLWfrE86KIKB8wYf4yhhyTHyt3LJ9ALzLI2RQnoRBbQNzRyR-4ILY94m9LKK1WSUz-ofvooLMBuPE9CPovSkwg-sMUbXwIWrFvGFJtDWyYSLGbY64AaxY8sLIfjCq71jVcbrZlXEZ2HdFdI79bubNdrHNmhRIGesi6Gu2NQAwwqQY2D1j2')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">05 • Authentic Hinterland</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Villages &amp; Rural Pastoral</h3>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2">Mahodiya village (filming site of ‘Panchayat’), Bundelkhand hamlets, and tribal arts communities.</p>
+          </div>
+        </div>
+
+        <!-- 06 Roads -->
+        <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
+          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBADE7H3-MDfDYEHUn-frVk7MGtN94SRPPvimeGolvYRcZYYqCWcpFJLRBX1d9mPrczWbnQVs35KXh0egk34wB7RZIV7yp97UjLhcHJOhtxqOBi9bKt5Jwsg31c5eXt7Rte56dib7LLBCccwEd1479_qTv0Nr406bSG2DESt9h9BALulKhDPYnMgDlUQWKVxfJBAL5aNXExkBA9zsULb8e-Q5OKUg89T-kwYEhHsT6KGgRetxUsqRFV')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">06 • Dramatic Topography</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">Roads &amp; Ravines</h3>
+            <p class="text-xs text-slate-300 mt-1 line-clamp-2">Chambal badlands, Satpura Ghat roads, and highway ribbons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. LOCATION DIRECTORY: Dark Search Interface with Rich Location Cards
+         ========================================================================= -->
+    <section class="w-full py-24 bg-[#07070a] border-y border-white/5" id="locations">
+      <div class="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Comprehensive Directory</span>
+            <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Find Your Next Frame</h2>
+            <p class="text-slate-300 mt-1 font-medium">Explore over 1,200 curated filming spots across 55 districts.</p>
+          </div>
+          <a class="inline-flex items-center gap-1.5 text-sm text-amber-400 hover:text-amber-300 font-bold transition-colors" href="#how-it-works">
+            <span>Explore All 55 Districts Directory</span>
+            <span class="material-symbols-outlined text-base">east</span>
+          </a>
+        </div>
+
+        <!-- Dark Search Bar -->
+        <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 p-4 bg-[#12121a] rounded-2xl border border-white/10 shadow-xl">
+          <div class="flex-1 flex items-center gap-3 bg-[#09090d] px-4 py-2.5 rounded-xl border border-white/10">
+            <span class="material-symbols-outlined text-amber-400 text-xl">search</span>
+            <input class="w-full bg-transparent text-sm text-white placeholder-slate-500 outline-none font-medium" placeholder="Search by monument, district, terrain or keyword (e.g. Orchha, Palace, Ravines)...">
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="hidden sm:inline text-xs uppercase tracking-wider text-slate-400 font-bold">District:</label>
+            <select class="bg-[#09090d] border border-white/10 text-white text-xs px-3.5 py-2.5 rounded-xl outline-none cursor-pointer font-semibold focus:border-amber-500">
+              <option>All 55 Districts</option>
+              <option>Bhopal &amp; Sehore</option>
+              <option>Niwari (Orchha)</option>
+              <option>Gwalior</option>
+              <option>Jabalpur (Bhedaghat)</option>
+              <option>Chhatarpur (Khajuraho)</option>
+              <option>Dhar (Mandu &amp; Maheshwar)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Rich Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1: Jahangir Mahal, Orchha -->
+          <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+            <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDayz3RKccn6ie5x3Pw-iqiDtYNq1VKIuftGbf9urycNzesB7J5tnMhVmeuWIcYkCTy3AMFRCfnbLRvIUoHk10ikE1k_Ius9ojF3WMPKIUhmaCs-Qj0KjX2QbONYe71ooWzFfgwtRZWSIa2pxMyejFGs_VfgzHZ1zd09pjInD7hVMPDW0n7ACmVJ5HxNRCHoRraP4Ac5JyQsAiYbYg-gPn-d7nPDCgwSzQuIYf9YwduwyKjwLH86L_s')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">Fast Track</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Niwari District</span>
+              </div>
+              <div class="absolute bottom-3 right-3 bg-black/80 border border-amber-500/30 backdrop-blur px-2.5 py-1 rounded-lg text-xs text-amber-300 font-bold font-mono">
+                ₹ 25,000 / day
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 justify-between gap-4">
+              <div>
+                <h3 class="text-lg text-white font-bold group-hover:text-amber-300 transition-colors">Jahangir Mahal &amp; Orchha Cenotaphs</h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Pristine 17th-century Mughal-Rajput architecture on the quiet bank of Betwa river. Flawless period production value.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                <span class="text-amber-400 font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">check_circle</span> State Protected ASI
+                </span>
+                <a class="text-amber-400 hover:text-orange-400 font-bold transition-colors" href="#how-it-works">View Details →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Maheshwar Ghats -->
+          <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+            <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCljoCcBIRS3FfRPPRDbmIJmOsEmmEupusbvXjBkhkCBSj9_8n6ExRnETnhFILf_Jf7LmfFuQhME5N3azNwboQp_9jFMPAACd5Gy84k1qZneLc3Sog6lWNfJ6a3qvmCHBdFape2imnbdk1S-_owS4LwSzjCbc4MUOJr7TUsuBuUJim-Btle3lPD3VwfokZC_ArnszTYdpRwJUNZl97FzPa7iUNB1wZsqNNSbGTGaLOMRQKvkO12wa5V')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">Fast Track</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Khargone / Dhar</span>
+              </div>
+              <div class="absolute bottom-3 right-3 bg-black/80 border border-amber-500/30 backdrop-blur px-2.5 py-1 rounded-lg text-xs text-amber-300 font-bold font-mono">
+                ₹ 30,000 / day
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 justify-between gap-4">
+              <div>
+                <h3 class="text-lg text-white font-bold group-hover:text-amber-300 transition-colors">Ahilya Fort &amp; Narmada Ghats</h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Filming site of 'Bajirao Mastani', 'Padman', and 'A Suitable Boy'. Grand stone stairs meet holy river expanses.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                <span class="text-amber-400 font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">check_circle</span> Multi-Dept NOC
+                </span>
+                <a class="text-amber-400 hover:text-orange-400 font-bold transition-colors" href="#how-it-works">View Details →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Mahodiya Village ('Phulera') -->
+          <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+            <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
+              <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeVL17_7IRmsOS966HINT11hIHUt0lr_tXbx5LhEtF_S3_j2KEdRRCWjHlHt0eAGf7z4EkEbE111WHTtEGElTj2OoXTMfKTslMIm8hLUbjI5FW-HSGVf9T6GWWA-WD_0OmOH2lYNNIQqs-0ogstrS8hbe4rqbijCNFq-QrS_8BLSE4vZbB2qUB4DiY3r-B-vHbg9Fms5F9Hct7J88KIhdg2jfzxa3lY8PK7ubhXpuyuspdoQDcZbAz')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">District Fast Track</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Sehore District</span>
+              </div>
+              <div class="absolute bottom-3 right-3 bg-black/80 border border-amber-500/30 backdrop-blur px-2.5 py-1 rounded-lg text-xs text-amber-300 font-bold font-mono">
+                ₹ 10,000 / day
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 justify-between gap-4">
+              <div>
+                <h3 class="text-lg text-white font-bold group-hover:text-amber-300 transition-colors">Mahodiya Village ('Phulera')</h3>
+                <p class="text-xs text-slate-400 mt-2 leading-relaxed">Famed location of TVF’s ‘Panchayat’. Authentic village council premises, idyllic farm expanses, and welcoming local community.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                <span class="text-amber-400 font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">check_circle</span> Gram Panchayat NOC
+                </span>
+                <a class="text-amber-400 hover:text-orange-400 font-bold transition-colors" href="#how-it-works">View Details →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. APPLICATION WORKFLOW: Premium Dark Timeline / Numbered Process
+         ========================================================================= -->
+    <section class="w-full py-24 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="how-it-works">
+      <div class="flex flex-col gap-1.5 max-w-3xl">
+        <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Regulatory Workflow</span>
+        <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">From Script to Shoot — Simplified</h2>
+        <p class="text-slate-300 mt-1">
+          A single-window process under the Madhya Pradesh Film Tourism Policy 2025. Concurrent inter-departmental clearances ensure no bureaucratic delays.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <!-- 01 -->
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between gap-5 hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-amber-400 font-black">01</span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 font-bold text-[11px]">Online Reg</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Create Your Profile</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Quick OTP registration for both filmic and non-filmic production entities with digital KYC.</p>
+          </div>
+          <div class="text-xs text-amber-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">speed</span> Instant OTP Activation
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between gap-5 hover:border-orange-500/50 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-orange-400 font-black">02</span>
+            <span class="px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-300 font-bold text-[11px]">Submission</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Submit Application</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Upload script synopsis, filming dates, crew composition, drone details, and location coordinates.</p>
+          </div>
+          <div class="text-xs text-orange-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">description</span> Script Synopsis &amp; Crew
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between gap-5 hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-amber-400 font-black">03</span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 font-bold text-[11px]">Processing Fee</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Pay Portal Fee</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Online payment via integrated MPOnline gateway. Automated receipt with permanent tracking reference.</p>
+          </div>
+          <div class="text-xs text-amber-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">lock</span> Secure MPOnline Gateway
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between gap-5 hover:border-orange-500/50 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-orange-400 font-black">04</span>
+            <span class="px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-300 font-bold text-[11px]">NOC Approvals</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Department Review</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Simultaneous circulation: Police, Forest Dept, ASI, District Collector, and Municipal bodies review in parallel.</p>
+          </div>
+          <div class="text-xs text-orange-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">autorenew</span> 7 to 10 Days SLA
+          </div>
+        </div>
+
+        <!-- 05 -->
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between gap-5 hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-amber-400 font-black">05</span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 font-bold text-[11px]">Tariff</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Pay Location Fee</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Transparent scheduled departmental fees payable directly through portal with zero offline bureaucracy.</p>
+          </div>
+          <div class="text-xs text-amber-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">receipt_long</span> Standard Tariff Booklet
+          </div>
+        </div>
+
+        <!-- 06 -->
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between gap-5 hover:border-orange-500/50 transition-all gold-border-glow">
+          <div class="flex items-center justify-between">
+            <span class="text-3xl text-orange-400 font-black">06</span>
+            <span class="px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-300 font-bold text-[11px]">Approved</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Download Sanction</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Download your digitally signed, QR-verifiable official shooting permission recognized across 55 districts.</p>
+          </div>
+          <div class="text-xs text-amber-300 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5 font-bold">
+            <span class="material-symbols-outlined text-sm text-amber-400">verified_user</span> QR-Signed Official Clearance
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. PUBLIC CLEARANCE DASHBOARD: Dark Bento Story with Amber/Gold Highlights
+         ========================================================================= -->
+    <section class="w-full py-24 bg-[#07070a] border-y border-white/5" id="dashboard">
+      <div class="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono text-amber-400 mb-2 font-bold">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+              <span>LIVE SYNCHRONIZED WITH MPONLINE PORTAL</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Public Clearance Dashboard</h2>
+            <p class="text-slate-300 mt-1">Verified administrative performance and transparent clearance metrics.</p>
+          </div>
+          <div class="text-xs text-slate-400 font-mono bg-[#14141e] px-4 py-2 rounded-xl border border-white/10">
+            Last Synced: Today, 14:30 IST
+          </div>
+        </div>
+
+        <!-- 5 Stats Bento in Dark Charcoal/Obsidian -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Total Applications</span>
+            <div class="my-4">
+              <div class="text-4xl text-white font-black">572</div>
+              <span class="text-xs text-slate-400 font-medium">Filmic &amp; Series</span>
+            </div>
+            <div class="text-xs text-amber-400 font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">trending_up</span> +18 this quarter
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Approved &amp; Issued</span>
+            <div class="my-4">
+              <div class="text-4xl text-amber-400 font-black">286</div>
+              <span class="text-xs text-slate-400 font-medium">Formal Permissions</span>
+            </div>
+            <div class="text-xs text-amber-400 font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">verified</span> 98.4% success rate
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Avg. Processing Time</span>
+            <div class="my-4">
+              <div class="text-4xl text-white font-black">10 <span class="text-base font-medium text-slate-400">Days</span></div>
+              <span class="text-xs text-slate-400 font-medium">Multi-Dept SLA</span>
+            </div>
+            <div class="text-xs text-slate-400 flex items-center gap-1 font-semibold">
+              <span class="material-symbols-outlined text-sm text-amber-400">schedule</span> Target: 15 Days
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Median Clearance</span>
+            <div class="my-4">
+              <div class="text-4xl text-orange-400 font-black">7 <span class="text-base font-medium text-slate-400">Days</span></div>
+              <span class="text-xs text-slate-400 font-medium">Fast Track Route</span>
+            </div>
+            <div class="text-xs text-orange-400 font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">bolt</span> For Repeat Crews
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Disbursed Subsidies</span>
+            <div class="my-4">
+              <div class="text-4xl text-amber-300 font-black">₹ 20+ <span class="text-base font-medium text-slate-400">Cr</span></div>
+              <span class="text-xs text-slate-400 font-medium">Financial Grants</span>
+            </div>
+            <div class="text-xs text-amber-400 font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-sm">account_balance</span> 42 Funded Titles
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. FILM SHOWCASE: Large Cinematic Imagery & Editorial Cards
+         ========================================================================= -->
+    <section class="w-full py-24 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="films">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Hall of Cinema</span>
+          <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Stories Already Told Here</h2>
+          <p class="text-slate-300 mt-1">Acclaimed feature films and globally renowned series shot on Madhya Pradesh locations.</p>
+        </div>
+        <div class="flex items-center gap-2 text-slate-300 text-xs font-semibold bg-[#14141e] px-4 py-2 rounded-xl border border-white/10">
+          <span class="material-symbols-outlined text-amber-400 text-base">camera_roll</span>
+          <span>Over 250+ Titles Documented</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Panchayat -->
+        <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#181824]">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_OcvHF8rF5GhRbhKxMmGelpwGX46nWB9vWjF5wMI8C1EjL4bx9bztwU6CAt7-aIzQjDmXtlJ8rPEoG2fWbUWG4_PA-PtSY8Y15YRCI_woY-BVRJX17YXcht4Yk5_s7RPXMLxNBcy3EZcsNfcYNpeA3KrF-SrJkjNApWN9JmbhoOjFVfl5L18RqAaquRPPx89hZ5jEbwp2bDkJx8KASTnGOODruYUgdrqUN0PDuo0ocX1vQUlvSPGI')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-black/30 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="px-2.5 py-1 rounded-md bg-amber-500 text-black text-[10px] font-black uppercase tracking-wider">Web Series</span>
+              <h3 class="text-lg font-bold text-white mt-1.5">Panchayat</h3>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+              <span>Location: Mahodiya (Sehore)</span>
+              <span class="font-mono text-amber-400 font-bold">Seasons 1-3</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">The village of 'Phulera' brought alive with 100% on-ground state facilitation.</p>
+          </div>
+        </div>
+
+        <!-- Stree & Stree 2 -->
+        <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#181824]">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4hn8biPVrNS19FNACwVq4R7KQklM89j6wIrzmCN2ZISIoVBPSzCSa8FFuZCrpu8galKrYe5K_gU4X1F3J8pM7UVbOh2gCye3nUbrL5Dg_xEMICfHqV5WelZLNSFHktCNn89k8gb4qgVdVgE7h7fQGelMGWwmDRd2eAKMopt7nqaXjvfETAt-iZgIoCVdfsDr4KWHdcm3kLws8RCsI9CCzpr6FbJs79AF5PpSoKCDDBNeruuBhrHGi')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-black/30 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="px-2.5 py-1 rounded-md bg-orange-500 text-black text-[10px] font-black uppercase tracking-wider">Feature Film</span>
+              <h3 class="text-lg font-bold text-white mt-1.5">Stree &amp; Stree 2</h3>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+              <span>Location: Chanderi</span>
+              <span class="font-mono text-orange-400 font-bold">Blockbuster</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Historical town of Chanderi served as the eerie backdrop for both hit installments.</p>
+          </div>
+        </div>
+
+        <!-- Bajirao Mastani -->
+        <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#181824]">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAprYdfLyKgUreBVDhoCsta71siKpA8W_5a7COal9HRVWfzcFj0S_EqghYWZXfpBfMqzvfN9csv9qOT-FuDBkajOMbtN7V-RvH9JPWrUR-kLzPDPIQHyNMWb3UB-U_sdI1tBMv67iR3o8FtZxSW29O4Dq15UXmIm6Ls-xsOcM_7CxhiHj0AapK-wrHCfwiYkvYnhj2wS-1HdwpMq4vZ1ldOiyvTAbMeEiyKVUu2bTlaO0nxJVww9vcX')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-black/30 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="px-2.5 py-1 rounded-md bg-amber-500 text-black text-[10px] font-black uppercase tracking-wider">Period Epic</span>
+              <h3 class="text-lg font-bold text-white mt-1.5">Bajirao Mastani</h3>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+              <span>Location: Maheshwar Ghats</span>
+              <span class="font-mono text-amber-400 font-bold">Bhansali Prod.</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Regal riverfront sequences shot along the Queen Ahilyabai Holkar fortress.</p>
+          </div>
+        </div>
+
+        <!-- Paan Singh Tomar -->
+        <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+          <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#181824]">
+            <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4KSQm22va85pWVKLq1qj3mnsvEv62N4Y3pgYIW0PNyy5y5NpkyRPgB_P_7--SoJwe0mEQ--VGCdfTEHe77uAJ35qW_l3EwSuzXn83KvNbUYnbWXG9jE4SbAA_y-2bOD3L0mPjsae7uhTXtc4TAXPFSzVIkIyQ7L16-G2htmFwgwjg4B_KsQMaf0igX88033ILDxcxfsFXEnUKEHsk9vgAB8AHtbHYlq2amIoWAC6ph_UJAnAVAdgq')"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#12121a] via-black/30 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="px-2.5 py-1 rounded-md bg-orange-500 text-black text-[10px] font-black uppercase tracking-wider">National Award</span>
+              <h3 class="text-lg font-bold text-white mt-1.5">Paan Singh Tomar</h3>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+              <span>Location: Chambal Valley</span>
+              <span class="font-mono text-orange-400 font-bold">Irrfan Khan</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">Filmed on the exact Chambal badland terrains of the athlete-turned-rebel’s true saga.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. FILM POLICY & OFFICIAL GAZETTES: Dark Executive Library
+         ========================================================================= -->
+    <section class="w-full py-24 bg-[#07070a] border-y border-white/5" id="policy">
+      <div class="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="p-1.5 bg-white/95 rounded-2xl border border-amber-500/40 shadow-sm shrink-0">
+              <img alt="Logo" class="h-11 w-auto object-contain" src="logo.png">
+            </div>
+            <div>
+              <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Policy &amp; Gazette Downloads</span>
+              <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Film Policy &amp; Guidelines 2025</h2>
+              <p class="text-slate-300 mt-1">Financial incentives, gazetted rulebooks, and statutory forms.</p>
+            </div>
+          </div>
+          <a class="text-sm font-bold text-amber-400 hover:text-amber-300 transition-colors" href="#how-it-works">Check Subsidy Eligibility →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Doc 1 -->
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex items-center justify-between gap-4 hover:border-amber-500/40 transition-all gold-border-glow">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">picture_as_pdf</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Madhya Pradesh Film Tourism Policy 2025</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Official State Gazette Notification • Full Subsidy Structure</p>
+              </div>
+            </div>
+            <button class="p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-black text-slate-300 border border-white/10 transition-all" onclick="alert('Downloading Policy 2025');">
+              <span class="material-symbols-outlined text-xl">download</span>
+            </button>
+          </div>
+
+          <!-- Doc 2 -->
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex items-center justify-between gap-4 hover:border-amber-500/40 transition-all gold-border-glow">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">gavel</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Film Policy 2025 Rules &amp; Regulations</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Dated 23/04/2025 • Statutory Compliance Standards</p>
+              </div>
+            </div>
+            <button class="p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-black text-slate-300 border border-white/10 transition-all" onclick="alert('Downloading Rules &amp; Regulations');">
+              <span class="material-symbols-outlined text-xl">download</span>
+            </button>
+          </div>
+
+          <!-- Doc 3 -->
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex items-center justify-between gap-4 hover:border-amber-500/40 transition-all gold-border-glow">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">stream</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Amendment 1 — OTT &amp; Web Series Inclusions</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Dated 17/12/2025 • Order Waves OTT in Policy</p>
+              </div>
+            </div>
+            <button class="p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-black text-slate-300 border border-white/10 transition-all" onclick="alert('Downloading Amendment 1 OTT');">
+              <span class="material-symbols-outlined text-xl">download</span>
+            </button>
+          </div>
+
+          <!-- Doc 4 -->
+          <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex items-center justify-between gap-4 hover:border-amber-500/40 transition-all gold-border-glow">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-2xl">menu_book</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Department-Wise Location Fees Booklet</h4>
+                <p class="text-xs text-slate-400 mt-0.5">All 55 Districts Fixed Daily &amp; Weekly Schedules</p>
+              </div>
+            </div>
+            <button class="p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-black text-slate-300 border border-white/10 transition-all" onclick="alert('Downloading Location Fee Booklet');">
+              <span class="material-symbols-outlined text-xl">download</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. FILMING ECOSYSTEM
+         ========================================================================= -->
+    <section class="w-full py-24 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="ecosystem">
+      <div class="flex flex-col gap-1.5 max-w-2xl mb-10">
+        <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Ground Logistics &amp; Support</span>
+        <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">The MP Filming Ecosystem</h2>
+        <p class="text-slate-300">Registered vendors, technicians, discounted hospitality, and theatrical networks.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-2xl">groups</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Filmic Resource Directory</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Over 2,400 verified local artists, line producers, DOPs, spot technicians, and casting scouts.</p>
+          </div>
+          <a class="mt-5 text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1" href="#how-it-works">Search Crew →</a>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-2xl">local_shipping</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Non-Filmic Logistics</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Generator vans, grip machinery, transport fleets, mobile vanity units, and catering.</p>
+          </div>
+          <a class="mt-5 text-xs font-bold text-orange-400 hover:text-orange-300 inline-flex items-center gap-1" href="#how-it-works">View Logistics →</a>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-2xl">hotel</span>
+            </div>
+            <h3 class="text-base font-bold text-white">MPT Hotels &amp; Lodges</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Up to 40% institutional discount for registered film crews staying at MP Tourism properties.</p>
+          </div>
+          <a class="mt-5 text-xs font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1" href="#how-it-works">Crew Tariffs →</a>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl flex flex-col justify-between hover:border-amber-500/40 transition-all gold-border-glow">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-2xl">theaters</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Cinema Halls Directory</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">Database of single screens and multiplexes in 55 districts to assist distribution and premieres.</p>
+          </div>
+          <a class="mt-5 text-xs font-bold text-orange-400 hover:text-orange-300 inline-flex items-center gap-1" href="#how-it-works">Browse Theaters →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. CELL MEMBERS (CLAUSE 6.2): Statutory Governance & Apex Committee
+         ========================================================================= -->
+    <section class="w-full py-24 bg-[#07070a] border-t border-white/5" id="cell-members">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-3xl flex flex-col gap-2">
+            <div class="inline-flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 text-[10px] font-extrabold uppercase tracking-wider border border-amber-500/30">Clause 6.2 Gazette Mandate</span>
+              <span class="text-xs uppercase tracking-widest text-orange-400 font-bold">Statutory Governance &amp; Apex Committee</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight mt-1">Members of the Film Facilitation Cell</h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+              The apex governing body constituted under the Madhya Pradesh Film Tourism Policy, ensuring streamlined inter-departmental clearances, single-window approvals, and film industry representation.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 p-4 rounded-2xl bg-[#14141e] border border-white/10 shadow-lg shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold border border-amber-500/25">
+              <span class="material-symbols-outlined text-2xl">account_balance</span>
+            </div>
+            <div>
+              <div class="text-xs uppercase font-extrabold text-white tracking-wider">Institutional Apex Body</div>
+              <div class="text-[11px] text-amber-400/90 font-medium">MP Tourism Board Authority</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apex Leadership (Chairman & Deputy Chairman) in Luxury Dark Gold Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- 1. Chairman -->
+          <div class="relative p-7 rounded-2xl bg-gradient-to-br from-amber-950/25 via-[#13131e] to-[#13131e] border-2 border-amber-500/50 shadow-2xl flex flex-col justify-between gap-5 gold-box-glow">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-4">
+                <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-black flex items-center justify-center font-black text-xl shadow-lg shrink-0 p-3">
+                  01
+                </div>
+                <div>
+                  <span class="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-wider">Apex Leadership</span>
+                  <h3 class="text-xl font-extrabold text-white leading-tight mt-0.5">Managing Director</h3>
+                  <p class="text-xs text-slate-300 font-medium mt-0.5">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-black text-xs font-black uppercase tracking-wider shadow-md shrink-0 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm font-bold">crown</span>
+                Chairman
+              </span>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5 font-semibold text-amber-300"><span class="material-symbols-outlined text-sm text-amber-400">verified</span> Statutory Head of Cell</span>
+              <span class="font-mono text-[11px] text-slate-400">Clause 6.2 (1)</span>
+            </div>
+          </div>
+
+          <!-- 2. Deputy Chairman -->
+          <div class="relative p-7 rounded-2xl bg-gradient-to-br from-orange-950/25 via-[#13131e] to-[#13131e] border-2 border-orange-500/40 shadow-2xl flex flex-col justify-between gap-5">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-4">
+                <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 text-black flex items-center justify-center font-black text-xl shadow-lg shrink-0 p-3">
+                  02
+                </div>
+                <div>
+                  <span class="text-[11px] font-mono font-bold text-orange-400 uppercase tracking-wider">Apex Leadership</span>
+                  <h3 class="text-xl font-extrabold text-white leading-tight mt-0.5">Additional Managing Director</h3>
+                  <p class="text-xs text-slate-300 font-medium mt-0.5">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-black text-xs font-black uppercase tracking-wider shadow-md shrink-0 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm font-bold">shield_person</span>
+                Deputy Chairman
+              </span>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5 font-semibold text-orange-300"><span class="material-symbols-outlined text-sm text-orange-400">verified</span> Operational Executive Oversight</span>
+              <span class="font-mono text-[11px] text-slate-400">Clause 6.2 (2)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Council Members Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- 3. Director, Investment Promotion -->
+          <div class="p-5 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/40 transition-all flex flex-col justify-between gap-4 gold-border-glow">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center font-black text-sm shrink-0">
+                  03
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Director, Investment Promotion</h4>
+                  <p class="text-xs text-slate-400">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-[11px] font-bold uppercase tracking-wider shrink-0">
+                Member
+              </span>
+            </div>
+            <div class="text-[11px] text-slate-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-amber-400">trending_up</span> Subsidies &amp; Capital Inflow
+            </div>
+          </div>
+
+          <!-- 4. Deputy Director, Film Tourism (Member Secretary) -->
+          <div class="p-5 rounded-2xl bg-[#141422] border-2 border-amber-500/40 shadow-xl flex flex-col justify-between gap-4 gold-border-glow">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500 text-black flex items-center justify-center font-black text-sm shrink-0">
+                  04
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Deputy Director, Film Tourism</h4>
+                  <p class="text-xs text-slate-300 font-medium">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-black uppercase tracking-wider shrink-0 border border-amber-500/40">
+                Member Secretary
+              </span>
+            </div>
+            <div class="text-[11px] text-amber-300 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5 font-semibold">
+              <span class="material-symbols-outlined text-xs text-amber-400">assignment_turned_in</span> Nodal Facilitation Executive
+            </div>
+          </div>
+
+          <!-- 5. Deputy Director, Finance -->
+          <div class="p-5 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/40 transition-all flex flex-col justify-between gap-4 gold-border-glow">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center font-black text-sm shrink-0">
+                  05
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Deputy Director, Finance</h4>
+                  <p class="text-xs text-slate-400">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-[11px] font-bold uppercase tracking-wider shrink-0">
+                Member
+              </span>
+            </div>
+            <div class="text-[11px] text-slate-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-amber-400">payments</span> Fiscal Audit &amp; Grants Clearance
+            </div>
+          </div>
+
+          <!-- 6. Archaeological Advisor -->
+          <div class="p-5 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/40 transition-all flex flex-col justify-between gap-4 gold-border-glow">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center font-black text-sm shrink-0">
+                  06
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Archaeological Advisor</h4>
+                  <p class="text-xs text-slate-400">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-[11px] font-bold uppercase tracking-wider shrink-0">
+                Member
+              </span>
+            </div>
+            <div class="text-[11px] text-slate-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-amber-400">museum</span> Heritage &amp; ASI Guidelines
+            </div>
+          </div>
+
+          <!-- 7. Expert / Body related to Film Industry -->
+          <div class="p-5 rounded-2xl bg-[#171424] border border-amber-500/35 shadow-xl hover:bg-[#1a172a] transition-all flex flex-col justify-between gap-4 gold-border-glow">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-black flex items-center justify-center font-black text-sm shrink-0">
+                  07
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Expert / Body related to Film Industry</h4>
+                  <p class="text-xs text-amber-400 font-medium">Cinema &amp; Production Representative</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold uppercase tracking-wider shrink-0 border border-amber-500/40">
+                Member *
+              </span>
+            </div>
+            <div class="text-[11px] text-amber-300 font-mono pt-3 border-t border-amber-500/20 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-amber-400">movie</span> Appointed by Cell Chairperson
+            </div>
+          </div>
+
+          <!-- 8. MPTB Department Head -->
+          <div class="p-5 rounded-2xl bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/40 transition-all flex flex-col justify-between gap-4 gold-border-glow">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center font-black text-sm shrink-0">
+                  08
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white leading-snug">Department Head related to Film Facilitation</h4>
+                  <p class="text-xs text-slate-400">Madhya Pradesh Tourism Board</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-[11px] font-bold uppercase tracking-wider shrink-0">
+                Member
+              </span>
+            </div>
+            <div class="text-[11px] text-slate-400 font-mono pt-3 border-t border-white/10 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-amber-400">hub</span> Inter-Departmental Coordination
+            </div>
+          </div>
+        </div>
+
+        <!-- Statutory Footnote from Document -->
+        <div class="p-4 rounded-xl bg-[#14141e] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-2 text-xs text-slate-300 font-medium">
+            <span class="material-symbols-outlined text-base text-amber-400">info</span>
+            <span><strong>* Note on Appointment:</strong> Film industry expert/body will be appointed by the Chairperson of the Film Facilitation Cell.</span>
+          </div>
+          <a class="inline-flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 font-bold transition-colors shrink-0" href="#policy">
+            <span>Review Full Policy Gazette</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         11. FAQS
+         ========================================================================= -->
+    <section class="w-full py-24 bg-[#09090d] border-t border-white/5" id="faqs">
+      <div class="max-w-4xl mx-auto px-4 md:px-8 flex flex-col gap-8">
+        <div class="text-center flex flex-col items-center gap-1.5">
+          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Frequently Asked Questions</span>
+          <h2 class="text-3xl text-white font-extrabold tracking-tight">Producer Clarifications</h2>
+        </div>
+        <div class="flex flex-col gap-3.5">
+          <div class="rounded-2xl bg-[#12121a] border border-white/10 p-6 shadow-xl hover:border-amber-500/30 transition-all">
+            <h3 class="text-sm font-bold text-white">How do I apply for shooting permission in MP?</h3>
+            <p class="text-xs text-slate-400 mt-2.5 leading-relaxed font-normal">All permissions are routed through this single-window portal (supported by MPOnline). Register with mobile OTP, upload your script synopsis and dates, select location coordinates, and pay via the integrated gateway for concurrent multi-departmental clearances.</p>
+          </div>
+          <div class="rounded-2xl bg-[#12121a] border border-white/10 p-6 shadow-xl hover:border-amber-500/30 transition-all">
+            <h3 class="text-sm font-bold text-white">What is the guaranteed time limit for clearances?</h3>
+            <p class="text-xs text-slate-400 mt-2.5 leading-relaxed font-normal">Under the MP Public Services Guarantee Act, clearances are guaranteed within 15 working days. The average clearance time is 10 days, and repeat productions often clear in just 7 days.</p>
+          </div>
+          <div class="rounded-2xl bg-[#12121a] border border-white/10 p-6 shadow-xl hover:border-amber-500/30 transition-all">
+            <h3 class="text-sm font-bold text-white">What financial subsidies are offered under Film Policy 2025?</h3>
+            <p class="text-xs text-slate-400 mt-2.5 leading-relaxed font-normal">Feature films shot in MP can receive up to ₹1.00 Crore for their first film and up to ₹2.00 Crore for subsequent films. OTT web series are eligible for grants up to ₹1.00 Crore under Amendment 1.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER: Dark, Structured, Premium Obsidian/Charcoal Footer
+       ========================================================================= -->
+  <footer class="w-full bg-[#050508] border-t border-white/10 py-16 px-4 md:px-8 xl:px-12 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+      <div class="flex flex-col gap-4 max-w-sm">
+        <div class="flex items-center gap-3">
+          <div class="p-1.5 bg-white/95 rounded-xl border border-amber-400/40 shadow-sm shrink-0">
+            <img alt="Madhya Pradesh Film Facilitation Cell" class="h-10 w-auto object-contain" src="logo.png">
+          </div>
+          <span class="text-base font-bold text-white">MP Film Facilitation Cell</span>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed font-normal">
+          Madhya Pradesh Tourism Board, 6th Floor, Lily Trade Wing, Jahangirabad, Bhopal - 462008 (M.P.). Official Single Window Clearance Portal for Cinema &amp; Television.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs font-medium">
+        <div class="flex flex-col gap-2.5">
+          <span class="font-bold text-white uppercase tracking-wider text-[11px]">Quick Links</span>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#home">Home</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#why-mp">Why MP</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#locations">Locations</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#how-it-works">How It Works</a>
+        </div>
+        <div class="flex flex-col gap-2.5">
+          <span class="font-bold text-white uppercase tracking-wider text-[11px]">Resources</span>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#policy">Policy 2025</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#cell-members">Cell Members (6.2)</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#dashboard">Public Dashboard</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#films">Films Shot in MP</a>
+          <a class="text-slate-400 hover:text-amber-400 transition-colors" href="#faqs">FAQs</a>
+        </div>
+        <div class="flex flex-col gap-2.5">
+          <span class="font-bold text-white uppercase tracking-wider text-[11px]">Support</span>
+          <span class="text-amber-400/90 font-mono">filmcell@mptourism.com</span>
+          <span class="text-slate-300 font-mono">+91 755 2780600</span>
+          <span class="text-slate-400">Mon - Fri: 10:00 - 18:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-8 mt-12 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <span>© 2026 Government of Madhya Pradesh. Powered by MPOnline. All Rights Reserved.</span>
+      <div class="flex items-center gap-4 font-semibold text-slate-400">
+        <a class="hover:text-amber-400 transition-colors" href="#home">Privacy Policy</a>
+        <a class="hover:text-amber-400 transition-colors" href="#home">Terms of Use</a>
+        <a class="hover:text-amber-400 transition-colors" href="#home">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <a aria-label="Back to top" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-black shadow-2xl hover:shadow-amber-500/50 hover:scale-105 active:scale-95 transition-all duration-300 group border border-amber-300/30 font-bold" href="#home">
+    <span class="material-symbols-outlined text-2xl group-hover:-translate-y-0.5 transition-transform font-bold">arrow_upward</span>
+  </a>
+</body>
+</html>
+`;
+
+fs.writeFileSync('stitch_madhya_pradesh_film_facilitation_portal (3)/code.html', darkHtml, 'utf8');
+fs.writeFileSync('index.html', darkHtml, 'utf8');
+console.log('Successfully created dark luxury theme in code.html and index.html');

@@ -50,9 +50,18 @@
         color: #f1f5f9;
         font-family: 'Montserrat', sans-serif;
       }
-      * {
-        font-family: 'Montserrat', sans-serif;
-      }
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
     }
     .font-serif, .font-serif * {
       font-family: 'Playfair Display', Georgia, serif !important;
@@ -79,8 +88,87 @@
     section[id] {
       scroll-margin-top: calc(var(--header-height, 124px) + 8px);
     }
-    #home {
-      scroll-margin-top: 300px !important;
+    @keyframes goldShimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .gold-shimmer-text {
+      background: linear-gradient(90deg, #fcd34d 0%, #ffffff 25%, #f59e0b 50%, #ffffff 75%, #fcd34d 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 6s linear infinite;
+    }
+    @keyframes ambientGlowPulse {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.08); }
+    }
+    .ambient-glow-pulse {
+      animation: ambientGlowPulse 7s ease-in-out infinite;
+    }
+    /* 3D Card Spotlight & Tilt */
+    .card-spotlight {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.22s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      will-change: transform;
+    }
+    .card-spotlight::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(245, 158, 11, 0.14), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .card-spotlight:hover::before {
+      opacity: 1;
+    }
+    /* Scroll-Driven Reveal with Staggering */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s ease;
+      will-change: opacity, transform, filter;
+    }
+    .reveal-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    /* Magnetic button micro-interaction */
+    .magnetic-btn {
+      transition: transform 0.22s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.22s ease;
+      will-change: transform;
+    }
+    /* Ripple wave effect */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-ripple .ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: rippleAnim 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to { transform: scale(4); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card-spotlight, .reveal-item, #heroBgImage, .gold-shimmer-text, .ambient-glow-pulse {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
     }
   </style>
 </head>
@@ -218,6 +306,8 @@
     </a>
   </div>
 </div>
+  <!-- Scroll Progress Indicator Bar -->
+  <div id="scrollProgressBar" class="absolute bottom-0 left-0 h-[2.5px] bg-gradient-to-r from-amber-500 via-orange-400 to-yellow-300 shadow-[0_0_12px_rgba(245,158,11,0.85)] z-50 pointer-events-none transition-all duration-75" style="width: 0%;"></div>
 </header>
 
 <!-- Mobile Menu Script -->
@@ -250,8 +340,12 @@
          ========================================================================= -->
 <section class="relative w-full h-[calc(100vh-72px)] lg:h-[calc(100vh-var(--header-height,124px))] min-h-[600px] lg:min-h-[calc(100vh-var(--header-height,124px))] flex items-center overflow-hidden bg-[#09090d]" id="home">
 <!-- High-resolution Cinematic Image Backdrop: Ujjain Maheshwar Fort -->
-<div class="absolute inset-0 z-0 overflow-hidden">
-  <img alt="Ujjain Fort Backdrop" class="w-full h-full object-cover object-[center_right] sm:object-center transition-transform duration-1000 ease-out" id="heroBgImage" src="ujjain_fort.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='ujjain fort.png';}">
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+  <img alt="Ujjain Fort Backdrop" class="w-full h-full object-cover object-[center_right] sm:object-center will-change-transform scale-[1.08]" id="heroBgImage" src="ujjain_fort.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='ujjain fort.png';}">
+  <!-- Ambient Gold Vignette & Floating Cinema Embers Canvas -->
+  <div class="absolute inset-0 bg-gradient-to-t from-[#09090d]/75 via-transparent to-black/25 pointer-events-none"></div>
+  <canvas id="heroParticlesCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-500/15 blur-[100px] pointer-events-none ambient-glow-pulse"></div>
 </div>
 
 <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 flex flex-col items-start justify-center text-left gap-4 sm:gap-5 h-full">
@@ -267,7 +361,7 @@
   <div class="flex flex-col gap-3 max-w-2xl">
     <h1 class="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] text-white tracking-tight leading-[1.08]">
       Your Story.<br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 font-bold drop-shadow-[0_0_35px_rgba(245,158,11,0.35)]">Madhya Pradesh.</span>
+      <span class="text-transparent bg-clip-text gold-shimmer-text font-bold drop-shadow-[0_0_35px_rgba(245,158,11,0.35)]">Madhya Pradesh.</span>
     </h1>
     <p class="text-white text-base sm:text-lg lg:text-xl font-medium leading-snug">
       A single-window clearance platform for seamless film and series productions across central India.
@@ -1314,6 +1408,296 @@
 </div>
 </div>
 </footer>
-<a aria-label="Back to top" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 group border border-white/20" href="#home">
-<span class="material-symbols-outlined text-2xl group-hover:-translate-y-0.5 transition-transform">arrow_upward</span>
-</a></body></html>
+<a aria-label="Back to top" id="backToTopBtn" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-black shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border border-amber-300/40 opacity-0 pointer-events-none magnetic-btn" href="#home">
+  <span class="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-25 pointer-events-none"></span>
+  <span class="material-symbols-outlined text-2xl font-black group-hover:-translate-y-0.5 transition-transform">arrow_upward</span>
+</a>
+
+<script>
+/**
+ * CINEMATIC ANIMATIONS & PARALLAX ENGINE
+ * Madhya Pradesh Film Facilitation Portal
+ */
+(function() {
+  'use strict';
+
+  // 1. DYNAMIC SCROLL PROGRESS BAR
+  const progressBar = document.getElementById('scrollProgressBar');
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  // 2. HERO INTERACTIVE MOUSE PARALLAX & SCROLL PARALLAX
+  const heroSection = document.getElementById('home');
+  const heroBg = document.getElementById('heroBgImage');
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
+  let currentScrollY = 0;
+  let isHeroVisible = true;
+
+  if (heroSection && heroBg) {
+    heroSection.addEventListener('mousemove', function(e) {
+      const rect = heroSection.getBoundingClientRect();
+      const normX = (e.clientX - rect.left) / rect.width - 0.5;
+      const normY = (e.clientY - rect.top) / rect.height - 0.5;
+      targetX = normX * -24; // Subtle 24px maximum tilt
+      targetY = normY * -18; // Subtle 18px maximum tilt
+    }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', function() {
+      targetX = 0;
+      targetY = 0;
+    });
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      isHeroVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    heroObserver.observe(heroSection);
+
+    function animateHeroParallax() {
+      if (isHeroVisible) {
+        currentX += (targetX - currentX) * 0.065;
+        currentY += (targetY - currentY) * 0.065;
+        currentScrollY += (window.scrollY - currentScrollY) * 0.08;
+        const scrollParallaxY = currentScrollY * 0.32;
+        heroBg.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px, ' + (currentY + scrollParallaxY).toFixed(2) + 'px, 0) scale(1.08)';
+      }
+      requestAnimationFrame(animateHeroParallax);
+    }
+    requestAnimationFrame(animateHeroParallax);
+  }
+
+  // 3. CINEMATIC GOLDEN DUST / EMBERS FLOATING CANVAS
+  const canvas = document.getElementById('heroParticlesCanvas');
+  if (canvas && heroSection) {
+    const ctx = canvas.getContext('2d');
+    let width = 0, height = 0;
+    const particles = [];
+    const PARTICLE_COUNT = 32;
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = heroSection.offsetWidth;
+      height = heroSection.offsetHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.reset(true);
+      }
+      reset(init) {
+        this.x = Math.random() * width;
+        this.y = init ? Math.random() * height : height + 10;
+        this.radius = 0.8 + Math.random() * 2.0;
+        this.speedY = 0.3 + Math.random() * 0.65;
+        this.speedX = (Math.random() - 0.5) * 0.35;
+        this.alpha = 0.1 + Math.random() * 0.55;
+        this.maxAlpha = this.alpha;
+        this.pulseAngle = Math.random() * Math.PI * 2;
+        this.hue = 38 + Math.random() * 10;
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX + Math.sin(this.pulseAngle) * 0.25;
+        this.pulseAngle += 0.02;
+        this.alpha = (Math.sin(this.pulseAngle) * 0.5 + 0.5) * this.maxAlpha;
+
+        if (this.y < -15 || this.x < -15 || this.x > width + 15) {
+          this.reset(false);
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 2.2);
+        gradient.addColorStop(0, 'hsla(' + this.hue + ', 95%, 65%, ' + this.alpha + ')');
+        gradient.addColorStop(0.5, 'hsla(' + this.hue + ', 90%, 55%, ' + (this.alpha * 0.45) + ')');
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.arc(this.x, this.y, this.radius * 2.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(new Particle());
+    }
+
+    function renderParticles() {
+      if (isHeroVisible && width > 0 && height > 0) {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+      }
+      requestAnimationFrame(renderParticles);
+    }
+    requestAnimationFrame(renderParticles);
+  }
+
+  // 4. INTERACTIVE 3D CARD SPOTLIGHT & PERSPECTIVE TILT
+  const cardSelectors = [
+    '#quick-access .grid > *',
+    '#why-mp .grid > *',
+    '#locations .grid > *',
+    '#policy .grid > *',
+    '#cell-members .grid > *',
+    '#faqs .flex > .rounded-xl',
+    '#how-it-works .grid > *'
+  ];
+
+  const cards = document.querySelectorAll(cardSelectors.join(', '));
+  cards.forEach(function(card, idx) {
+    card.classList.add('card-spotlight', 'reveal-item');
+    card.style.setProperty('--stagger-index', (idx % 4).toString());
+
+    card.addEventListener('pointermove', function(e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', x + 'px');
+      card.style.setProperty('--mouse-y', y + 'px');
+
+      const normX = (x / rect.width - 0.5);
+      const normY = (y / rect.height - 0.5);
+      const tiltX = (normY * -5.5).toFixed(2);
+      const tiltY = (normX * 5.5).toFixed(2);
+
+      card.style.transform = 'perspective(900px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateZ(4px)';
+    }, { passive: true });
+
+    card.addEventListener('pointerleave', function() {
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    });
+  });
+
+  // 5. SCROLL-DRIVEN REVEAL OBSERVER
+  document.querySelectorAll('section > div > div:first-child').forEach(function(header) {
+    header.classList.add('reveal-item');
+  });
+
+  const revealObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const stagger = entry.target.style.getPropertyValue('--stagger-index') || 0;
+        setTimeout(function() {
+          entry.target.classList.add('revealed');
+        }, stagger * 75);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.reveal-item').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // 6. MAGNETIC BUTTONS & CLICK RIPPLES
+  const magneticButtons = document.querySelectorAll('header a[href="#how-it-works"], header a[href="#dashboard"], #home a, #quick-access a, .magnetic-btn');
+  magneticButtons.forEach(function(btn) {
+    btn.classList.add('magnetic-btn', 'btn-ripple');
+
+    btn.addEventListener('mousemove', function(e) {
+      const rect = btn.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.15;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.15;
+      btn.style.transform = 'translate3d(' + dx.toFixed(2) + 'px, ' + dy.toFixed(2) + 'px, 0)';
+    }, { passive: true });
+
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = 'translate3d(0, 0, 0)';
+    });
+
+    btn.addEventListener('click', function(e) {
+      const rect = btn.getBoundingClientRect();
+      const circle = document.createElement('span');
+      const diameter = Math.max(rect.width, rect.height);
+      const radius = diameter / 2;
+      circle.style.width = circle.style.height = diameter + 'px';
+      circle.style.left = (e.clientX - rect.left - radius) + 'px';
+      circle.style.top = (e.clientY - rect.top - radius) + 'px';
+      circle.classList.add('ripple-wave');
+
+      const existingRipple = btn.querySelector('.ripple-wave');
+      if (existingRipple) existingRipple.remove();
+
+      btn.appendChild(circle);
+      setTimeout(function() { circle.remove(); }, 600);
+    });
+  });
+
+  // 7. BACK-TO-TOP BUTTON VISIBILITY
+  const backToTop = document.getElementById('backToTopBtn');
+  if (backToTop) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        backToTop.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        backToTop.classList.remove('opacity-100', 'pointer-events-auto');
+        backToTop.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }, { passive: true });
+  }
+
+  // 8. ANIMATED STATISTICAL NUMBER COUNTERS
+  const counterElements = [];
+  document.querySelectorAll('span, h3, div').forEach(function(el) {
+    const text = el.innerText ? el.innerText.trim() : '';
+    if (/^(1,200\+|55|14\+|₹\s*25,000|₹\s*20\+\s*Cr|15)$/.test(text) && el.children.length === 0) {
+      counterElements.push(el);
+    }
+  });
+
+  const counterObserver = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const raw = el.innerText.trim();
+        const numMatch = raw.match(/[\d,]+/);
+        if (numMatch) {
+          const targetNum = parseInt(numMatch[0].replace(/,/g, ''), 10);
+          const prefix = raw.slice(0, numMatch.index);
+          const suffix = raw.slice(numMatch.index + numMatch[0].length);
+          const startTime = performance.now();
+          const duration = 1400;
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(targetNum * ease);
+            el.innerText = prefix + (targetNum >= 1000 ? current.toLocaleString() : current) + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              el.innerText = raw;
+            }
+          }
+          requestAnimationFrame(updateCounter);
+        }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  counterElements.forEach(function(el) { counterObserver.observe(el); });
+
+})();
+</script>
+</body></html>

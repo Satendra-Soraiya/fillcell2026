@@ -95,8 +95,8 @@ function startServer(port) {
     }
   });
 
-  server.listen(port, '127.0.0.1', () => {
-    console.log(`SERVER_RUNNING: http://localhost:${port}`);
+  server.listen(port, '0.0.0.0', () => {
+    console.log(`SERVER_RUNNING: http://localhost:${port} and on your network!`);
     console.log(`Serving files from: ${ROOT_DIR}`);
   });
 }

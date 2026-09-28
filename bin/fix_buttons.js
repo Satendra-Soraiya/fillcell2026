@@ -74,7 +74,7 @@ if (html === updatedHtml) {
     const startIdx = html.indexOf('/* 1. Explore 1,200+ Locations (Secondary CTA) */');
     const endStr = '[data-theme="light"] .hero-badge-glass span.text-slate-400 {\n        color: #64748B !important;\n    }';
     let endIdx = html.indexOf(endStr);
-    
+
     if (endIdx > -1) {
         endIdx += endStr.length;
         html = html.substring(0, startIdx) + newStyles + html.substring(endIdx);

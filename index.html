@@ -46,6 +46,7 @@
         margin: 0;
         padding: 0;
         scroll-behavior: smooth;
+        
         background-color: #09090d;
         color: #f1f5f9;
         font-family: 'Montserrat', sans-serif;
@@ -83,10 +84,9 @@
     }
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: var(--header-height, 124px);
     }
     section[id] {
-      scroll-margin-top: calc(var(--header-height, 124px) + 8px);
+      scroll-margin-top: 0 !important;
     }
     #home {
       height: 100vh;
@@ -678,8 +678,6 @@ header#mainHeader .hidden.lg\:block.border-t {
     border-top: none !important;
     padding-top: 8px !important;
     padding-bottom: 12px !important;
-    display: flex !important;
-    justify-content: center !important;
 }
 
 /* The Nav Pill itself - Shared Structure */
@@ -1188,7 +1186,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
         </div>
 
         <!-- Language Toggle -->
-        <div class="hidden sm:flex items-center border border-white/[0.06] rounded-lg p-0.5 bg-white/[0.03] text-[11px] font-medium">
+        <div class="hidden lg:flex items-center border border-white/[0.06] rounded-lg p-0.5 bg-white/[0.03] text-[11px] font-medium">
           <span class="px-2 py-0.5 rounded-md bg-amber-500 text-black font-extrabold shadow-sm">EN</span>
           <button class="px-2 py-0.5 text-slate-500 hover:text-white transition-colors" type="button">हिन्दी</button>
         </div>
@@ -1205,7 +1203,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
         </a>
 
         <!-- Apply CTA -->
-        <a class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-black text-xs font-black tracking-wide transition-all shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 hover:scale-[1.02] shrink-0" href="#how-it-works">
+        <a class="hidden lg:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-black text-xs font-black tracking-wide transition-all shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 hover:scale-[1.02] shrink-0" href="#how-it-works">
           <span>Apply for Permission</span>
           <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
         </a>
@@ -1235,66 +1233,144 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
     </div>
   </div>
 
+<!-- Scroll Progress Indicator Bar -->
+  <div id="scrollProgressBar" class="absolute bottom-0 left-0 h-[2.5px] bg-gradient-to-r from-amber-500 via-orange-400 to-yellow-300 shadow-[0_0_12px_rgba(245,158,11,0.85)] z-50 pointer-events-none transition-all duration-75" style="width: 0%;"></div>
+</header>
+
 <!-- Mobile Navigation Panel (shown on < lg) -->
-<div class="hidden lg:hidden w-full bg-[#0c0c14]/98 backdrop-blur-2xl border-t border-white/[0.06] shadow-inner" id="mobileMenuPanel">
-  <div class="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-1">
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-amber-400 bg-amber-500/10 transition-all" href="#home">
-      <span class="material-symbols-outlined text-sm">home</span>
+<!-- Mobile Menu Panel (Fullscreen Modal) -->
+<style>
+  /* Mobile Menu Theme Adaptations */
+  #mobileMenuPanel {
+    background-color: rgba(12, 12, 20, 0.95);
+  }
+  #mobileMenuPanel .menu-link {
+    color: #cbd5e1; /* slate-300 */
+  }
+  #mobileMenuPanel .menu-close-btn {
+    color: #cbd5e1;
+  }
+  #mobileMenuPanel .login-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+
+  /* Light mode overrides */
+  [data-theme='light'] #mobileMenuPanel {
+    background-color: rgba(248, 245, 235, 0.95) !important;
+  }
+  [data-theme='light'] #mobileMenuPanel .menu-link {
+    color: #1e293b !important; /* slate-800 */
+  }
+  [data-theme='light'] #mobileMenuPanel .menu-close-btn {
+    color: #1e293b !important;
+  }
+  [data-theme='light'] #mobileMenuPanel .login-btn {
+    background-color: #ffffff !important;
+    color: #0f172a !important; /* slate-900 */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  /* Day Mode Hero Fades */
+  [data-theme='light'] .dark-hero-fade { opacity: 0 !important; }
+  
+  /* Default (Mobile & Portrait Tablets): Strong vertical fade reaching high up */
+  [data-theme='light'] .light-hero-fade { 
+    opacity: 1 !important; 
+    background-image: linear-gradient(to top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.62) 70%, transparent 100%);
+  }
+
+  /* Desktop (Wide Screens): Diagonal fade hugging the left text */
+  @media (min-width: 1024px) {
+    [data-theme='light'] .light-hero-fade {
+      background-image: linear-gradient(to top right, rgba(255,255,255,0.62) 20%, rgba(255,255,255,0.47) 55%, transparent 100%);
+    }
+  }
+
+  /* Day Mode Scroll Indicators */
+  [data-theme='light'] .scroll-suite-indicator,
+  [data-theme='light'] .scroll-suite-indicator span {
+    color: #0f172a !important; /* Extremely dark slate/black */
+  }
+  [data-theme='light'] .mouse-scroll-indicator,
+  [data-theme='light'] .mouse-scroll-indicator span {
+    color: #0f172a !important;
+  }
+  [data-theme='light'] .mouse-scroll-indicator > div {
+    border-color: #0f172a !important;
+  }
+  [data-theme='light'] .mouse-scroll-indicator > div > div {
+    background-color: #0f172a !important;
+  }
+</style>
+<div class="hidden fixed inset-0 z-[100] backdrop-blur-2xl flex-col transition-all duration-300 overflow-hidden" id="mobileMenuPanel">
+  <!-- Header -->
+  <div class="flex items-center justify-between px-6 py-5">
+    <img src="resources/Logo_Dark1.png" alt="MP Film Facilitation Cell" class="brand-logo h-10 w-auto object-contain">
+    <button type="button" class="menu-close-btn hover:text-orange-500 transition-colors p-2" onclick="toggleMobileMenu(event)">
+      <span class="material-symbols-outlined text-3xl font-light">close</span>
+    </button>
+  </div>
+
+  <!-- Links -->
+  <div class="flex-1 overflow-y-auto px-6 py-2 flex flex-col gap-1">
+    <a class="flex items-center gap-4 px-4 py-3.5 rounded-2xl bg-orange-500/10 text-orange-500 font-bold text-[15px]" href="#home">
+      <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">home</span>
       <span>Home</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#why-mp">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">info</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#why-mp">
+      <span class="material-symbols-outlined text-xl text-orange-500">location_on</span>
       <span>Why Madhya Pradesh</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#locations">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">location_on</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#locations">
+      <span class="material-symbols-outlined text-xl text-orange-500">pin_drop</span>
       <span>Locations &amp; Districts</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#how-it-works">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">assignment</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#how-it-works">
+      <span class="material-symbols-outlined text-xl text-orange-500">help_outline</span>
       <span>How It Works</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#dashboard">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">insights</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#dashboard">
+      <span class="material-symbols-outlined text-xl text-orange-500">bar_chart</span>
       <span>Public Dashboard</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#policy">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">gavel</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#policy">
+      <span class="material-symbols-outlined text-xl text-orange-500">article</span>
       <span>Film Policy 2025</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#films">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">theaters</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#films">
+      <span class="material-symbols-outlined text-xl text-orange-500">movie</span>
       <span>Films Shot in MP</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#ecosystem">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">hub</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#ecosystem">
+      <span class="material-symbols-outlined text-xl text-orange-500">hub</span>
       <span>Ecosystem &amp; Nodal</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#cell-members">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">groups</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#cell-members">
+      <span class="material-symbols-outlined text-xl text-orange-500">groups</span>
       <span>Cell Members (6.2)</span>
     </a>
-    <a class="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all" href="#faqs">
-      <span class="material-symbols-outlined text-sm text-amber-500/50">help</span>
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#faqs">
+      <span class="material-symbols-outlined text-xl text-orange-500">schedule</span>
       <span>FAQs</span>
     </a>
-    <!-- Mobile Location Directory -->
-    <a class="col-span-2 flex items-center gap-2.5 px-3 py-2.5 mt-1 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-bold transition-all" href="#locations">
-      <span class="material-symbols-outlined text-base text-amber-400">travel_explore</span>
-      <span>Location Directory</span>
-      <span class="material-symbols-outlined text-sm ml-auto">arrow_forward</span>
-    </a>
-    <!-- Mobile Producer Login -->
-    <a class="col-span-2 flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/[0.04] border border-white/[0.08] text-slate-300 text-xs font-semibold transition-all" href="#dashboard">
-      <span class="material-symbols-outlined text-sm text-amber-400">verified_user</span>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="p-6 flex flex-col gap-3 pb-8">
+    <a href="#dashboard" class="login-btn flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-sm transition-colors">
+      <span class="material-symbols-outlined text-lg">person</span>
       <span>Producer Login</span>
-      <span class="material-symbols-outlined text-sm ml-auto text-slate-500">arrow_forward</span>
+    </a>
+    <a href="#how-it-works" class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-[#ff7b00] hover:bg-[#e66e00] text-white font-bold text-sm shadow-lg shadow-orange-500/30 transition-all">
+      <span>Apply for Permission</span>
+      <span class="material-symbols-outlined text-lg">arrow_forward</span>
     </a>
   </div>
 </div>
-  <!-- Scroll Progress Indicator Bar -->
-  <div id="scrollProgressBar" class="absolute bottom-0 left-0 h-[2.5px] bg-gradient-to-r from-amber-500 via-orange-400 to-yellow-300 shadow-[0_0_12px_rgba(245,158,11,0.85)] z-50 pointer-events-none transition-all duration-75" style="width: 0%;"></div>
-</header>
+  
+
+
 
 <!-- Mobile Menu Script -->
 <script>
@@ -1302,12 +1378,14 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
     e.stopPropagation();
     const mp = document.getElementById('mobileMenuPanel');
     mp.classList.toggle('hidden');
+    mp.classList.toggle('flex');
   }
 
   document.addEventListener('click', function(e) {
     const mp = document.getElementById('mobileMenuPanel');
     if (mp && !document.getElementById('mobileMenuBtn')?.contains(e.target) && !mp.contains(e.target)) {
       mp.classList.add('hidden');
+      mp.classList.remove('flex');
     }
   });
 
@@ -1315,7 +1393,10 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
   document.querySelectorAll('#mobileMenuPanel a').forEach(function(link) {
     link.addEventListener('click', function() {
       const mp = document.getElementById('mobileMenuPanel');
-      if (mp) mp.classList.add('hidden');
+      if (mp) {
+        mp.classList.add('hidden');
+        mp.classList.remove('flex');
+      }
     });
   });
 </script>
@@ -1324,7 +1405,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          1. HERO SECTION: Cinematic Ujjain Fort Showcase with Editorial Serif Typography
          ========================================================================= -->
-<section class="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden bg-[#09090d]" id="home">
+<section class="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden bg-[#09090d] " id="home">
 <!-- High-resolution Cinematic Image Backdrop: Ujjain Maheshwar Fort -->
 <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
   
@@ -1332,12 +1413,13 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
   <img alt="Day Fort Backdrop" class="absolute inset-0 w-full h-full object-cover object-[center_right] sm:object-center will-change-transform scale-[1.08] transition-opacity duration-1000 ease-in-out day-bg" src="resources/fort day bg image.png">
 
   <!-- Ambient Gold Vignette & Floating Cinema Embers Canvas -->
-  <div class="absolute inset-0 bg-gradient-to-t from-[#09090d]/75 via-transparent to-transparent pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#09090d]/75 via-transparent to-transparent pointer-events-none dark-hero-fade transition-opacity duration-700"></div>
+  <div class="absolute inset-0 pointer-events-none light-hero-fade transition-opacity duration-700 opacity-0"></div>
   <canvas id="heroParticlesCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
   <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-500/15 blur-[100px] pointer-events-none ambient-glow-pulse"></div>
 </div>
 
-<div class="hero-content-wrapper relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 flex flex-col items-start justify-center text-left gap-4 sm:gap-5 h-full">
+<div class="hero-content-wrapper relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 lg:pt-0 pb-4 sm:pb-6 lg:pb-8 flex flex-col items-start justify-start lg:justify-center text-left gap-4 sm:gap-5 h-full overflow-y-auto overflow-x-hidden scrollbar-hide">
   <!-- Trust badge -->
   <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/55 border border-amber-500/35 backdrop-blur-md shadow-lg">
     <span class="w-2 h-2 rounded-full bg-amber-400"></span>
@@ -1384,7 +1466,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
   <!-- Video Ambience Pill -->
   <div class="pt-2 sm:pt-3 flex flex-col items-start gap-3 sm:gap-4">
     
-    <a class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-amber-400/80 hover:text-amber-300 font-bold transition-colors pt-1" href="#quick-access">
+    <a class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-amber-400/80 hover:text-amber-300 font-bold transition-colors pt-1 scroll-suite-indicator" href="#quick-access">
       <span>Scroll to Facilitation Suite</span>
       <span class="material-symbols-outlined text-sm font-bold text-amber-400">south</span>
     </a>
@@ -1392,7 +1474,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 
 <!-- Centered Mouse Scroll Indicator -->
-<div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 text-white/50 hover:text-amber-400 transition-colors pointer-events-none">
+<div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 text-white/50 hover:text-amber-400 transition-colors pointer-events-none mouse-scroll-indicator">
   <div class="w-5 h-8 rounded-full border-2 border-white/40 flex justify-center pt-1.5">
     <div class="w-1 h-2 rounded-full bg-white animate-bounce"></div>
   </div>
@@ -1453,7 +1535,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          2. QUICK ACTION BAR (White Cards with subtle shadows)
          ========================================================================= -->
-<section class="w-full relative z-20 -mt-8 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="quick-access">
+<section class="w-full relative z-20 -mt-8 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto " id="quick-access">
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-[#12121a]/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
 <!-- 01 Apply -->
 <a class="group flex flex-col justify-between p-5 rounded-xl bg-[#171722] hover:bg-[#1d1d2b] border border-white/5 hover:border-amber-500/40 transition-all gold-border-glow" href="#how-it-works">
@@ -1530,7 +1612,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          3. WHY MADHYA PRADESH (Editorial Mosaic on Crisp White)
          ========================================================================= -->
-<section class="w-full py-24 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="why-mp">
+<section class="w-full py-24 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto " id="why-mp">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10">
 <div class="max-w-2xl flex flex-col gap-1">
 <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Unrivaled Filming Canvas</span>
@@ -1590,7 +1672,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <!-- 05 Villages -->
 <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/mahodiya_village_1790584057022.jpg')"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/panchayat_phulera_village.png')"></div>
 <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
 <div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
 <span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">05 • Authentic Hinterland</span>
@@ -1612,7 +1694,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          4. FILMING LOCATIONS DISCOVERY (Crisp White Search & Cards)
          ========================================================================= -->
-<section class="w-full py-24 bg-[#07070a] border-y border-white/5" id="locations">
+<section class="w-full py-24 bg-[#07070a] border-y border-white/5 " id="locations">
 <div class="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
 <div>
@@ -1699,7 +1781,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- Card 3: Mahodiya Village ('Phulera') -->
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/phulera.jpg')"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/panchayat_phulera_village.png')"></div>
 <div class="absolute top-3 left-3 flex items-center gap-1.5">
 <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">District Fast Track</span>
 <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Sehore District</span>
@@ -1727,7 +1809,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          5. HOW IT WORKS (Permission Process 01 to 06 in Clean White)
          ========================================================================= -->
-<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="how-it-works">
+<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto " id="how-it-works">
 <div class="flex flex-col gap-1 max-w-3xl">
 <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Regulatory Workflow</span>
 <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">From Script to Shoot — Simplified</h2>
@@ -1825,7 +1907,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          6. PUBLIC CLEARANCE DASHBOARD (Clean Data Story in White)
          ========================================================================= -->
-<section class="w-full py-20 bg-[#09090d] border-y border-white/10" id="dashboard">
+<section class="w-full py-20 bg-[#09090d] border-y border-white/10 " id="dashboard">
 <div class="w-full max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
 <div>
@@ -1898,7 +1980,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          7. STORIES ALREADY TOLD HERE (Acclaimed Films Shot in MP)
          ========================================================================= -->
-<section class="w-full py-20 bg-[#09090d] border-y border-white/10" id="policy">
+<section class="w-full py-20 bg-[#09090d] border-y border-white/10 " id="policy">
 <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
 <div class="flex items-center gap-4">
@@ -1978,7 +2060,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          8. FILM POLICY & OFFICIAL DOWNLOADS
          ========================================================================= -->
-<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="films">
+<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto " id="films">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
 <div>
 <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Hall of Cinema</span>
@@ -1994,7 +2076,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- Panchayat -->
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/panchayat_webseries_1790584073857.jpg')"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/panchayat_phulera_village.png')"></div>
 <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
 <div class="absolute bottom-3 left-3 right-3 text-white">
 <span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Web Series</span>
@@ -2068,7 +2150,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          9. ECOSYSTEM & FAQS
          ========================================================================= -->
-<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="ecosystem">
+<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto " id="ecosystem">
 <div class="flex flex-col gap-1 max-w-2xl mb-10">
 <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Ground Logistics &amp; Support</span>
 <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">The MP Filming Ecosystem</h2>
@@ -2118,7 +2200,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 </section>
 <!-- FAQs -->
-<section class="w-full py-20 bg-[#12121a] border-t border-white/10" id="cell-members">
+<section class="w-full py-20 bg-[#12121a] border-t border-white/10 " id="cell-members">
 <div class="max-w-7xl mx-auto px-4 md:px-8 xl:px-12 flex flex-col gap-10">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
 <div class="max-w-3xl flex flex-col gap-1.5">
@@ -2325,7 +2407,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </a>
 </div>
 </div>
-</section><section class="w-full py-16 bg-[#09090d] border-t border-white/10" id="faqs">
+</section><section class="w-full py-16 bg-[#09090d] border-t border-white/10 " id="faqs">
 <div class="max-w-4xl mx-auto px-4 md:px-8 flex flex-col gap-8">
 <div class="text-center flex flex-col items-center gap-1">
 <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Frequently Asked Questions</span>
@@ -2733,5 +2815,20 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(section => observer.observe(section));
 });
 </script>
+
+<style>
+/* Mobile / Tablet (Header is 72px) */
+@media (max-width: 1023px) {
+  section#why-mp, section#locations { scroll-margin-top: 0px !important; }
+  section#how-it-works, section#dashboard, section#policy, section#films, section#ecosystem, section#cell-members { scroll-margin-top: 12px !important; }
+  section#faqs { scroll-margin-top: 28px !important; }
+}
+/* Desktop (Header is 124px) */
+@media (min-width: 1024px) {
+  section#why-mp, section#locations { scroll-margin-top: 56px !important; }
+  section#how-it-works, section#dashboard, section#policy, section#films, section#ecosystem, section#cell-members { scroll-margin-top: 72px !important; }
+  section#faqs { scroll-margin-top: 88px !important; }
+}
+</style>
 
 </body></html>

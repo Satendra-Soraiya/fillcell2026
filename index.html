@@ -826,15 +826,19 @@ header#mainHeader .hidden.lg\:block.border-t {
 /* 2. National Film Award Winner (Badge) */
 /* Dark Mode (Default) */
 .hero-badge-glass {
-    background: rgba(2, 6, 23, 0.55) !important; /* deep navy/black translucent glass */
-    backdrop-filter: blur(24px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
-    border: 1px solid rgba(245, 158, 11, 0.25) !important; /* subtle gold border */
-    border-top: 1px solid rgba(245, 158, 11, 0.4) !important;
+    background: rgba(15, 23, 42, 0.45) !important; /* same deep navy translucent glass */
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important; /* same white border */
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important; /* same top highlight */
     box-shadow: 
-        inset 0 1px 2px rgba(245, 158, 11, 0.1),
-        0 12px 35px rgba(0, 0, 0, 0.3) !important;
-    border-radius: 16px !important; /* Elegant card shape */
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        0 8px 30px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 9999px !important; /* Pill shape */
+}
+.hero-badge-glass:hover {
+    background: rgba(30, 41, 59, 0.55) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
 }
 .hero-badge-glass span.text-white {
     color: #F8FAFC !important; /* white/gold heading */
@@ -845,14 +849,17 @@ header#mainHeader .hidden.lg\:block.border-t {
 
 /* Light Mode */
 [data-theme="light"] .hero-badge-glass {
-    background: rgba(255, 253, 248, 0.65) !important; /* translucent warm-white/cream glass */
-    backdrop-filter: blur(24px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
-    border: 1px solid rgba(245, 158, 11, 0.3) !important; /* thin warm-gold translucent border */
-    border-top: 1px solid rgba(255, 255, 255, 0.9) !important; /* slight inner highlight */
+    background: rgba(255, 255, 255, 0.35) !important; /* same frosted daylight glass */
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.9) !important;
     box-shadow: 
         inset 0 1px 1px rgba(255, 255, 255, 0.8),
-        0 10px 40px rgba(245, 158, 11, 0.15) !important; /* subtle gold tint shadow */
+        0 8px 30px rgba(20, 30, 40, 0.1) !important;
+}
+[data-theme="light"] .hero-badge-glass:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
 }
 [data-theme="light"] .hero-badge-glass span.text-white {
     color: #0F172A !important; /* dark navy heading */
@@ -967,9 +974,11 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
         color: #F8FAFC !important;
     }
     html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link:hover {
-        background: rgba(255, 255, 255, 0.08) !important;
+        background: rgba(245, 130, 32, 0.12) !important;
         color: #F58220 !important;
-        border-color: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(245, 130, 32, 0.4) !important;
+        box-shadow: 0 0 16px rgba(245, 130, 32, 0.25), inset 0 0 8px rgba(245, 130, 32, 0.1) !important;
+        text-shadow: 0 0 8px rgba(245, 130, 32, 0.6) !important;
     }
     html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link.active-pill {
         background: rgba(245, 130, 32, 0.15) !important;
@@ -984,9 +993,11 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
         color: #0F172A !important;
     }
     [data-theme="light"] header#mainHeader nav a.nav-pill-link:hover {
-        background: rgba(255, 255, 255, 0.5) !important;
-        color: #D97706 !important;
-        border-color: rgba(255, 255, 255, 0.5) !important;
+        background: rgba(245, 130, 32, 0.1) !important;
+        color: #EA580C !important;
+        border-color: rgba(234, 88, 12, 0.4) !important;
+        box-shadow: 0 0 16px rgba(234, 88, 12, 0.15), inset 0 0 8px rgba(234, 88, 12, 0.05) !important;
+        text-shadow: 0 0 1px rgba(234, 88, 12, 0.3) !important;
     }
     [data-theme="light"] header#mainHeader nav a.nav-pill-link.active-pill {
         background: rgba(245, 130, 32, 0.15) !important;
@@ -1834,7 +1845,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="p-5 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between">
 <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Total Applications</span>
 <div class="my-3">
-<div class="text-4xl text-white font-black">572</div>
+<div class="text-4xl text-orange-500 font-black">572</div>
 <span class="text-xs text-slate-400 font-medium">Filmic &amp; Series</span>
 </div>
 <div class="text-xs text-amber-400 font-bold flex items-center gap-1">
@@ -1844,7 +1855,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="p-5 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between">
 <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Approved &amp; Issued</span>
 <div class="my-3">
-<div class="text-4xl text-orange-400 font-black">286</div>
+<div class="text-4xl text-orange-500 font-black">286</div>
 <span class="text-xs text-slate-400 font-medium">Formal Permissions</span>
 </div>
 <div class="text-xs text-orange-400 font-bold flex items-center gap-1">
@@ -1854,7 +1865,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="p-5 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between">
 <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Avg. Processing Time</span>
 <div class="my-3">
-<div class="text-4xl text-amber-400 font-black">10 <span class="text-base font-medium text-slate-400">Days</span></div>
+<div class="text-4xl text-orange-500 font-black">10 <span class="text-base font-medium text-slate-400">Days</span></div>
 <span class="text-xs text-slate-400 font-medium">Multi-Dept SLA</span>
 </div>
 <div class="text-xs text-slate-400 flex items-center gap-1 font-semibold">
@@ -1864,7 +1875,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="p-5 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between">
 <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Median Clearance</span>
 <div class="my-3">
-<div class="text-4xl text-orange-400 font-black">7 <span class="text-base font-medium text-slate-400">Days</span></div>
+<div class="text-4xl text-orange-500 font-black">7 <span class="text-base font-medium text-slate-400">Days</span></div>
 <span class="text-xs text-slate-400 font-medium">Fast Track Route</span>
 </div>
 <div class="text-xs text-orange-400 font-bold flex items-center gap-1">
@@ -1874,7 +1885,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="p-5 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between">
 <span class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Disbursed Subsidies</span>
 <div class="my-3">
-<div class="text-4xl text-amber-400 font-black">₹ 20+ <span class="text-base font-medium text-slate-400">Cr</span></div>
+<div class="text-4xl text-orange-500 font-black">₹ 20+ <span class="text-base font-medium text-slate-400">Cr</span></div>
 <span class="text-xs text-slate-400 font-medium">Financial Grants</span>
 </div>
 <div class="text-xs text-amber-400 font-bold flex items-center gap-1">
@@ -2343,13 +2354,17 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <footer class="w-full bg-[#12121a] border-t border-white/10 py-12 px-4 md:px-8 xl:px-12">
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
 <div class="flex flex-col gap-3 max-w-sm">
-<div class="flex items-center gap-3">
-<img alt="Madhya Pradesh Film Facilitation Cell" class="h-14 w-auto object-contain shrink-0 brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
-<span class="text-base font-bold text-white">MP Film Facilitation Cell</span>
+<div class="flex items-center gap-4">
+<img alt="Madhya Pradesh Film Facilitation Cell" class="h-24 w-auto object-contain shrink-0 brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
+<span class="text-xl font-bold text-white leading-tight">MP Film<br>Facilitation Cell</span>
 </div>
 <p class="text-xs text-slate-400 leading-relaxed font-normal">
           Madhya Pradesh Tourism Board, 6th Floor, Lily Trade Wing, Jahangirabad, Bhopal - 462008 (M.P.). Official Single Window Clearance Portal for Cinema &amp; Television.
         </p>
+<a class="mt-2 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-500/20 hover:bg-orange-500 hover:text-white transition-all text-xs font-bold" href="#">
+<span class="material-symbols-outlined text-sm">download</span>
+          Download Film Policy 2025 Rules &amp; Regulations
+        </a>
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs font-medium">
 <div class="flex flex-col gap-2"><span class="font-bold text-white uppercase tracking-wider">Quick Links</span>
@@ -2579,7 +2594,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
   });
 
   // 6. MAGNETIC BUTTONS & CLICK RIPPLES
-  const magneticButtons = document.querySelectorAll('header a[href="#how-it-works"], header a[href="#dashboard"], #home a, #quick-access a, .magnetic-btn');
+  const magneticButtons = document.querySelectorAll('header .nav-pill-link, header a[href="#how-it-works"], header a[href="#dashboard"], #home a, #quick-access a, .magnetic-btn');
   magneticButtons.forEach(function(btn) {
     btn.classList.add('magnetic-btn', 'btn-ripple');
 

@@ -88,6 +88,21 @@
     section[id] {
       scroll-margin-top: calc(var(--header-height, 124px) + 8px);
     }
+    #home {
+      height: 100vh;
+      min-height: 600px;
+      scroll-margin-top: 0 !important;
+    }
+    .hero-content-wrapper {
+      padding-top: var(--header-height, 124px);
+    }
+    header.header-scrolled {
+      background: rgba(9, 9, 13, 0.90) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+    }
     @keyframes goldShimmer {
       0% { background-position: -200% center; }
       100% { background-position: 200% center; }
@@ -177,7 +192,7 @@
 <!-- =========================================================================
        PREMIUM SINGLE-TIER HEADER with Dropdown Navigation
        ========================================================================= -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#09090d]/85 backdrop-blur-2xl border-b border-white/[0.07] shadow-[0_12px_40px_rgba(0,0,0,0.6)] transition-all duration-300">
+<header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-white/[0.06] transition-all duration-500">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- ROW 1: Brand, Title & Utility Actions -->
     <div class="flex items-center justify-between gap-4 py-2.5">
@@ -334,21 +349,21 @@
   });
 </script>
 
-<main class="w-full pt-[72px] lg:pt-[var(--header-height,124px)] bg-[#09090d]">
+<main class="w-full bg-[#09090d]">
 <!-- =========================================================================
          1. HERO SECTION: Cinematic Ujjain Fort Showcase with Editorial Serif Typography
          ========================================================================= -->
-<section class="relative w-full h-[calc(100vh-72px)] lg:h-[calc(100vh-var(--header-height,124px))] min-h-[600px] lg:min-h-[calc(100vh-var(--header-height,124px))] flex items-center overflow-hidden bg-[#09090d]" id="home">
+<section class="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden bg-[#09090d]" id="home">
 <!-- High-resolution Cinematic Image Backdrop: Ujjain Maheshwar Fort -->
 <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
   <img alt="Ujjain Fort Backdrop" class="w-full h-full object-cover object-[center_right] sm:object-center will-change-transform scale-[1.08]" id="heroBgImage" src="ujjain_fort.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='ujjain fort.png';}">
   <!-- Ambient Gold Vignette & Floating Cinema Embers Canvas -->
-  <div class="absolute inset-0 bg-gradient-to-t from-[#09090d]/75 via-transparent to-black/25 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#09090d]/75 via-transparent to-transparent pointer-events-none"></div>
   <canvas id="heroParticlesCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
   <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-500/15 blur-[100px] pointer-events-none ambient-glow-pulse"></div>
 </div>
 
-<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 flex flex-col items-start justify-center text-left gap-4 sm:gap-5 h-full">
+<div class="hero-content-wrapper relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 flex flex-col items-start justify-center text-left gap-4 sm:gap-5 h-full">
   <!-- Trust badge -->
   <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/55 border border-amber-500/35 backdrop-blur-md shadow-lg">
     <span class="w-2 h-2 rounded-full bg-amber-400"></span>
@@ -1697,6 +1712,20 @@
   }, { threshold: 0.25 });
 
   counterElements.forEach(function(el) { counterObserver.observe(el); });
+
+  // 9. DYNAMIC HEADER TRANSPARENCY ON SCROLL
+  const mainHeader = document.getElementById('mainHeader') || document.querySelector('header');
+  if (mainHeader) {
+    function updateHeader() {
+      if (window.scrollY > 40) {
+        mainHeader.classList.add('header-scrolled');
+      } else {
+        mainHeader.classList.remove('header-scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  }
 
 })();
 </script>

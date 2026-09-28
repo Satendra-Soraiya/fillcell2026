@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Madhya Pradesh Film Facilitation Cell — Home</title>
-<link rel="icon" type="image/png" href="resources/Logo_Dark1.png">
+<link rel="icon" type="image/png" href="Logo_Dark1.png">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -185,944 +185,7 @@
         filter: none !important;
       }
     }
-  
-    :root, [data-theme="dark"] {
-      --header-height: 124px;
-      
-      --theme-bg-primary: #09090d;
-      --theme-bg-secondary: #0c0c12;
-      --theme-surface: #12121a;
-      
-      --theme-text-primary: #f8fafc;
-      --theme-text-secondary: #cbd5e1;
-      --theme-text-muted: #94a3b8;
-      
-      --theme-brand-orange: #f59e0b;
-      --theme-brand-orange-dark: #d97706;
-      
-      --theme-border: rgba(255,255,255,0.08);
-      --theme-border-light: rgba(255,255,255,0.15);
-      
-      --theme-card-shadow: 0 0 0 rgba(0,0,0,0);
-    }
-    [data-theme="light"] {
-      --theme-bg-primary: #F8F5EE;
-      --theme-bg-secondary: #F1E9DC;
-      --theme-surface: #FFFDF8;
-      
-      --theme-text-primary: #101827;
-      --theme-text-secondary: #526174;
-      --theme-text-muted: #7A8491;
-      
-      --theme-brand-orange: #F47A00;
-      --theme-brand-orange-dark: #D85A00;
-      
-      --theme-border: #E3DDD2;
-      --theme-border-light: #EAE4D9;
-      
-      --theme-card-shadow: 0 8px 30px rgba(50,40,20,0.06);
-    }
-    
-    /* OVERRIDES for Light Mode to preserve exact original class names but change appearance */
-    [data-theme="light"] .bg-\[\#09090d\] { background-color: var(--theme-bg-primary) !important; }
-    [data-theme="light"] .bg-\[\#12121a\], 
-    [data-theme="light"] .bg-\[\#171722\], 
-    [data-theme="light"] .bg-\[\#161622\],
-    [data-theme="light"] .bg-\[\#15151f\] { 
-        background-color: var(--theme-surface) !important; 
-        border-color: var(--theme-border) !important;
-        box-shadow: var(--theme-card-shadow) !important;
-    }
-    [data-theme="light"] .text-white, 
-    [data-theme="light"] .text-slate-100, 
-    [data-theme="light"] .text-slate-50 { color: var(--theme-text-primary) !important; }
-    
-    [data-theme="light"] .text-slate-200, 
-    [data-theme="light"] .text-slate-300 { color: var(--theme-text-secondary) !important; }
-    
-    [data-theme="light"] .text-slate-400, 
-    [data-theme="light"] .text-[#7A8491] { color: var(--theme-text-muted) !important; }
-    
-    [data-theme="light"] .border-white\/10, 
-    [data-theme="light"] .border-white\/\[0\.05\], 
-    [data-theme="light"] .border-white\/\[0\.06\], 
-    [data-theme="light"] .border-white\/\[0\.08\] { border-color: var(--theme-border) !important; }
-    
-    /* Hero specific overrides */
-    
-    
-    
-    [data-theme="light"] .gold-shimmer-text {
-         background: none !important;
-         -webkit-text-fill-color: var(--theme-brand-orange) !important;
-         color: var(--theme-brand-orange) !important;
-         text-shadow: none !important;
-    }
-    
-    /* Header specific overrides */
-    
-    [data-theme="light"] header .text-\[11px\].text-\[\#D99A16\]\/80 { color: var(--theme-text-secondary) !important; }
-    
-    /* Buttons */
-    [data-theme="light"] .bg-gradient-to-r.from-amber-500 {
-         background: linear-gradient(135deg, #FF9A00, #F16A00) !important;
-         color: #FFFFFF !important;
-    }
-    [data-theme="light"] .bg-\[\#14141c\]\/80 {
-         background: #FFFDF8 !important;
-         border-color: #D9D1C3 !important;
-         color: #172033 !important;
-    }
-    [data-theme="light"] .bg-\[\#14141c\]\/80:hover {
-         background: #FFF2DF !important;
-         border-color: #F4A340 !important;
-    }
-    [data-theme="light"] .bg-\[\#14141c\]\/70 {
-         background: #FFFDF8 !important;
-         border-color: #D9D1C3 !important;
-    }
-    [data-theme="light"] .bg-amber-500\/20 {
-         background: #FFF1DD !important;
-         border-color: #F4B36A !important;
-         color: #F47A00 !important;
-         -webkit-text-fill-color: #F47A00 !important;
-    }
-    [data-theme="light"] .bg-\[\#FFFDF8\] {
-         background: transparent !important;
-         border-color: transparent !important;
-         color: #263246 !important;
-    }
-    
-    /* Footer */
-    [data-theme="light"] footer {
-         background: #101827 !important;
-    }
-    [data-theme="light"] footer .text-white { color: #ffffff !important; }
-    [data-theme="light"] footer .text-slate-400 { color: #7A8491 !important; }
-    [data-theme="light"] footer .text-slate-200 { color: #cbd5e1 !important; }
-
-    /* Theme Toggle Button */
-    .theme-toggle-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--theme-text-secondary);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .theme-toggle-btn:hover {
-      background: rgba(255,255,255,0.1);
-      color: var(--theme-brand-orange);
-    }
-    [data-theme="light"] .theme-toggle-btn {
-      background: rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.1);
-      color: var(--theme-text-primary);
-    }
-  
-    /* =========================================
-       SPECIFIC LIGHT MODE REFINEMENTS
-       ========================================= */
-       
-    /* 1. Quick Access Action Cards */
-    [data-theme="light"] section#quick-access .bg-\[\#12121a\]\/95 {
-        background-color: #EEE6D9 !important;
-        border-color: #DED3C3 !important;
-        backdrop-filter: none !important;
-    }
-    [data-theme="light"] section#quick-access .bg-\[\#171722\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E5DBCD !important;
-        box-shadow: 0 8px 30px rgba(50,40,20,0.06) !important;
-    }
-    [data-theme="light"] section#quick-access .hover\:bg-\[\#1d1d2b\]:hover {
-        background-color: #F8F1E5 !important;
-        border-color: var(--theme-brand-orange) !important;
-    }
-    [data-theme="light"] section#quick-access .bg-\[\#0c0c12\] {
-        background-color: #FAF7F0 !important;
-        border-color: #D9D0C2 !important;
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#quick-access input::placeholder {
-        color: #64748B !important;
-    }
-    [data-theme="light"] section#quick-access .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#quick-access .text-slate-400 {
-        color: #64748B !important;
-    }
-    [data-theme="light"] section#quick-access .bg-amber-500\/10 {
-        background-color: #FFF1DD !important;
-        border-color: #F4B36A !important;
-    }
-
-    /* 2. Why MP - Single Window Badge */
-    [data-theme="light"] section#why-mp .bg-\[\#14141e\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E2D9CB !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-slate-400 {
-        color: #718096 !important;
-    }
-
-    /* 3 & 4. Directory & Location Cards */
-    [data-theme="light"] section#locations {
-        background-color: #F8F5EE !important;
-        border-color: #EAE4D9 !important;
-    }
-    [data-theme="light"] section#locations .bg-\[\#12121a\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E2D9CB !important;
-        box-shadow: 0 8px 30px rgba(50,40,20,0.06) !important;
-    }
-    [data-theme="light"] section#locations .bg-\[\#09090d\] {
-        background-color: #FAF7F0 !important;
-        border-color: #D9D0C2 !important;
-    }
-    [data-theme="light"] section#locations input, 
-    [data-theme="light"] section#locations select {
-        background-color: transparent !important;
-        color: #1F2937 !important;
-    }
-    [data-theme="light"] section#locations input::placeholder {
-        color: #7A8491 !important;
-    }
-    [data-theme="light"] section#locations .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#locations .text-slate-300 {
-        color: #64748B !important;
-    }
-    [data-theme="light"] section#locations .text-slate-400 {
-        color: #7A8491 !important;
-    }
-    [data-theme="light"] section#locations .text-\[\#D99A16\] {
-        color: #D97706 !important;
-    }
-
-    /* 5. Cell Members Section */
-    [data-theme="light"] section#cell-members {
-        background-color: #F1E9DC !important;
-        border-top-color: #EAE4D9 !important;
-    }
-    [data-theme="light"] section#cell-members .bg-\[\#09090d\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E2D9CB !important;
-    }
-    [data-theme="light"] section#cell-members .bg-gradient-to-br.from-\[\#1c1810\] {
-        background: #FFFDF8 !important;
-        border-color: #E3D8C8 !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-    [data-theme="light"] section#cell-members .bg-\[\#161622\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E3D8C8 !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-    [data-theme="light"] section#cell-members .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#cell-members .text-slate-300,
-    [data-theme="light"] section#cell-members .text-slate-400 {
-        color: #64748B !important;
-    }
-
-    /* Additional global text overrides for light mode sections to ensure deep navy */
-    [data-theme="light"] h2.text-white, 
-    [data-theme="light"] h3.text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] p.text-slate-300, 
-    [data-theme="light"] p.text-slate-400 {
-        color: #64748B !important;
-    }
-
-    
-    /* Hero Background Crossfade */
-    .day-bg { opacity: 0; }
-    .night-bg { opacity: 1; }
-
-    [data-theme="light"] .day-bg { opacity: 1 !important; }
-    [data-theme="light"] .night-bg { opacity: 0 !important; }
-
-    /* =========================================
-       SPECIFIC LIGHT MODE HEADER REFINEMENTS
-       ========================================= */
-       
-    
-    /* =========================================
-       SPECIFIC LIGHT MODE HEADER REFINEMENTS
-       ========================================= */
-       
-    
-    /* HIDE THE INTERNAL DARK MODE BACKGROUND DIVS IN LIGHT MODE */
-    [data-theme="light"] header#mainHeader > div.absolute.inset-0.pointer-events-none.-z-10 {
-        display: none !important;
-        opacity: 0 !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-    }
-
-    
-    /* Fix logo subtext visibility in Light Mode */
-    [data-theme="light"] #logo-subtext {
-        color: #101827 !important;
-        font-weight: 700 !important;
-    }
-
-    /* 1. Transparent Glass Top Header */
-    [data-theme="light"] header#mainHeader {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        border-bottom: none !important;
-        box-shadow: none !important;
-    }
-    
-
-    /* Clean up the inner utility containers for the top row so they don't block the background */
-    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
-        background-color: rgba(255, 255, 255, 0.15) !important;
-        border-color: rgba(255, 255, 255, 0.3) !important;
-        color: #101827 !important;
-    }
-    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\]:hover {
-        background-color: rgba(255, 255, 255, 0.25) !important;
-    }
-    
-    /* 2. Glass Navigation Pill (Row 2) */
-    
-    
-
-    /* Navigation Links (Inactive) inside the glass pill */
-    
-    
-
-    /* Navigation Link (Active - Home) inside the glass pill */
-    
-
-    /* Typography overrides for header */
-    [data-theme="light"] header#mainHeader .text-white {
-        color: #101827 !important;
-    }
-    [data-theme="light"] header#mainHeader .text-slate-300,
-    
-    [data-theme="light"] header#mainHeader .text-amber-400 {
-        color: #F58220 !important;
-    }
-    
-    /* Apply CTA Button */
-    [data-theme="light"] header#mainHeader .bg-gradient-to-r.from-amber-500 {
-        background: linear-gradient(135deg, #F58220, #E86F00) !important;
-        color: #FFFFFF !important;
-        box-shadow: 0 8px 20px rgba(245, 130, 32, 0.3) !important;
-        border-color: transparent !important;
-    }
-
-/* 2. Why MP - Single Window Badge */
-    [data-theme="light"] section#why-mp .bg-\[\#14141e\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E2D9CB !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-slate-400 {
-        color: #718096 !important;
-    }
-
-    /* 3 & 4. Directory & Location Cards */
-    [data-theme="light"] section#locations {
-        background-color: #F8F5EE !important;
-        border-color: #EAE4D9 !important;
-    }
-    [data-theme="light"] section#locations .bg-\[\#12121a\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E2D9CB !important;
-        box-shadow: 0 8px 30px rgba(50,40,20,0.06) !important;
-    }
-    [data-theme="light"] section#locations .bg-\[\#09090d\] {
-        background-color: #FAF7F0 !important;
-        border-color: #D9D0C2 !important;
-    }
-    [data-theme="light"] section#locations input, 
-    [data-theme="light"] section#locations select {
-        background-color: transparent !important;
-        color: #1F2937 !important;
-    }
-    [data-theme="light"] section#locations input::placeholder {
-        color: #7A8491 !important;
-    }
-    [data-theme="light"] section#locations .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#locations .text-slate-300 {
-        color: #64748B !important;
-    }
-    [data-theme="light"] section#locations .text-slate-400 {
-        color: #7A8491 !important;
-    }
-    [data-theme="light"] section#locations .text-\[\#D99A16\] {
-        color: #D97706 !important;
-    }
-
-    /* 5. Cell Members Section */
-    [data-theme="light"] section#cell-members {
-        background-color: #F1E9DC !important;
-        border-top-color: #EAE4D9 !important;
-    }
-    [data-theme="light"] section#cell-members .bg-\[\#09090d\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E2D9CB !important;
-    }
-    [data-theme="light"] section#cell-members .bg-gradient-to-br.from-\[\#1c1810\] {
-        background: #FFFDF8 !important;
-        border-color: #E3D8C8 !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-    [data-theme="light"] section#cell-members .bg-\[\#161622\] {
-        background-color: #FFFDF8 !important;
-        border-color: #E3D8C8 !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-    [data-theme="light"] section#cell-members .text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] section#cell-members .text-slate-300,
-    [data-theme="light"] section#cell-members .text-slate-400 {
-        color: #64748B !important;
-    }
-
-    /* Additional global text overrides for light mode sections to ensure deep navy */
-    [data-theme="light"] h2.text-white, 
-    [data-theme="light"] h3.text-white {
-        color: #111827 !important;
-    }
-    [data-theme="light"] p.text-slate-300, 
-    [data-theme="light"] p.text-slate-400 {
-        color: #64748B !important;
-    }
-
-    /* =========================================
-       SPECIFIC LIGHT MODE HEADER REFINEMENTS
-       ========================================= */
-       
-    /* 1. Transparent Glass Top Header */
-    [data-theme="light"] header#mainHeader {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        border-bottom: none !important;
-        box-shadow: none !important;
-    }
-    
-
-    /* Top row utilities clean-up */
-    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
-        background-color: rgba(255, 255, 255, 0.3) !important;
-        border-color: rgba(255, 255, 255, 0.5) !important;
-        color: #101827 !important;
-    }
-    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\]:hover {
-        background-color: rgba(255, 255, 255, 0.5) !important;
-    }
-    
-    /* 2. Glass Navigation Pill */
-    
-    
-
-    /* Navigation Links (Inactive) */
-    
-    
-
-    /* Navigation Link (Active - Home) */
-    
-
-    /* Text Color Resets */
-    [data-theme="light"] header#mainHeader .text-white {
-        color: #101827 !important;
-    }
-    [data-theme="light"] header#mainHeader .text-slate-300,
-    
-    [data-theme="light"] header#mainHeader .text-amber-400 {
-        color: #F58220 !important;
-    }
-    
-    /* Apply CTA overriding in Light Mode */
-    [data-theme="light"] header#mainHeader .bg-gradient-to-r.from-amber-500 {
-        background: linear-gradient(135deg, #FF9A00, #F16A00) !important;
-        color: #FFFFFF !important;
-        box-shadow: 0 8px 20px rgba(241, 106, 0, 0.25) !important;
-        border-color: transparent !important;
-    }
-
-
-/* =========================================
-   PREMIUM LIQUID GLASS NAVIGATION (GLOBAL)
-   ========================================= */
-
-/* The parent container adjustment */
-header#mainHeader .hidden.lg\:block.border-t {
-    border-top: none !important;
-    padding-top: 8px !important;
-    padding-bottom: 12px !important;
-    display: flex !important;
-    justify-content: center !important;
-}
-
-/* The Nav Pill itself - Shared Structure */
-
-
-/* Base Nav Links - Shared Structure */
-
-
-/* ================== DARK MODE (LIQUID GLASS) ================== */
-
-
-/* ================== LIGHT MODE (LIQUID GLASS) ================== */
-[data-theme="light"] 
-
-/* Light Mode Links */
-[data-theme="light"] 
-
-/* Light Mode Hover */
-[data-theme="light"] 
-
-/* Light Mode Active (Home) */
-
-
-
-    /* =========================================
-       HARD SCROLLED HEADER (LIGHT MODE)
-       ========================================= */
-    [data-theme="light"] header#mainHeader.header-scrolled {
-        background: rgba(255, 255, 255, 0.92) !important; /* Hard, nearly opaque white */
-        backdrop-filter: blur(30px) saturate(200%) !important;
-        -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05) !important;
-    }
-
-
-    /* Fix logo width to prevent layout jump on theme toggle */
-    img.brand-logo {
-        width: 130px !important; /* Fixed width */
-        object-fit: contain !important;
-        object-position: left center !important;
-    }
-    @media (max-width: 768px) {
-        img.brand-logo {
-            width: 110px !important;
-        }
-    }
-
-
-    /* =========================================
-       TRUE BLACK TEXT FOR LIGHT MODE HEADER
-       ========================================= */
-    [data-theme="light"] header#mainHeader .text-white,
-    [data-theme="light"] header#mainHeader .text-slate-300,
-    [data-theme="light"] header#mainHeader .text-slate-400,
-    
-    
-    [data-theme="light"] 
-    
-    [data-theme="light"] #logo-subtext {
-        color: #000000 !important;
-        font-weight: 800 !important;
-    }
-    
-    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
-        color: #000000 !important;
-    }
-    
-    [data-theme="light"] header#mainHeader .theme-toggle-btn {
-        color: #000000 !important;
-    }
-
-
-    /* Pull logo text closer to the logo image */
-    a.group.shrink-0 > div.hidden.sm\:flex.flex-col {
-        margin-left: -55px !important;
-    }
-
-
-    /* Fix Card 02 (Deputy Chairman) background in Light Mode */
-    [data-theme="light"] section#cell-members .bg-gradient-to-br.from-\[\#1c1410\] {
-        background: #FFFDF8 !important;
-        border-color: #E3D8C8 !important;
-        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
-    }
-
-
-    /* Fix hero description text visibility in Light Mode */
-    [data-theme="light"] section#home p.text-slate-300 {
-        color: #111827 !important;
-        font-weight: 700 !important;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4) !important;
-    }
-
-
-    /* Fix hero description text visibility */
-    [data-theme="light"] [id="home"] p {
-        color: #111827 !important;
-        font-weight: 700 !important;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
-    }
-
-
-    /* 1. Explore 1,200+ Locations (Secondary CTA) */
-/* Dark Mode (Default) */
-.hero-cta-glass {
-    background: rgba(15, 23, 42, 0.45) !important; /* deep navy translucent */
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.3) !important; /* subtle top highlight */
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.05),
-        0 8px 30px rgba(0, 0, 0, 0.25) !important;
-    border-radius: 9999px !important; /* compact horizontal pill */
-    color: #F8FAFC !important; /* white/light text */
-}
-.hero-cta-glass:hover {
-    background: rgba(30, 41, 59, 0.55) !important;
-    border-color: rgba(245, 158, 11, 0.4) !important;
-}
-
-/* Light Mode */
-[data-theme="light"] .hero-cta-glass {
-    background: rgba(255, 255, 255, 0.35) !important; /* frosted daylight glass */
-    backdrop-filter: blur(20px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.8),
-        0 8px 30px rgba(20, 30, 40, 0.1) !important;
-    color: #0F172A !important; /* dark navy text */
-}
-[data-theme="light"] .hero-cta-glass:hover {
-    background: rgba(255, 255, 255, 0.5) !important;
-}
-
-/* Ensure the icon remains gold/orange */
-.hero-cta-glass span.material-symbols-outlined {
-    color: #F58220 !important;
-}
-
-/* 2. National Film Award Winner (Badge) */
-/* Dark Mode (Default) */
-.hero-badge-glass {
-    background: rgba(2, 6, 23, 0.55) !important; /* deep navy/black translucent glass */
-    backdrop-filter: blur(24px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
-    border: 1px solid rgba(245, 158, 11, 0.25) !important; /* subtle gold border */
-    border-top: 1px solid rgba(245, 158, 11, 0.4) !important;
-    box-shadow: 
-        inset 0 1px 2px rgba(245, 158, 11, 0.1),
-        0 12px 35px rgba(0, 0, 0, 0.3) !important;
-    border-radius: 16px !important; /* Elegant card shape */
-}
-.hero-badge-glass span.text-white {
-    color: #F8FAFC !important; /* white/gold heading */
-}
-.hero-badge-glass span.text-slate-400 {
-    color: #94A3B8 !important; /* muted light subtitle */
-}
-
-/* Light Mode */
-[data-theme="light"] .hero-badge-glass {
-    background: rgba(255, 253, 248, 0.65) !important; /* translucent warm-white/cream glass */
-    backdrop-filter: blur(24px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
-    border: 1px solid rgba(245, 158, 11, 0.3) !important; /* thin warm-gold translucent border */
-    border-top: 1px solid rgba(255, 255, 255, 0.9) !important; /* slight inner highlight */
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.8),
-        0 10px 40px rgba(245, 158, 11, 0.15) !important; /* subtle gold tint shadow */
-}
-[data-theme="light"] .hero-badge-glass span.text-white {
-    color: #0F172A !important; /* dark navy heading */
-    text-shadow: none !important;
-}
-[data-theme="light"] .hero-badge-glass span.text-slate-400 {
-    color: #475569 !important; /* muted slate subtitle */
-    text-shadow: none !important;
-}
-
-/* Gold icon overrides for both modes */
-.hero-badge-glass span.material-symbols-outlined {
-    color: #D97706 !important; 
-}
-
-
-/* ==============================================
-   PROPER DAY/NIGHT LIQUID GLASS NAVIGATION
-   ============================================== */
-
-/* BASE STRUCTURE (Applied to both modes) */
-header#mainHeader nav {
-    backdrop-filter: blur(28px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
-    padding: 6px 8px !important;
-    gap: 4px !important;
-    border-radius: 9999px !important;
-}
-
-/* DARK MODE - Cinematic Dark Glass */
-html:not([data-theme="light"]) header#mainHeader nav {
-    background: rgba(15, 17, 21, 0.25) !important; 
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.15) !important; /* Subtle top specular highlight */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important; /* Grounded bottom edge */
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.05),
-        inset 0 -10px 20px rgba(0, 0, 0, 0.2),
-        0 12px 35px rgba(0, 0, 0, 0.25) !important; /* Deep ambient shadow */
-}
-html:not([data-theme="light"]) header#mainHeader nav a {
-    color: #F8FAFC !important; /* Light crisp text */
-}
-html:not([data-theme="light"]) header#mainHeader nav a:hover {
-    background: rgba(255, 255, 255, 0.08) !important; /* Soft light hover capsule */
-    color: #F58220 !important;
-}
-html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
-    background: rgba(245, 130, 32, 0.15) !important; /* Orange glass capsule */
-    border: 1px solid rgba(245, 150, 20, 0.3) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.2) !important; /* Inner highlight */
-    box-shadow: 
-        inset 0 1px 2px rgba(255, 255, 255, 0.1),
-        0 4px 12px rgba(245, 130, 32, 0.15) !important; /* Soft orange glow */
-    color: #F58220 !important;
-}
-
-/* LIGHT MODE - Frosted Clear Glass */
-[data-theme="light"] header#mainHeader nav {
-    background: rgba(255, 255, 255, 0.15) !important; 
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.7) !important; /* Strong top specular highlight */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.8),
-        inset 0 -10px 20px rgba(255, 255, 255, 0.1),
-        0 12px 35px rgba(0, 0, 0, 0.12) !important; /* Soft ambient shadow */
-}
-[data-theme="light"] header#mainHeader nav a {
-    color: #000000 !important; /* Dark bold text */
-    font-weight: 700 !important;
-}
-[data-theme="light"] header#mainHeader nav a:hover {
-    background: rgba(255, 255, 255, 0.5) !important; /* Milky white hover capsule */
-    color: #D97706 !important;
-}
-[data-theme="light"] header#mainHeader nav a.active-pill {
-    background: rgba(245, 130, 32, 0.15) !important; 
-    border: 1px solid rgba(245, 150, 20, 0.3) !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 
-        inset 0 1px 2px rgba(255, 255, 255, 0.6),
-        0 4px 12px rgba(245, 130, 32, 0.1) !important;
-    color: #D97706 !important;
-}
-
-
-    /* Restore pill shape to navigation links and active bubbles */
-    header#mainHeader nav a {
-        border-radius: 9999px !important;
-    }
-
-
-    /* Normalize Nav Links Base State */
-    header#mainHeader nav a.nav-pill-link {
-        padding: 6px 12px !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.025em !important;
-        white-space: nowrap !important;
-        border-radius: 9999px !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        background: transparent !important;
-        border: 1px solid transparent !important;
-        box-shadow: none !important;
-        cursor: pointer !important;
-        text-decoration: none !important;
-    }
-
-    /* Dark Mode Links */
-    html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link {
-        color: #F8FAFC !important;
-    }
-    html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link:hover {
-        background: rgba(255, 255, 255, 0.08) !important;
-        color: #F58220 !important;
-        border-color: rgba(255, 255, 255, 0.05) !important;
-    }
-    html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link.active-pill {
-        background: rgba(245, 130, 32, 0.15) !important;
-        border-color: rgba(245, 150, 20, 0.3) !important;
-        border-top-color: rgba(255, 255, 255, 0.2) !important;
-        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(245, 130, 32, 0.15) !important;
-        color: #F58220 !important;
-    }
-
-    /* Light Mode Links */
-    [data-theme="light"] header#mainHeader nav a.nav-pill-link {
-        color: #0F172A !important;
-    }
-    [data-theme="light"] header#mainHeader nav a.nav-pill-link:hover {
-        background: rgba(255, 255, 255, 0.5) !important;
-        color: #D97706 !important;
-        border-color: rgba(255, 255, 255, 0.5) !important;
-    }
-    [data-theme="light"] header#mainHeader nav a.nav-pill-link.active-pill {
-        background: rgba(245, 130, 32, 0.15) !important;
-        border-color: rgba(245, 150, 20, 0.3) !important;
-        border-top-color: rgba(255, 255, 255, 0.7) !important;
-        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 4px 12px rgba(245, 130, 32, 0.1) !important;
-        color: #D97706 !important;
-    }
-
-
-    /* Fix 1: Restore Light Mode Scrolled Header Visibility */
-    html[data-theme="light"] header#mainHeader.header-scrolled {
-        background: rgba(255, 255, 255, 0.92) !important;
-        backdrop-filter: blur(30px) saturate(200%) !important;
-        -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05) !important;
-    }
-
-    /* Fix 2: Match shape of secondary CTA and Badge to the primary CTA (12px / rounded-xl) */
-    .hero-cta-glass, .hero-badge-glass {
-        border-radius: 12px !important; 
-    }
-
-    /* Fix 3: Hide the old horizontal scroll progress bar */
-    #scrollProgressBar {
-        display: none !important;
-    }
-
-
-    /* =========================================
-       SEARCH BAR UI FIX (LIGHT MODE)
-       ========================================= */
-    /* Make the nested search input seamless without an ugly double border */
-    [data-theme="light"] section#locations div.bg-\[\#09090d\] {
-        background-color: rgba(0, 0, 0, 0.03) !important; /* Soft inner pill fill */
-        border-color: transparent !important; /* Remove nested box border */
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.02) !important; /* Subtle inner shadow */
-    }
-    
-    /* Make the dropdown select look like a premium button */
-    [data-theme="light"] section#locations select.bg-\[\#09090d\] {
-        background-color: #FFFFFF !important;
-        border-color: rgba(0, 0, 0, 0.1) !important; /* Soft distinct border */
-        box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
-        color: #0F172A !important;
-        font-weight: 600 !important;
-    }
-
-    /* Fix icons and labels contrast */
-    [data-theme="light"] section#locations .text-amber-400 {
-        color: #F58220 !important; /* Primary Orange for Search icon */
-    }
-    [data-theme="light"] section#locations .text-slate-400 {
-        color: #64748B !important; /* Darker slate for DISTRICT label */
-    }
-    [data-theme="light"] section#locations input::placeholder {
-        color: #94A3B8 !important; /* Cleaner placeholder color */
-        font-weight: 500 !important;
-    }
-
-
-    /* Force completely borderless input to override any Tailwind Forms resets */
-    [data-theme="light"] section#locations input {
-        border: none !important;
-        outline: none !important;
-        box-shadow: none !important;
-        background: transparent !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    [data-theme="light"] section#locations input:focus {
-        border: none !important;
-        outline: none !important;
-        box-shadow: none !important;
-    }
-    /* Clean up the dropdown select as well just in case */
-    [data-theme="light"] section#locations select {
-        outline: none !important;
-    }
-    [data-theme="light"] section#locations select:focus {
-        box-shadow: 0 0 0 2px rgba(245, 130, 32, 0.2) !important;
-        border-color: #F58220 !important;
-    }
-
-</style>
-
-
-  <script>
-    // Theme Manager
-    (function() {
-      const savedTheme = localStorage.getItem('filmcell-theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      
-      document.addEventListener('DOMContentLoaded', () => {
-          const icon = document.getElementById('themeToggleIcon');
-          if(icon) {
-            icon.innerText = savedTheme === 'light' ? 'dark_mode' : 'light_mode';
-          }
-          const logos = document.querySelectorAll('.brand-logo');
-          logos.forEach(logo => {
-             if(savedTheme === 'light') {
-                logo.src = 'resources/logo-light-backup.png';
-             } else {
-                logo.src = 'resources/Logo_Dark1.png';
-             }
-          });
-      });
-    })();
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('filmcell-theme', newTheme);
-      
-      // Update toggle icon
-      const icon = document.getElementById('themeToggleIcon');
-      if(icon) {
-        icon.innerText = newTheme === 'light' ? 'dark_mode' : 'light_mode';
-      }
-      
-
-      
-      // Update Logo
-      const logos = document.querySelectorAll('.brand-logo');
-      logos.forEach(logo => {
-         if(newTheme === 'light') {
-            logo.src = 'resources/logo-light-backup.png';
-         } else {
-            logo.src = 'resources/Logo_Dark1.png';
-         }
-      });
-    }
-  </script>
+  </style>
 </head>
 <body class="bg-[#09090d] font-sans text-slate-100 antialiased selection:bg-amber-500/25 selection:text-amber-300 relative">
 <div id="top-of-page" class="absolute top-0 left-0 w-0 h-0 pointer-events-none" style="top: 0;"></div>
@@ -1136,13 +199,13 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 
       <!-- Logo & State Emblem Title -->
       <a class="flex items-center gap-3 md:gap-3.5 group shrink-0" href="#home">
-        <img alt="Madhya Pradesh Film Facilitation Cell" class="h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02] brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
+        <img alt="Madhya Pradesh Film Facilitation Cell" class="h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]" src="Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
         <div class="hidden sm:flex flex-col">
           <div class="flex items-center gap-2">
             <span class="font-extrabold text-sm md:text-base text-white tracking-tight group-hover:text-amber-400 transition-colors">MP Film Facilitation Cell</span>
-            
+            <span class="hidden xl:inline-block px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded-full gold-badge text-amber-300">Single Window Portal</span>
           </div>
-          <span class="text-[11px] text-amber-400/80 font-medium" id="logo-subtext">मध्य प्रदेश शासन | Madhya Pradesh Tourism Board</span>
+          <span class="text-[11px] text-amber-400/80 font-medium">मध्य प्रदेश शासन | Madhya Pradesh Tourism Board</span>
         </div>
       </a>
 
@@ -1163,11 +226,6 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
           <span class="px-2 py-0.5 rounded-md bg-amber-500 text-black font-extrabold shadow-sm">EN</span>
           <button class="px-2 py-0.5 text-slate-500 hover:text-white transition-colors" type="button">हिन्दी</button>
         </div>
-        <!-- Theme Toggle -->
-        <button onclick="toggleTheme()" class="theme-toggle-btn" aria-label="Toggle Theme">
-          <span class="material-symbols-outlined" id="themeToggleIcon">light_mode</span>
-        </button>
-
 
         <!-- Producer Login -->
         <a class="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 text-xs font-semibold transition-all group" href="#dashboard">
@@ -1192,16 +250,16 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
     <!-- ROW 2: Symmetrical Integrated Navigation Bar -->
     <div class="hidden lg:block border-t border-white/[0.05] py-2">
       <nav class="flex items-center justify-between w-full">
-        <a class="nav-pill-link" href="#home">Home</a>
-        <a class="nav-pill-link" href="#why-mp">Why Madhya Pradesh</a>
-        <a class="nav-pill-link" href="#locations">Locations &amp; Districts</a>
-        <a class="nav-pill-link" href="#how-it-works">How It Works</a>
-        <a class="nav-pill-link" href="#dashboard">Public Dashboard</a>
-        <a class="nav-pill-link" href="#policy">Film Policy 2025</a>
-        <a class="nav-pill-link" href="#films">Films Shot in MP</a>
-        <a class="nav-pill-link" href="#ecosystem">Ecosystem &amp; Nodal</a>
-        <a class="nav-pill-link" href="#cell-members">Cell Members (6.2)</a>
-        <a class="nav-pill-link" href="#faqs">FAQs</a>
+        <a class="px-2.5 xl:px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/50 text-amber-300 font-bold text-[10.5px] xl:text-[11px] tracking-wide shadow-[0_0_16px_rgba(245,158,11,0.2)] transition-all whitespace-nowrap" href="#home">Home</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#why-mp">Why Madhya Pradesh</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#locations">Locations &amp; Districts</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#how-it-works">How It Works</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#dashboard">Public Dashboard</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#policy">Film Policy 2025</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#films">Films Shot in MP</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#ecosystem">Ecosystem &amp; Nodal</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#cell-members">Cell Members (6.2)</a>
+        <a class="px-1.5 xl:px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 hover:text-amber-300 font-semibold text-[10.5px] xl:text-[11px] tracking-wide hover:shadow-[0_0_12px_rgba(245,158,11,0.15)] transition-all whitespace-nowrap" href="#faqs">FAQs</a>
       </nav>
     </div>
   </div>
@@ -1298,10 +356,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <section class="relative w-full h-screen min-h-[600px] flex items-center overflow-hidden bg-[#09090d]" id="home">
 <!-- High-resolution Cinematic Image Backdrop: Ujjain Maheshwar Fort -->
 <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-  
-  <img alt="Night Fort Backdrop" class="absolute inset-0 w-full h-full object-cover object-[center_right] sm:object-center will-change-transform scale-[1.08] transition-opacity duration-1000 ease-in-out night-bg" src="resources/fort night bg image .png">
-  <img alt="Day Fort Backdrop" class="absolute inset-0 w-full h-full object-cover object-[center_right] sm:object-center will-change-transform scale-[1.08] transition-opacity duration-1000 ease-in-out day-bg" src="resources/fort day bg image.png">
-
+  <img alt="Ujjain Fort Backdrop" class="w-full h-full object-cover object-[center_right] sm:object-center will-change-transform scale-[1.08]" id="heroBgImage" src="ujjain_fort.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='ujjain fort.png';}">
   <!-- Ambient Gold Vignette & Floating Cinema Embers Canvas -->
   <div class="absolute inset-0 bg-gradient-to-t from-[#09090d]/75 via-transparent to-transparent pointer-events-none"></div>
   <canvas id="heroParticlesCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
@@ -1338,12 +393,12 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
       <span class="material-symbols-outlined text-base font-bold">arrow_forward</span>
     </a>
 
-    <a class="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 text-xs sm:text-sm font-bold transition-all group hero-cta-glass" href="#locations">
+    <a class="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl text-xs sm:text-sm font-bold bg-[#14141c]/80 hover:bg-[#1c1c28]/90 text-white border border-white/15 hover:border-amber-400/50 backdrop-blur-md shadow-lg transition-all group" href="#locations">
       <span class="material-symbols-outlined text-amber-400 text-base group-hover:scale-110 transition-transform">movie</span>
       <span>Explore 1,200+ Locations</span>
     </a>
 
-    <div class="inline-flex items-center gap-3 px-4 py-2.5 transition-all hero-badge-glass">
+    <div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#14141c]/70 border border-white/15 backdrop-blur-md shadow-lg">
       <span class="material-symbols-outlined text-amber-400 text-2xl shrink-0" style="font-variation-settings: 'FILL' 1;">military_tech</span>
       <div class="flex flex-col text-left">
         <span class="text-[10px] sm:text-[11px] uppercase tracking-wider text-white font-extrabold leading-tight">National Film Award Winner</span>
@@ -1354,7 +409,12 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 
   <!-- Video Ambience Pill -->
   <div class="pt-2 sm:pt-3 flex flex-col items-start gap-3 sm:gap-4">
-    
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/10 backdrop-blur-md text-xs text-slate-300 shadow-md">
+      <span class="material-symbols-outlined text-amber-400 text-base">videocam</span>
+      <span class="font-bold text-white">Live MP Footage:</span>
+      <span class="text-slate-300">Khajuraho • Orchha • Maheshwar • Bandhavgarh</span>
+      <button class="ml-1 text-amber-400 hover:text-amber-300 font-bold transition-colors" id="pauseFootageBtn" onclick="toggleFootageEffect(this)" type="button">Pause</button>
+    </div>
     <a class="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-amber-400/80 hover:text-amber-300 font-bold transition-colors pt-1" href="#quick-access">
       <span>Scroll to Facilitation Suite</span>
       <span class="material-symbols-outlined text-sm font-bold text-amber-400">south</span>
@@ -1411,13 +471,13 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 
 <script>
   function toggleFootageEffect(btn) {
-    const imgs = document.querySelectorAll('.night-bg, .day-bg');
+    const img = document.getElementById('heroBgImage');
     if (btn.innerText === 'Pause') {
       btn.innerText = 'Play';
-      imgs.forEach(img => img.style.filter = 'brightness(0.85)');
+      if (img) img.style.filter = 'brightness(0.85)';
     } else {
       btn.innerText = 'Pause';
-      imgs.forEach(img => img.style.filter = 'none');
+      if (img) img.style.filter = 'none';
     }
   }
 </script>
@@ -1522,9 +582,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 <!-- 01 Heritage -->
 <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/khajuraho_temples_1790584135751.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcfZ3hUjN92C_O3nSsIAm3Z-huJhVN4YVbIdiSB_swYlzMH3JZuUq7pJZ917CRVHrpGmd-BKvNNWEuCvyN8SVzXNV89Veoe4QzV-EFVQzFQiQJFojN5-ckDVKFtRj0WZZDVz2pUvhJUVI5NaoOhFETYcNlaA_JbxZZEALsWfOtItl76ZQO3u9jlKh3WxfBV_moatBaKdjMJzO_GIItwO-mKE88juqWFqoVmctKtE1VzXa5_gIKxMux')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">01 • UNESCO &amp; Fortresses</span>
 <h3 class="text-xl font-bold">Heritage &amp; Monuments</h3>
 <p class="text-xs text-slate-300 mt-1 line-clamp-2">Khajuraho temples, Orchha Betwa palaces, Gwalior Fort ramparts, and Mandu’s Jahaz Mahal.</p>
@@ -1532,9 +592,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <!-- 02 Forests -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/kanha_tigers_1790584157232.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM_RZH3HXUMajsRkM0y7RBUB1-wiaWTdi8BI5jk261O-jQvhPalFmvxXqy7jKneilk_e8vvZyrf5LCt2G5fA7pBayOYZ7WNF00l7FN_AIUcWwL0aK7d_FM6IsgA1gXghytEoIeA3l6GZmD7glu4O2wCschyL-lHD4r9KPlEPsofNbd_dKvI1qLXMLjvNJNIdLxT27nXTLZtZNiFuXl4Kj-dxM8TgU3q_auUtAr5Z-hWt8jMb3Q2R2D')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">02 • Untamed Biospheres</span>
 <h3 class="text-xl font-bold">Forests &amp; Wildlife</h3>
 <p class="text-xs text-slate-300 mt-1 line-clamp-2">Kanha, Bandhavgarh, Pench, and Panna national parks.</p>
@@ -1542,9 +602,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <!-- 03 Rivers -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/bhedaghat_gorge_1790584175223.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqOVZTQY1GrGQJB3jqh9DXrxIdH_TjPZiCfCVi6M4eIKxqEN5cjxxgdi-ZWUfYyySgjnJ8qK1aVsT54PIT6ywb1gF6QKrxdR6K4uxUM8_yD0ZMky3Vzlg3gsrWkCTzYvVmLw93meO-Os6UvratovIJfBhk8ByEBVsA7ETBAl1ptWNj3W9aYJaprn2ryvz2Qc0gur_GwxKM5Gqk9fiLHt5RfixFfLTRugjXG29uZjjcsdHXFctoaTh_')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">03 • Sacred Waterways</span>
 <h3 class="text-xl font-bold">Rivers &amp; Waterfalls</h3>
 <p class="text-xs text-slate-300 mt-1 line-clamp-2">Narmada Ghats, Bhedaghat marble gorge, and Dhuandhar.</p>
@@ -1552,9 +612,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <!-- 04 Cities -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/bhopal_lakeside_1790584190687.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZX-V2jXVSZbvROte35H2OlKHBNZjvGcEe0Lepim5ll8d2SOPY6yZ60I3g2qD65dW0X1f9zqwMqSjvSGBQtgyA8pPDAPqcGiVYMpme6YQJUthXZV827VB6tCkcNQD701vMAwzpPg0Xhx0jW57pZADUj99bLe5h96FSwxecRWrawgAwKUyDN4DJGEThMxWoZZb1wXX_PvbtUxrm4vfraoKrInmtYBl2MOKrVZwZnY_5KMzUfJsYv35J')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">04 • Urban &amp; Heritage Mix</span>
 <h3 class="text-xl font-bold">Cities &amp; Skylines</h3>
 <p class="text-xs text-slate-300 mt-1 line-clamp-2">Bhopal lakeside promenades, Indore hubs, and Gwalior bazaars.</p>
@@ -1562,9 +622,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <!-- 05 Villages -->
 <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/mahodiya_village_1790584057022.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALdK9fXXG-clxaG40vsKXJZYY85S1J06Wz75YdVucqXSy4KadddRsZAH93URMPHbqHSZFLWfrE86KIKB8wYf4yhhyTHyt3LJ9ALzLI2RQnoRBbQNzRyR-4ILY94m9LKK1WSUz-ofvooLMBuPE9CPovSkwg-sMUbXwIWrFvGFJtDWyYSLGbY64AaxY8sLIfjCq71jVcbrZlXEZ2HdFdI79bubNdrHNmhRIGesi6Gu2NQAwwqQY2D1j2')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">05 • Authentic Hinterland</span>
 <h3 class="text-xl font-bold">Villages &amp; Rural Pastoral</h3>
 <p class="text-xs text-slate-300 mt-1 line-clamp-2">Mahodiya village (filming site of ‘Panchayat’), Bundelkhand hamlets, and tribal arts communities.</p>
@@ -1572,9 +632,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <!-- 06 Roads -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/satpura_roads_1790584203240.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBADE7H3-MDfDYEHUn-frVk7MGtN94SRPPvimeGolvYRcZYYqCWcpFJLRBX1d9mPrczWbnQVs35KXh0egk34wB7RZIV7yp97UjLhcHJOhtxqOBi9bKt5Jwsg31c5eXt7Rte56dib7LLBCccwEd1479_qTv0Nr406bSG2DESt9h9BALulKhDPYnMgDlUQWKVxfJBAL5aNXExkBA9zsULb8e-Q5OKUg89T-kwYEhHsT6KGgRetxUsqRFV')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">06 • Dramatic Topography</span>
 <h3 class="text-xl font-bold">Roads &amp; Ravines</h3>
 <p class="text-xs text-slate-300 mt-1 line-clamp-2">Chambal badlands, Satpura Ghat roads, and highway ribbons.</p>
@@ -1622,7 +682,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- Card 1: Jahangir Mahal, Orchha -->
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/orchha_palace_1790584024440.jpg')"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDayz3RKccn6ie5x3Pw-iqiDtYNq1VKIuftGbf9urycNzesB7J5tnMhVmeuWIcYkCTy3AMFRCfnbLRvIUoHk10ikE1k_Ius9ojF3WMPKIUhmaCs-Qj0KjX2QbONYe71ooWzFfgwtRZWSIa2pxMyejFGs_VfgzHZ1zd09pjInD7hVMPDW0n7ACmVJ5HxNRCHoRraP4Ac5JyQsAiYbYg-gPn-d7nPDCgwSzQuIYf9YwduwyKjwLH86L_s')"></div>
 <div class="absolute top-3 left-3 flex items-center gap-1.5">
 <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">Fast Track</span>
 <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Niwari District</span>
@@ -1640,14 +700,14 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <span class="text-orange-400 font-bold flex items-center gap-1">
 <span class="material-symbols-outlined text-sm">check_circle</span> State Protected ASI
                 </span>
-<a class="nav-pill-link" href="#how-it-works">View Details →</a>
+<a class="text-amber-400 font-bold hover:text-orange-400 transition-colors" href="#how-it-works">View Details →</a>
 </div>
 </div>
 </div>
 <!-- Card 2: Maheshwar Ghats -->
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/ahilya_fort_1790584040980.jpg')"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCljoCcBIRS3FfRPPRDbmIJmOsEmmEupusbvXjBkhkCBSj9_8n6ExRnETnhFILf_Jf7LmfFuQhME5N3azNwboQp_9jFMPAACd5Gy84k1qZneLc3Sog6lWNfJ6a3qvmCHBdFape2imnbdk1S-_owS4LwSzjCbc4MUOJr7TUsuBuUJim-Btle3lPD3VwfokZC_ArnszTYdpRwJUNZl97FzPa7iUNB1wZsqNNSbGTGaLOMRQKvkO12wa5V')"></div>
 <div class="absolute top-3 left-3 flex items-center gap-1.5">
 <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">Fast Track</span>
 <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Khargone / Dhar</span>
@@ -1665,14 +725,14 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <span class="text-orange-400 font-bold flex items-center gap-1">
 <span class="material-symbols-outlined text-sm">check_circle</span> Multi-Dept NOC
                 </span>
-<a class="nav-pill-link" href="#how-it-works">View Details →</a>
+<a class="text-amber-400 font-bold hover:text-orange-400 transition-colors" href="#how-it-works">View Details →</a>
 </div>
 </div>
 </div>
 <!-- Card 3: Mahodiya Village ('Phulera') -->
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/mahodiya_village_1790584057022.jpg')"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeVL17_7IRmsOS966HINT11hIHUt0lr_tXbx5LhEtF_S3_j2KEdRRCWjHlHt0eAGf7z4EkEbE111WHTtEGElTj2OoXTMfKTslMIm8hLUbjI5FW-HSGVf9T6GWWA-WD_0OmOH2lYNNIQqs-0ogstrS8hbe4rqbijCNFq-QrS_8BLSE4vZbB2qUB4DiY3r-B-vHbg9Fms5F9Hct7J88KIhdg2jfzxa3lY8PK7ubhXpuyuspdoQDcZbAz')"></div>
 <div class="absolute top-3 left-3 flex items-center gap-1.5">
 <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">District Fast Track</span>
 <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Sehore District</span>
@@ -1690,7 +750,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <span class="text-orange-400 font-bold flex items-center gap-1">
 <span class="material-symbols-outlined text-sm">check_circle</span> Gram Panchayat NOC
                 </span>
-<a class="nav-pill-link" href="#how-it-works">View Details →</a>
+<a class="text-amber-400 font-bold hover:text-orange-400 transition-colors" href="#how-it-works">View Details →</a>
 </div>
 </div>
 </div>
@@ -1871,18 +931,108 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
          7. STORIES ALREADY TOLD HERE (Acclaimed Films Shot in MP)
          ========================================================================= -->
+<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="films">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Hall of Cinema</span>
+<h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Stories Already Told Here</h2>
+<p class="text-slate-300 mt-1">Acclaimed feature films and globally renowned series shot on Madhya Pradesh locations.</p>
+</div>
+<div class="flex items-center gap-1.5 text-slate-400 text-xs font-semibold bg-[#09090d] px-3 py-1.5 rounded-md border border-white/10">
+<span class="material-symbols-outlined text-orange-400 text-base">camera_roll</span>
+<span>Over 250+ Titles Documented</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Panchayat -->
+<div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_OcvHF8rF5GhRbhKxMmGelpwGX46nWB9vWjF5wMI8C1EjL4bx9bztwU6CAt7-aIzQjDmXtlJ8rPEoG2fWbUWG4_PA-PtSY8Y15YRCI_woY-BVRJX17YXcht4Yk5_s7RPXMLxNBcy3EZcsNfcYNpeA3KrF-SrJkjNApWN9JmbhoOjFVfl5L18RqAaquRPPx89hZ5jEbwp2bDkJx8KASTnGOODruYUgdrqUN0PDuo0ocX1vQUlvSPGI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white">
+<span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Web Series</span>
+<h3 class="text-base font-bold text-white mt-1">Panchayat</h3>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+<span>Location: Mahodiya (Sehore)</span>
+<span class="font-mono text-amber-400 font-bold">Seasons 1-3</span>
+</div>
+<p class="text-xs text-slate-300 mt-1">The village of 'Phulera' brought alive with 100% on-ground state facilitation.</p>
+</div>
+</div>
+<!-- Stree & Stree 2 -->
+<div class="group flex flex-col bg-[#12121a] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-xl transition-all hover:border-orange-500/40">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4hn8biPVrNS19FNACwVq4R7KQklM89j6wIrzmCN2ZISIoVBPSzCSa8FFuZCrpu8galKrYe5K_gU4X1F3J8pM7UVbOh2gCye3nUbrL5Dg_xEMICfHqV5WelZLNSFHktCNn89k8gb4qgVdVgE7h7fQGelMGWwmDRd2eAKMopt7nqaXjvfETAt-iZgIoCVdfsDr4KWHdcm3kLws8RCsI9CCzpr6FbJs79AF5PpSoKCDDBNeruuBhrHGi')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white">
+<span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px] font-extrabold uppercase">Feature Film</span>
+<h3 class="text-base font-bold text-white mt-1">Stree &amp; Stree 2</h3>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+<span>Location: Chanderi</span>
+<span class="font-mono text-orange-400 font-bold">Blockbuster</span>
+</div>
+<p class="text-xs text-slate-300 mt-1">Historical town of Chanderi served as the eerie backdrop for both hit installments.</p>
+</div>
+</div>
+<!-- Bajirao Mastani -->
+<div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAprYdfLyKgUreBVDhoCsta71siKpA8W_5a7COal9HRVWfzcFj0S_EqghYWZXfpBfMqzvfN9csv9qOT-FuDBkajOMbtN7V-RvH9JPWrUR-kLzPDPIQHyNMWb3UB-U_sdI1tBMv67iR3o8FtZxSW29O4Dq15UXmIm6Ls-xsOcM_7CxhiHj0AapK-wrHCfwiYkvYnhj2wS-1HdwpMq4vZ1ldOiyvTAbMeEiyKVUu2bTlaO0nxJVww9vcX')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white">
+<span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Period Epic</span>
+<h3 class="text-base font-bold text-white mt-1">Bajirao Mastani</h3>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+<span>Location: Maheshwar Ghats</span>
+<span class="font-mono text-amber-400 font-bold">Bhansali Prod.</span>
+</div>
+<p class="text-xs text-slate-300 mt-1">Regal riverfront sequences shot along the Queen Ahilyabai Holkar fortress.</p>
+</div>
+</div>
+<!-- Paan Singh Tomar -->
+<div class="group flex flex-col bg-[#12121a] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-xl transition-all hover:border-orange-500/40">
+<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4KSQm22va85pWVKLq1qj3mnsvEv62N4Y3pgYIW0PNyy5y5NpkyRPgB_P_7--SoJwe0mEQ--VGCdfTEHe77uAJ35qW_l3EwSuzXn83KvNbUYnbWXG9jE4SbAA_y-2bOD3L0mPjsae7uhTXtc4TAXPFSzVIkIyQ7L16-G2htmFwgwjg4B_KsQMaf0igX88033ILDxcxfsFXEnUKEHsk9vgAB8AHtbHYlq2amIoWAC6ph_UJAnAVAdgq')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white">
+<span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px] font-extrabold uppercase">National Award</span>
+<h3 class="text-base font-bold text-white mt-1">Paan Singh Tomar</h3>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+<span>Location: Chambal Valley</span>
+<span class="font-mono text-orange-400 font-bold">Irrfan Khan</span>
+</div>
+<p class="text-xs text-slate-300 mt-1">Filmed on the exact Chambal badland terrains of the athlete-turned-rebel’s true saga.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         8. FILM POLICY & OFFICIAL DOWNLOADS
+         ========================================================================= -->
 <section class="w-full py-20 bg-[#09090d] border-y border-white/10" id="policy">
 <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
 <div class="flex items-center gap-4">
-<img alt="Madhya Pradesh Film Facilitation Cell" class="h-12 sm:h-14 w-auto object-contain shrink-0 brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
+<img alt="Madhya Pradesh Film Facilitation Cell" class="h-12 sm:h-14 w-auto object-contain shrink-0" src="Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
 <div>
 <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Policy &amp; Gazette Downloads</span>
 <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight mt-0.5">Film Policy &amp; Guidelines 2025</h2>
 <p class="text-slate-300 mt-1 text-sm">Financial incentives, gazetted rulebooks, and statutory forms.</p>
 </div>
 </div>
-<a class="nav-pill-link" href="#how-it-works">Check Subsidy Eligibility →</a>
+<a class="inline-flex items-center gap-1.5 text-sm font-bold text-amber-400 hover:text-orange-400 transition-colors shrink-0" href="#how-it-works">Check Subsidy Eligibility →</a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <!-- Doc 1 -->
@@ -1949,96 +1099,6 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 </section>
 <!-- =========================================================================
-         8. FILM POLICY & OFFICIAL DOWNLOADS
-         ========================================================================= -->
-<section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="films">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-<div>
-<span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Hall of Cinema</span>
-<h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Stories Already Told Here</h2>
-<p class="text-slate-300 mt-1">Acclaimed feature films and globally renowned series shot on Madhya Pradesh locations.</p>
-</div>
-<div class="flex items-center gap-1.5 text-slate-400 text-xs font-semibold bg-[#09090d] px-3 py-1.5 rounded-md border border-white/10">
-<span class="material-symbols-outlined text-orange-400 text-base">camera_roll</span>
-<span>Over 250+ Titles Documented</span>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Panchayat -->
-<div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
-<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/panchayat_webseries_1790584073857.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-3 left-3 right-3 text-white">
-<span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Web Series</span>
-<h3 class="text-base font-bold text-white mt-1">Panchayat</h3>
-</div>
-</div>
-<div class="p-4 flex flex-col gap-1">
-<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
-<span>Location: Mahodiya (Sehore)</span>
-<span class="font-mono text-amber-400 font-bold">Seasons 1-3</span>
-</div>
-<p class="text-xs text-slate-300 mt-1">The village of 'Phulera' brought alive with 100% on-ground state facilitation.</p>
-</div>
-</div>
-<!-- Stree & Stree 2 -->
-<div class="group flex flex-col bg-[#12121a] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-xl transition-all hover:border-orange-500/40">
-<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/stree_chanderi_1790584085377.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-3 left-3 right-3 text-white">
-<span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px] font-extrabold uppercase">Feature Film</span>
-<h3 class="text-base font-bold text-white mt-1">Stree &amp; Stree 2</h3>
-</div>
-</div>
-<div class="p-4 flex flex-col gap-1">
-<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
-<span>Location: Chanderi</span>
-<span class="font-mono text-orange-400 font-bold">Blockbuster</span>
-</div>
-<p class="text-xs text-slate-300 mt-1">Historical town of Chanderi served as the eerie backdrop for both hit installments.</p>
-</div>
-</div>
-<!-- Bajirao Mastani -->
-<div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
-<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/bajirao_maheshwar_1790584098427.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-3 left-3 right-3 text-white">
-<span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Period Epic</span>
-<h3 class="text-base font-bold text-white mt-1">Bajirao Mastani</h3>
-</div>
-</div>
-<div class="p-4 flex flex-col gap-1">
-<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
-<span>Location: Maheshwar Ghats</span>
-<span class="font-mono text-amber-400 font-bold">Bhansali Prod.</span>
-</div>
-<p class="text-xs text-slate-300 mt-1">Regal riverfront sequences shot along the Queen Ahilyabai Holkar fortress.</p>
-</div>
-</div>
-<!-- Paan Singh Tomar -->
-<div class="group flex flex-col bg-[#12121a] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-xl transition-all hover:border-orange-500/40">
-<div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/paan_singh_chambal_1790584112021.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-3 left-3 right-3 text-white">
-<span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px] font-extrabold uppercase">National Award</span>
-<h3 class="text-base font-bold text-white mt-1">Paan Singh Tomar</h3>
-</div>
-</div>
-<div class="p-4 flex flex-col gap-1">
-<div class="flex items-center justify-between text-xs text-slate-400 font-medium">
-<span>Location: Chambal Valley</span>
-<span class="font-mono text-orange-400 font-bold">Irrfan Khan</span>
-</div>
-<p class="text-xs text-slate-300 mt-1">Filmed on the exact Chambal badland terrains of the athlete-turned-rebel’s true saga.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- =========================================================================
          9. ECOSYSTEM & FAQS
          ========================================================================= -->
 <section class="w-full py-20 px-4 md:px-8 xl:px-12 max-w-7xl mx-auto" id="ecosystem">
@@ -2056,7 +1116,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <h3 class="text-base font-bold text-white">Filmic Resource Directory</h3>
 <p class="text-xs text-slate-400 mt-1 leading-relaxed">Over 2,400 verified local artists, line producers, DOPs, spot technicians, and casting scouts.</p>
 </div>
-<a class="nav-pill-link" href="#how-it-works">Search Crew →</a>
+<a class="mt-4 text-xs font-bold text-amber-400 hover:underline" href="#how-it-works">Search Crew →</a>
 </div>
 <div class="p-6 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between hover:border-orange-500/40 transition-colors">
 <div>
@@ -2066,7 +1126,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <h3 class="text-base font-bold text-white">Non-Filmic Logistics</h3>
 <p class="text-xs text-slate-400 mt-1 leading-relaxed">Generator vans, grip machinery, transport fleets, mobile vanity units, and catering.</p>
 </div>
-<a class="nav-pill-link" href="#how-it-works">View Logistics →</a>
+<a class="mt-4 text-xs font-bold text-orange-400 hover:underline" href="#how-it-works">View Logistics →</a>
 </div>
 <div class="p-6 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between hover:border-amber-500/40 transition-colors">
 <div>
@@ -2076,7 +1136,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <h3 class="text-base font-bold text-white">MPT Hotels &amp; Lodges</h3>
 <p class="text-xs text-slate-400 mt-1 leading-relaxed">Up to 40% institutional discount for registered film crews staying at MP Tourism properties.</p>
 </div>
-<a class="nav-pill-link" href="#how-it-works">Crew Tariffs →</a>
+<a class="mt-4 text-xs font-bold text-amber-400 hover:underline" href="#how-it-works">Crew Tariffs →</a>
 </div>
 <div class="p-6 rounded-xl bg-[#12121a] border border-white/10 shadow-sm flex flex-col justify-between hover:border-orange-500/40 transition-colors">
 <div>
@@ -2086,7 +1146,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <h3 class="text-base font-bold text-white">Cinema Halls Directory</h3>
 <p class="text-xs text-slate-400 mt-1 leading-relaxed">Database of single screens and multiplexes in 55 districts to assist distribution and premieres.</p>
 </div>
-<a class="nav-pill-link" href="#how-it-works">Browse Theaters →</a>
+<a class="mt-4 text-xs font-bold text-orange-400 hover:underline" href="#how-it-works">Browse Theaters →</a>
 </div>
 </div>
 </section>
@@ -2328,7 +1388,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
 <div class="flex flex-col gap-3 max-w-sm">
 <div class="flex items-center gap-3">
-<img alt="Madhya Pradesh Film Facilitation Cell" class="h-14 w-auto object-contain shrink-0 brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
+<img alt="Madhya Pradesh Film Facilitation Cell" class="h-14 w-auto object-contain shrink-0" src="Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
 <span class="text-base font-bold text-white">MP Film Facilitation Cell</span>
 </div>
 <p class="text-xs text-slate-400 leading-relaxed font-normal">
@@ -2337,15 +1397,15 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs font-medium">
 <div class="flex flex-col gap-2"><span class="font-bold text-white uppercase tracking-wider">Quick Links</span>
-<a class="nav-pill-link" href="#home">Home</a>
-<a class="nav-pill-link" href="#why-mp">Why MP</a>
-<a class="nav-pill-link" href="#locations">Locations</a>
-<a class="nav-pill-link" href="#how-it-works">How It Works</a></div>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#home">Home</a>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#why-mp">Why MP</a>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#locations">Locations</a>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#how-it-works">How It Works</a></div>
 <div class="flex flex-col gap-2"><span class="font-bold text-white uppercase tracking-wider">Resources</span>
-<a class="nav-pill-link" href="#policy">Policy 2025</a><a class="nav-pill-link" href="#cell-members">Cell Members (6.2)</a>
-<a class="nav-pill-link" href="#dashboard">Public Dashboard</a>
-<a class="nav-pill-link" href="#films">Films Shot in MP</a>
-<a class="nav-pill-link" href="#faqs">FAQs</a></div>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#policy">Policy 2025</a><a class="text-slate-400 hover:text-amber-400 transition-colors" href="#cell-members">Cell Members (6.2)</a>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#dashboard">Public Dashboard</a>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#films">Films Shot in MP</a>
+<a class="text-slate-400 hover:text-amber-400 transition-colors" href="#faqs">FAQs</a></div>
 <div class="flex flex-col gap-2">
 <span class="font-bold text-white uppercase tracking-wider">Support</span>
 <span class="text-slate-400">filmcell@mptourism.com</span>
@@ -2357,9 +1417,9 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
 <span>© 2026 Government of Madhya Pradesh. Powered by MPOnline. All Rights Reserved.</span>
 <div class="flex items-center gap-4 font-semibold">
-<a class="nav-pill-link" href="#home">Privacy Policy</a>
-<a class="nav-pill-link" href="#home">Terms of Use</a>
-<a class="nav-pill-link" href="#home">Accessibility</a>
+<a class="hover:text-amber-400 transition-colors" href="#home">Privacy Policy</a>
+<a class="hover:text-amber-400 transition-colors" href="#home">Terms of Use</a>
+<a class="hover:text-amber-400 transition-colors" href="#home">Accessibility</a>
 </div>
 </div>
 </footer>
@@ -2657,7 +1717,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
   const mainHeader = document.getElementById('mainHeader') || document.querySelector('header');
   if (mainHeader) {
     function updateHeader() {
-      if (window.scrollY > 150) {
+      if (window.scrollY > 40) {
         mainHeader.classList.add('header-scrolled');
       } else {
         mainHeader.classList.remove('header-scrolled');
@@ -2669,38 +1729,4 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 
 })();
 </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll('header#mainHeader nav a');
-    const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-
-    // Set initial active pill
-    navLinks[0].classList.add('active-pill');
-
-    const observer = new IntersectionObserver((entries) => {
-        let activeSectionId = null;
-        
-        // Find the most visible section
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                activeSectionId = '#' + entry.target.id;
-            }
-        });
-
-        if (activeSectionId) {
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === activeSectionId) {
-                    link.classList.add('active-pill');
-                } else {
-                    link.classList.remove('active-pill');
-                }
-            });
-        }
-    }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 }); // Triggers when element is near top third of screen
-
-    sections.forEach(section => observer.observe(section));
-});
-</script>
-
 </body></html>

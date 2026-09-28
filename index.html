@@ -1072,6 +1072,24 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
         border-color: #F58220 !important;
     }
 
+    /* =========================================
+       ECOSYSTEM CARD TEXT — ALWAYS WHITE
+       Forced regardless of light/dark theme
+       ========================================= */
+    /* Outer text container */
+    .eco-card-text,
+    .eco-card-text * {
+        color: #ffffff !important;
+    }
+    .eco-card-text h3 {
+        color: #ffffff !important;
+        text-shadow: 0 2px 16px rgba(0,0,0,1), 0 1px 4px rgba(0,0,0,0.9) !important;
+    }
+    .eco-card-text p {
+        color: #e2e8f0 !important;
+        text-shadow: 0 1px 10px rgba(0,0,0,0.95) !important;
+    }
+
 </style>
 
 
@@ -1523,61 +1541,59 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- 01 Heritage -->
 <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/khajuraho_temples_1790584135751.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
-<span class="text-xs uppercase tracking-wider text-amber-400 font-bold">01 • UNESCO &amp; Fortresses</span>
-<h3 class="text-xl font-bold">Heritage &amp; Monuments</h3>
-<p class="text-xs text-slate-300 mt-1 line-clamp-2">Khajuraho temples, Orchha Betwa palaces, Gwalior Fort ramparts, and Mandu’s Jahaz Mahal.</p>
-</div>
-</div>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
+<span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">01 • UNESCO &amp; Fortresses</span>
+<h3 style="color:#ffffff!important;text-shadow:0 2px 12px rgba(0,0,0,1)" class="text-xl font-extrabold leading-tight">Heritage &amp; Monuments</h3>
+<p style="color:#e2e8f0!important;text-shadow:0 1px 8px rgba(0,0,0,0.9)" class="text-xs mt-1 line-clamp-2 font-medium">Khajuraho temples, Orchha Betwa palaces, Gwalior Fort ramparts, and Mandu’s Jahaz Mahal.</p>
+</div></div>
 <!-- 02 Forests -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/kanha_tigers_1790584157232.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
-<span class="text-xs uppercase tracking-wider text-amber-400 font-bold">02 • Untamed Biospheres</span>
-<h3 class="text-xl font-bold">Forests &amp; Wildlife</h3>
-<p class="text-xs text-slate-300 mt-1 line-clamp-2">Kanha, Bandhavgarh, Pench, and Panna national parks.</p>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
+<span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">02 • Untamed Biospheres</span>
+<h3 style="color:#ffffff!important;text-shadow:0 2px 12px rgba(0,0,0,1)" class="text-xl font-extrabold leading-tight">Forests &amp; Wildlife</h3>
+<p style="color:#e2e8f0!important;text-shadow:0 1px 8px rgba(0,0,0,0.9)" class="text-xs mt-1 line-clamp-2 font-medium">Kanha, Bandhavgarh, Pench, and Panna national parks.</p>
 </div>
 </div>
 <!-- 03 Rivers -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/bhedaghat_gorge_1790584175223.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
-<span class="text-xs uppercase tracking-wider text-amber-400 font-bold">03 • Sacred Waterways</span>
-<h3 class="text-xl font-bold">Rivers &amp; Waterfalls</h3>
-<p class="text-xs text-slate-300 mt-1 line-clamp-2">Narmada Ghats, Bhedaghat marble gorge, and Dhuandhar.</p>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
+<span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">03 • Sacred Waterways</span>
+<h3 style="color:#ffffff!important;text-shadow:0 2px 12px rgba(0,0,0,1)" class="text-xl font-extrabold leading-tight">Rivers &amp; Waterfalls</h3>
+<p style="color:#e2e8f0!important;text-shadow:0 1px 8px rgba(0,0,0,0.9)" class="text-xs mt-1 line-clamp-2 font-medium">Narmada Ghats, Bhedaghat marble gorge, and Dhuandhar.</p>
 </div>
 </div>
 <!-- 04 Cities -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/bhopal_lakeside_1790584190687.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
-<span class="text-xs uppercase tracking-wider text-amber-400 font-bold">04 • Urban &amp; Heritage Mix</span>
-<h3 class="text-xl font-bold">Cities &amp; Skylines</h3>
-<p class="text-xs text-slate-300 mt-1 line-clamp-2">Bhopal lakeside promenades, Indore hubs, and Gwalior bazaars.</p>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
+<span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">04 • Urban &amp; Heritage Mix</span>
+<h3 style="color:#ffffff!important;text-shadow:0 2px 12px rgba(0,0,0,1)" class="text-xl font-extrabold leading-tight">Cities &amp; Skylines</h3>
+<p style="color:#e2e8f0!important;text-shadow:0 1px 8px rgba(0,0,0,0.9)" class="text-xs mt-1 line-clamp-2 font-medium">Bhopal lakeside promenades, Indore hubs, and Gwalior bazaars.</p>
 </div>
 </div>
 <!-- 05 Villages -->
 <div class="lg:col-span-2 relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/mahodiya_village_1790584057022.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
-<span class="text-xs uppercase tracking-wider text-amber-400 font-bold">05 • Authentic Hinterland</span>
-<h3 class="text-xl font-bold">Villages &amp; Rural Pastoral</h3>
-<p class="text-xs text-slate-300 mt-1 line-clamp-2">Mahodiya village (filming site of ‘Panchayat’), Bundelkhand hamlets, and tribal arts communities.</p>
-</div>
-</div>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
+<span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">05 • Authentic Hinterland</span>
+<h3 style="color:#ffffff!important;text-shadow:0 2px 12px rgba(0,0,0,1)" class="text-xl font-extrabold leading-tight">Villages &amp; Rural Pastoral</h3>
+<p style="color:#e2e8f0!important;text-shadow:0 1px 8px rgba(0,0,0,0.9)" class="text-xs mt-1 line-clamp-2 font-medium">Mahodiya village (filming site of ‘Panchayat’), Bundelkhand hamlets, and tribal arts communities.</p>
+</div></div>
 <!-- 06 Roads -->
 <div class="relative group overflow-hidden rounded-2xl h-80 bg-[#12121a] border border-white/10 shadow-xl hover:border-amber-500/50 transition-all">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('resources/satpura_roads_1790584203240.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
-<div class="absolute bottom-0 left-0 right-0 p-6 text-white z-20 drop-shadow-xl">
-<span class="text-xs uppercase tracking-wider text-amber-400 font-bold">06 • Dramatic Topography</span>
-<h3 class="text-xl font-bold">Roads &amp; Ravines</h3>
-<p class="text-xs text-slate-300 mt-1 line-clamp-2">Chambal badlands, Satpura Ghat roads, and highway ribbons.</p>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 eco-card-text" style="text-shadow: 0 1px 8px rgba(0,0,0,0.9); color: #ffffff !important;">
+<span class="inline-block mb-1.5 px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-widest font-black" style="background:rgba(245,158,11,0.18);border:1px solid rgba(245,158,11,0.45);color:#FCD34D;backdrop-filter:blur(6px)">06 • Dramatic Topography</span>
+<h3 style="color:#ffffff!important;text-shadow:0 2px 12px rgba(0,0,0,1)" class="text-xl font-extrabold leading-tight">Roads &amp; Ravines</h3>
+<p style="color:#e2e8f0!important;text-shadow:0 1px 8px rgba(0,0,0,0.9)" class="text-xs mt-1 line-clamp-2 font-medium">Chambal badlands, Satpura Ghat roads, and highway ribbons.</p>
 </div>
 </div>
 </div>
@@ -1672,7 +1688,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- Card 3: Mahodiya Village ('Phulera') -->
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-video w-full overflow-hidden bg-[#181824]">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/mahodiya_village_1790584057022.jpg')"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/phulera.jpg')"></div>
 <div class="absolute top-3 left-3 flex items-center gap-1.5">
 <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] uppercase font-extrabold backdrop-blur-md">District Fast Track</span>
 <span class="px-2.5 py-0.5 rounded-full bg-black/60 border border-white/10 text-slate-300 text-[11px] font-semibold backdrop-blur-md">Sehore District</span>
@@ -1968,7 +1984,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
 <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/panchayat_webseries_1790584073857.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
 <div class="absolute bottom-3 left-3 right-3 text-white">
 <span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Web Series</span>
 <h3 class="text-base font-bold text-white mt-1">Panchayat</h3>
@@ -1986,7 +2002,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="group flex flex-col bg-[#12121a] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-xl transition-all hover:border-orange-500/40">
 <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
 <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/stree_chanderi_1790584085377.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
 <div class="absolute bottom-3 left-3 right-3 text-white">
 <span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px] font-extrabold uppercase">Feature Film</span>
 <h3 class="text-base font-bold text-white mt-1">Stree &amp; Stree 2</h3>
@@ -2004,7 +2020,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="group flex flex-col bg-[#12121a] rounded-2xl overflow-hidden border border-white/10 shadow-xl hover:border-amber-500/50 transition-all gold-border-glow">
 <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
 <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/bajirao_maheshwar_1790584098427.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
 <div class="absolute bottom-3 left-3 right-3 text-white">
 <span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-extrabold uppercase">Period Epic</span>
 <h3 class="text-base font-bold text-white mt-1">Bajirao Mastani</h3>
@@ -2022,7 +2038,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <div class="group flex flex-col bg-[#12121a] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-xl transition-all hover:border-orange-500/40">
 <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#15151f]">
 <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('resources/paan_singh_chambal_1790584112021.jpg')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#09090d] via-[#09090d]/80 to-transparent z-10"></div>
+<div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,13,0.98) 0%, rgba(9,9,13,0.7) 38%, rgba(9,9,13,0.15) 65%, transparent 100%); z-index:10"></div>
 <div class="absolute bottom-3 left-3 right-3 text-white">
 <span class="px-2 py-0.5 rounded bg-orange-500 text-white text-[10px] font-extrabold uppercase">National Award</span>
 <h3 class="text-base font-bold text-white mt-1">Paan Singh Tomar</h3>

@@ -46,6 +46,8 @@ const server = http.createServer((req, res) => {
   let reqPath = decodeURI(req.url.split('?')[0]);
   if (reqPath === '/' || reqPath === '') {
     reqPath = '/index.html';
+  } else if (reqPath === '/film-gallery' || reqPath === '/gallery') {
+    reqPath = '/film-gallery.html';
   }
 
   // Prevent directory traversal

@@ -294,12 +294,25 @@
     }
     
     /* Footer */
+    footer {
+      position: relative !important;
+      z-index: 10 !important;
+    }
     [data-theme="light"] footer.bg-\[\#12121a\] {
-         background: #101827 !important;
+      background: #101827 !important;
     }
     [data-theme="light"] footer .text-white { color: #ffffff !important; }
-    [data-theme="light"] footer .text-slate-400 { color: #7A8491 !important; }
-    [data-theme="light"] footer .text-slate-200 { color: #cbd5e1 !important; }
+    [data-theme="light"] footer .text-slate-400 { color: #cbd5e1 !important; }
+    [data-theme="light"] footer .text-slate-200 { color: #e2e8f0 !important; }
+    footer a.nav-pill-link,
+    [data-theme="light"] footer a.nav-pill-link {
+      color: #94a3b8 !important;
+      transition: color 0.2s ease;
+    }
+    footer a.nav-pill-link:hover,
+    [data-theme="light"] footer a.nav-pill-link:hover {
+      color: #f59e0b !important;
+    }
 
     /* Theme Toggle Button */
     .theme-toggle-btn {
@@ -2460,7 +2473,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <!-- =========================================================================
        FOOTER: Clean Light Government & MP Tourism Footer
        ========================================================================= -->
-<footer class="w-full bg-[#12121a] border-t border-white/10 py-12 px-4 md:px-8 xl:px-12">
+<footer class="w-full bg-[#12121a] border-t border-white/10 py-12 px-4 md:px-8 xl:px-12 relative z-10">
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
 <div class="flex flex-col gap-3 max-w-sm">
 <div class="flex items-center gap-4">

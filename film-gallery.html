@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Film Gallery — Madhya Pradesh Film Facilitation Cell</title>
+  <meta name="description" content="Explore films and web series shot across Madhya Pradesh. Official Film Facilitation Cell showcase - Madhya Pradesh Tourism Board, Government of Madhya Pradesh.">
+  <link rel="icon" type="image/png" href="resources/Logo_Dark1.png">
+  
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#ea580c",
+            "primary-hover": "#c2410c",
+            "primary-wash": "rgba(234, 88, 12, 0.12)",
+            secondary: "#d97706",
+            "secondary-hover": "#b45309",
+            "secondary-wash": "rgba(217, 119, 6, 0.12)",
+            amber: {
+              accent: "#f59e0b"
+            },
+            tertiary: "#38bdf8",
+            "border-crisp": "rgba(255, 255, 255, 0.08)",
+            "border-muted": "rgba(255, 255, 255, 0.15)",
+            "surface-ground": "#09090d",
+            "surface-subtle": "#12121a"
+          },
+          fontFamily: {
+            sans: ["Montserrat", "Plus Jakarta Sans", "sans-serif"],
+            serif: ["'Playfair Display'", "'Cormorant Garamond'", "Georgia", "serif"],
+            cinematic: ["'Cinzel'", "'Playfair Display'", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Film Gallery Scoped Styles -->
+  <link rel="stylesheet" href="resources/css/film-gallery.css">
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        
+        background-color: #09090d;
+        color: #f1f5f9;
+        font-family: 'Montserrat', sans-serif;
+      }
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif, .font-serif * {
+      font-family: 'Playfair Display', Georgia, serif !important;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #07070a; }
+    ::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.35); border-radius: 4px; }
+    .gold-text-glow { text-shadow: 0 0 25px rgba(245, 158, 11, 0.4); }
+    .gold-box-glow { box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25); }
+    .gold-border-glow:hover { border-color: rgba(245, 158, 11, 0.6); box-shadow: 0 0 25px -4px rgba(245, 158, 11, 0.2); }
+    .gold-badge { background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(234, 88, 12, 0.15) 100%); border: 1px solid rgba(245, 158, 11, 0.35); }
+    :root {
+      --header-height: 124px;
+    }
+    @media (max-width: 1023px) {
+      :root {
+        --header-height: 72px;
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    section[id] {
+      scroll-margin-top: 0 !important;
+    }
+    #home {
+      height: 100vh;
+      min-height: 600px;
+      scroll-margin-top: 0 !important;
+    }
+    .hero-content-wrapper {
+      padding-top: var(--header-height, 124px);
+    }
+    header.header-scrolled {
+      background: rgba(9, 9, 13, 0.90) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+    }
+    @keyframes goldShimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .gold-shimmer-text {
+      background: linear-gradient(90deg, #fcd34d 0%, #ffffff 25%, #f59e0b 50%, #ffffff 75%, #fcd34d 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 6s linear infinite;
+    }
+    @keyframes ambientGlowPulse {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.08); }
+    }
+    .ambient-glow-pulse {
+      animation: ambientGlowPulse 7s ease-in-out infinite;
+    }
+    /* 3D Card Spotlight & Tilt */
+    .card-spotlight {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.22s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      will-change: transform;
+    }
+    .card-spotlight::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(245, 158, 11, 0.14), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .card-spotlight:hover::before {
+      opacity: 1;
+    }
+    /* Scroll-Driven Reveal with Staggering */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s ease;
+      will-change: opacity, transform, filter;
+    }
+    .reveal-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    /* Magnetic button micro-interaction */
+    .magnetic-btn {
+      transition: transform 0.22s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.22s ease;
+      will-change: transform;
+    }
+    /* Ripple wave effect */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-ripple .ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: rippleAnim 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim {
+      to { transform: scale(4); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card-spotlight, .reveal-item, #heroBgImage, .gold-shimmer-text, .ambient-glow-pulse {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
+    }
+  
+    :root, [data-theme="dark"] {
+      --header-height: 124px;
+      
+      --theme-bg-primary: #09090d;
+      --theme-bg-secondary: #0c0c12;
+      --theme-surface: #12121a;
+      
+      --theme-text-primary: #f8fafc;
+      --theme-text-secondary: #cbd5e1;
+      --theme-text-muted: #94a3b8;
+      
+      --theme-brand-orange: #f59e0b;
+      --theme-brand-orange-dark: #d97706;
+      
+      --theme-border: rgba(255,255,255,0.08);
+      --theme-border-light: rgba(255,255,255,0.15);
+      
+      --theme-card-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    [data-theme="light"] {
+      --theme-bg-primary: #F8F5EE;
+      --theme-bg-secondary: #F1E9DC;
+      --theme-surface: #FFFDF8;
+      
+      --theme-text-primary: #101827;
+      --theme-text-secondary: #526174;
+      --theme-text-muted: #7A8491;
+      
+      --theme-brand-orange: #F47A00;
+      --theme-brand-orange-dark: #D85A00;
+      
+      --theme-border: #E3DDD2;
+      --theme-border-light: #EAE4D9;
+      
+      --theme-card-shadow: 0 8px 30px rgba(50,40,20,0.06);
+    }
+    
+    /* OVERRIDES for Light Mode to preserve exact original class names but change appearance */
+    [data-theme="light"] .bg-\[\#09090d\] { background-color: var(--theme-bg-primary) !important; }
+    [data-theme="light"] .bg-\[\#12121a\], 
+    [data-theme="light"] .bg-\[\#171722\], 
+    [data-theme="light"] .bg-\[\#161622\],
+    [data-theme="light"] .bg-\[\#15151f\] { 
+        background-color: var(--theme-surface) !important; 
+        border-color: var(--theme-border) !important;
+        box-shadow: var(--theme-card-shadow) !important;
+    }
+    [data-theme="light"] .text-white, 
+    [data-theme="light"] .text-slate-100, 
+    [data-theme="light"] .text-slate-50 { color: var(--theme-text-primary) !important; }
+    
+    [data-theme="light"] .text-slate-200, 
+    [data-theme="light"] .text-slate-300 { color: var(--theme-text-secondary) !important; }
+    
+    [data-theme="light"] .text-slate-400, 
+    [data-theme="light"] .text-[#7A8491] { color: var(--theme-text-muted) !important; }
+    
+    [data-theme="light"] .border-white\/10, 
+    [data-theme="light"] .border-white\/\[0\.05\], 
+    [data-theme="light"] .border-white\/\[0\.06\], 
+    [data-theme="light"] .border-white\/\[0\.08\] { border-color: var(--theme-border) !important; }
+    
+    /* Hero specific overrides */
+    
+    
+    
+    [data-theme="light"] .gold-shimmer-text {
+         background: none !important;
+         -webkit-text-fill-color: var(--theme-brand-orange) !important;
+         color: var(--theme-brand-orange) !important;
+         text-shadow: none !important;
+    }
+    
+    /* Header specific overrides */
+    
+    [data-theme="light"] header .text-\[11px\].text-\[\#D99A16\]\/80 { color: var(--theme-text-secondary) !important; }
+    
+    /* Buttons */
+    [data-theme="light"] .bg-gradient-to-r.from-amber-500 {
+         background: linear-gradient(135deg, #FF9A00, #F16A00) !important;
+         color: #FFFFFF !important;
+    }
+    [data-theme="light"] .bg-\[\#14141c\]\/80 {
+         background: #FFFDF8 !important;
+         border-color: #D9D1C3 !important;
+         color: #172033 !important;
+    }
+    [data-theme="light"] .bg-\[\#14141c\]\/80:hover {
+         background: #FFF2DF !important;
+         border-color: #F4A340 !important;
+    }
+    [data-theme="light"] .bg-\[\#14141c\]\/70 {
+         background: #FFFDF8 !important;
+         border-color: #D9D1C3 !important;
+    }
+    [data-theme="light"] .bg-amber-500\/20 {
+         background: #FFF1DD !important;
+         border-color: #F4B36A !important;
+         color: #F47A00 !important;
+         -webkit-text-fill-color: #F47A00 !important;
+    }
+    [data-theme="light"] .bg-\[\#FFFDF8\] {
+         background: transparent !important;
+         border-color: transparent !important;
+         color: #263246 !important;
+    }
+    
+    /* Footer */
+    [data-theme="light"] footer.bg-\[\#12121a\] {
+         background: #101827 !important;
+    }
+    [data-theme="light"] footer .text-white { color: #ffffff !important; }
+    [data-theme="light"] footer .text-slate-400 { color: #7A8491 !important; }
+    [data-theme="light"] footer .text-slate-200 { color: #cbd5e1 !important; }
+
+    /* Theme Toggle Button */
+    .theme-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--theme-text-secondary);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .theme-toggle-btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: var(--theme-brand-orange);
+    }
+    [data-theme="light"] .theme-toggle-btn {
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--theme-text-primary);
+    }
+  
+    /* =========================================
+       SPECIFIC LIGHT MODE REFINEMENTS
+       ========================================= */
+       
+    /* 1. Quick Access Action Cards */
+    [data-theme="light"] section#quick-access .bg-\[\#12121a\]\/95 {
+        background-color: #EEE6D9 !important;
+        border-color: #DED3C3 !important;
+        backdrop-filter: none !important;
+    }
+    [data-theme="light"] section#quick-access .bg-\[\#171722\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E5DBCD !important;
+        box-shadow: 0 8px 30px rgba(50,40,20,0.06) !important;
+    }
+    [data-theme="light"] section#quick-access .hover\:bg-\[\#1d1d2b\]:hover {
+        background-color: #F8F1E5 !important;
+        border-color: var(--theme-brand-orange) !important;
+    }
+    [data-theme="light"] section#quick-access .bg-\[\#0c0c12\] {
+        background-color: #FAF7F0 !important;
+        border-color: #D9D0C2 !important;
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#quick-access input::placeholder {
+        color: #64748B !important;
+    }
+    [data-theme="light"] section#quick-access .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#quick-access .text-slate-400 {
+        color: #64748B !important;
+    }
+    [data-theme="light"] section#quick-access .bg-amber-500\/10 {
+        background-color: #FFF1DD !important;
+        border-color: #F4B36A !important;
+    }
+
+    /* 2. Why MP - Single Window Badge */
+    [data-theme="light"] section#why-mp .bg-\[\#14141e\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E2D9CB !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-slate-400 {
+        color: #718096 !important;
+    }
+
+    /* 3 & 4. Directory & Location Cards */
+    [data-theme="light"] section#locations {
+        background-color: #F8F5EE !important;
+        border-color: #EAE4D9 !important;
+    }
+    [data-theme="light"] section#locations .bg-\[\#12121a\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E2D9CB !important;
+        box-shadow: 0 8px 30px rgba(50,40,20,0.06) !important;
+    }
+    [data-theme="light"] section#locations .bg-\[\#09090d\] {
+        background-color: #FAF7F0 !important;
+        border-color: #D9D0C2 !important;
+    }
+    [data-theme="light"] section#locations input, 
+    [data-theme="light"] section#locations select {
+        background-color: transparent !important;
+        color: #1F2937 !important;
+    }
+    [data-theme="light"] section#locations input::placeholder {
+        color: #7A8491 !important;
+    }
+    [data-theme="light"] section#locations .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#locations .text-slate-300 {
+        color: #64748B !important;
+    }
+    [data-theme="light"] section#locations .text-slate-400 {
+        color: #7A8491 !important;
+    }
+    [data-theme="light"] section#locations .text-\[\#D99A16\] {
+        color: #D97706 !important;
+    }
+
+    /* 5. Cell Members Section */
+    [data-theme="light"] section#cell-members {
+        background-color: #F1E9DC !important;
+        border-top-color: #EAE4D9 !important;
+    }
+    [data-theme="light"] section#cell-members .bg-\[\#09090d\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E2D9CB !important;
+    }
+    [data-theme="light"] section#cell-members .bg-gradient-to-br.from-\[\#1c1810\] {
+        background: #FFFDF8 !important;
+        border-color: #E3D8C8 !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+    [data-theme="light"] section#cell-members .bg-\[\#161622\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E3D8C8 !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+    [data-theme="light"] section#cell-members .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#cell-members .text-slate-300,
+    [data-theme="light"] section#cell-members .text-slate-400 {
+        color: #64748B !important;
+    }
+
+    /* Additional global text overrides for light mode sections to ensure deep navy */
+    [data-theme="light"] h2.text-white, 
+    [data-theme="light"] h3.text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] p.text-slate-300, 
+    [data-theme="light"] p.text-slate-400 {
+        color: #64748B !important;
+    }
+
+    
+    /* Hero Background Crossfade */
+    .day-bg { opacity: 0; }
+    .night-bg { opacity: 1; }
+
+    [data-theme="light"] .day-bg { opacity: 1 !important; }
+    [data-theme="light"] .night-bg { opacity: 0 !important; }
+
+    /* =========================================
+       SPECIFIC LIGHT MODE HEADER REFINEMENTS
+       ========================================= */
+       
+    
+    /* =========================================
+       SPECIFIC LIGHT MODE HEADER REFINEMENTS
+       ========================================= */
+       
+    
+    /* HIDE THE INTERNAL DARK MODE BACKGROUND DIVS IN LIGHT MODE */
+    [data-theme="light"] header#mainHeader > div.absolute.inset-0.pointer-events-none.-z-10 {
+        display: none !important;
+        opacity: 0 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    
+    /* Fix logo subtext visibility in Light Mode */
+    [data-theme="light"] #logo-subtext {
+        color: #101827 !important;
+        font-weight: 700 !important;
+    }
+
+    /* 1. Frosted Glass Top Header in Light Mode */
+    [data-theme="light"] header#mainHeader {
+        background: rgba(248, 245, 238, 0.88) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02) !important;
+    }
+    
+
+    /* Clean up the inner utility containers for the top row so they don't block the background */
+    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        color: #101827 !important;
+    }
+    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\]:hover {
+        background-color: rgba(255, 255, 255, 0.25) !important;
+    }
+    
+    /* 2. Glass Navigation Pill (Row 2) */
+    
+    
+
+    /* Navigation Links (Inactive) inside the glass pill */
+    
+    
+
+    /* Navigation Link (Active - Home) inside the glass pill */
+    
+
+    /* Typography overrides for header */
+    [data-theme="light"] header#mainHeader .text-white {
+        color: #101827 !important;
+    }
+    [data-theme="light"] header#mainHeader .text-slate-300,
+    
+    [data-theme="light"] header#mainHeader .text-amber-400 {
+        color: #F58220 !important;
+    }
+    
+    /* Apply CTA Button */
+    [data-theme="light"] header#mainHeader .bg-gradient-to-r.from-amber-500 {
+        background: linear-gradient(135deg, #F58220, #E86F00) !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 8px 20px rgba(245, 130, 32, 0.3) !important;
+        border-color: transparent !important;
+    }
+
+/* 2. Why MP - Single Window Badge */
+    [data-theme="light"] section#why-mp .bg-\[\#14141e\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E2D9CB !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#why-mp .bg-\[\#14141e\] .text-slate-400 {
+        color: #718096 !important;
+    }
+
+    /* 3 & 4. Directory & Location Cards */
+    [data-theme="light"] section#locations {
+        background-color: #F8F5EE !important;
+        border-color: #EAE4D9 !important;
+    }
+    [data-theme="light"] section#locations .bg-\[\#12121a\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E2D9CB !important;
+        box-shadow: 0 8px 30px rgba(50,40,20,0.06) !important;
+    }
+    [data-theme="light"] section#locations .bg-\[\#09090d\] {
+        background-color: #FAF7F0 !important;
+        border-color: #D9D0C2 !important;
+    }
+    [data-theme="light"] section#locations input, 
+    [data-theme="light"] section#locations select {
+        background-color: transparent !important;
+        color: #1F2937 !important;
+    }
+    [data-theme="light"] section#locations input::placeholder {
+        color: #7A8491 !important;
+    }
+    [data-theme="light"] section#locations .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#locations .text-slate-300 {
+        color: #64748B !important;
+    }
+    [data-theme="light"] section#locations .text-slate-400 {
+        color: #7A8491 !important;
+    }
+    [data-theme="light"] section#locations .text-\[\#D99A16\] {
+        color: #D97706 !important;
+    }
+
+    /* 5. Cell Members Section */
+    [data-theme="light"] section#cell-members {
+        background-color: #F1E9DC !important;
+        border-top-color: #EAE4D9 !important;
+    }
+    [data-theme="light"] section#cell-members .bg-\[\#09090d\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E2D9CB !important;
+    }
+    [data-theme="light"] section#cell-members .bg-gradient-to-br.from-\[\#1c1810\] {
+        background: #FFFDF8 !important;
+        border-color: #E3D8C8 !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+    [data-theme="light"] section#cell-members .bg-\[\#161622\] {
+        background-color: #FFFDF8 !important;
+        border-color: #E3D8C8 !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+    [data-theme="light"] section#cell-members .text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] section#cell-members .text-slate-300,
+    [data-theme="light"] section#cell-members .text-slate-400 {
+        color: #64748B !important;
+    }
+
+    /* Additional global text overrides for light mode sections to ensure deep navy */
+    [data-theme="light"] h2.text-white, 
+    [data-theme="light"] h3.text-white {
+        color: #111827 !important;
+    }
+    [data-theme="light"] p.text-slate-300, 
+    [data-theme="light"] p.text-slate-400 {
+        color: #64748B !important;
+    }
+
+    /* =========================================
+       SPECIFIC LIGHT MODE HEADER REFINEMENTS
+       ========================================= */
+       
+    /* Top row utilities clean-up in Light Mode */
+    /* Top row utilities clean-up */
+    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        color: #101827 !important;
+    }
+    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\]:hover {
+        background-color: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* 2. Glass Navigation Pill */
+    
+    
+
+    /* Navigation Links (Inactive) */
+    
+    
+
+    /* Navigation Link (Active - Home) */
+    
+
+    /* Text Color Resets */
+    [data-theme="light"] header#mainHeader .text-white {
+        color: #101827 !important;
+    }
+    [data-theme="light"] header#mainHeader .text-slate-300,
+    
+    [data-theme="light"] header#mainHeader .text-amber-400 {
+        color: #F58220 !important;
+    }
+    
+    /* Apply CTA overriding in Light Mode */
+    [data-theme="light"] header#mainHeader .bg-gradient-to-r.from-amber-500 {
+        background: linear-gradient(135deg, #FF9A00, #F16A00) !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 8px 20px rgba(241, 106, 0, 0.25) !important;
+        border-color: transparent !important;
+    }
+
+
+/* =========================================
+   PREMIUM LIQUID GLASS NAVIGATION (GLOBAL)
+   ========================================= */
+
+/* The parent container adjustment */
+header#mainHeader .hidden.lg\:block.border-t {
+    border-top: none !important;
+    padding-top: 8px !important;
+    padding-bottom: 12px !important;
+}
+
+/* The Nav Pill itself - Shared Structure */
+
+
+/* Base Nav Links - Shared Structure */
+
+
+/* ================== DARK MODE (LIQUID GLASS) ================== */
+
+
+/* ================== LIGHT MODE (LIQUID GLASS) ================== */
+[data-theme="light"] 
+
+/* Light Mode Links */
+[data-theme="light"] 
+
+/* Light Mode Hover */
+[data-theme="light"] 
+
+/* Light Mode Active (Home) */
+
+
+
+    /* =========================================
+       HARD SCROLLED HEADER (LIGHT MODE)
+       ========================================= */
+    [data-theme="light"] header#mainHeader.header-scrolled {
+        background: rgba(255, 255, 255, 0.92) !important; /* Hard, nearly opaque white */
+        backdrop-filter: blur(30px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05) !important;
+    }
+
+
+    /* Proper logo proportions to eliminate huge artificial gap */
+    header#mainHeader img.brand-logo {
+        height: 48px !important;
+        width: auto !important;
+        max-width: 72px !important;
+        object-fit: contain !important;
+    }
+    @media (max-width: 768px) {
+        header#mainHeader img.brand-logo {
+            height: 40px !important;
+            max-width: 60px !important;
+        }
+    }
+    #mobileMenuPanel img.brand-logo {
+        height: 40px !important;
+        width: auto !important;
+        max-width: 60px !important;
+        object-fit: contain !important;
+    }
+    footer img.brand-logo {
+        height: 80px !important;
+        width: auto !important;
+        max-width: 120px !important;
+        object-fit: contain !important;
+    }
+
+
+    /* =========================================
+       CLEAN CONTRAST FOR LIGHT MODE HEADER
+       ========================================= */
+    [data-theme="light"] header#mainHeader .text-white,
+    [data-theme="light"] header#mainHeader .text-slate-300,
+    [data-theme="light"] header#mainHeader .text-slate-400 {
+        color: #101827 !important;
+    }
+    
+    [data-theme="light"] #logo-subtext {
+        color: #526174 !important;
+        font-weight: 600 !important;
+    }
+    
+    [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
+        background-color: #FFFFFF !important;
+        border-color: rgba(0, 0, 0, 0.12) !important;
+        color: #101827 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    }
+    
+    [data-theme="light"] header#mainHeader .theme-toggle-btn {
+        background-color: #FFFFFF !important;
+        border-color: rgba(0, 0, 0, 0.12) !important;
+        color: #101827 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    }
+    [data-theme="light"] header#mainHeader .theme-toggle-btn:hover {
+        background-color: #F1E9DC !important;
+        color: #D85A00 !important;
+    }
+
+
+    /* Fix Card 02 (Deputy Chairman) background in Light Mode */
+    [data-theme="light"] section#cell-members .bg-gradient-to-br.from-\[\#1c1410\] {
+        background: #FFFDF8 !important;
+        border-color: #E3D8C8 !important;
+        box-shadow: 0 12px 35px rgba(60, 45, 20, 0.07) !important;
+    }
+
+
+    /* Fix hero description text visibility in Light Mode */
+    [data-theme="light"] section#home p.text-slate-300 {
+        color: #111827 !important;
+        font-weight: 700 !important;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4) !important;
+    }
+
+
+    /* Fix hero description text visibility */
+    [data-theme="light"] [id="home"] p {
+        color: #111827 !important;
+        font-weight: 700 !important;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+    }
+
+
+    /* 1. Explore 1,200+ Locations (Secondary CTA) */
+/* Dark Mode (Default) */
+.hero-cta-glass {
+    background: rgba(15, 23, 42, 0.45) !important; /* deep navy translucent */
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important; /* subtle top highlight */
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        0 8px 30px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 9999px !important; /* compact horizontal pill */
+    color: #F8FAFC !important; /* white/light text */
+}
+.hero-cta-glass:hover {
+    background: rgba(30, 41, 59, 0.55) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+/* Light Mode */
+[data-theme="light"] .hero-cta-glass {
+    background: rgba(255, 255, 255, 0.35) !important; /* frosted daylight glass */
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        0 8px 30px rgba(20, 30, 40, 0.1) !important;
+    color: #0F172A !important; /* dark navy text */
+}
+[data-theme="light"] .hero-cta-glass:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ensure the icon remains gold/orange */
+.hero-cta-glass span.material-symbols-outlined {
+    color: #F58220 !important;
+}
+
+/* 2. National Film Award Winner (Badge) */
+/* Dark Mode (Default) */
+.hero-badge-glass {
+    background: rgba(15, 23, 42, 0.45) !important; /* same deep navy translucent glass */
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important; /* same white border */
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important; /* same top highlight */
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        0 8px 30px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 9999px !important; /* Pill shape */
+}
+.hero-badge-glass:hover {
+    background: rgba(30, 41, 59, 0.55) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}
+.hero-badge-glass span.text-white {
+    color: #F8FAFC !important; /* white/gold heading */
+}
+.hero-badge-glass span.text-slate-400 {
+    color: #94A3B8 !important; /* muted light subtitle */
+}
+
+/* Light Mode */
+[data-theme="light"] .hero-badge-glass {
+    background: rgba(255, 255, 255, 0.35) !important; /* same frosted daylight glass */
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        0 8px 30px rgba(20, 30, 40, 0.1) !important;
+}
+[data-theme="light"] .hero-badge-glass:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+[data-theme="light"] .hero-badge-glass span.text-white {
+    color: #0F172A !important; /* dark navy heading */
+    text-shadow: none !important;
+}
+[data-theme="light"] .hero-badge-glass span.text-slate-400 {
+    color: #475569 !important; /* muted slate subtitle */
+    text-shadow: none !important;
+}
+
+/* Gold icon overrides for both modes */
+.hero-badge-glass span.material-symbols-outlined {
+    color: #D97706 !important; 
+}
+
+
+/* ==============================================
+   PROPER DAY/NIGHT LIQUID GLASS NAVIGATION
+   ============================================== */
+
+/* BASE STRUCTURE (Applied to both modes) */
+header#mainHeader nav {
+    backdrop-filter: blur(28px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+    padding: 6px 8px !important;
+    gap: 4px !important;
+    border-radius: 9999px !important;
+}
+
+/* DARK MODE - Cinematic Dark Glass */
+html:not([data-theme="light"]) header#mainHeader nav {
+    background: rgba(15, 17, 21, 0.25) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.15) !important; /* Subtle top specular highlight */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important; /* Grounded bottom edge */
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        inset 0 -10px 20px rgba(0, 0, 0, 0.2),
+        0 12px 35px rgba(0, 0, 0, 0.25) !important; /* Deep ambient shadow */
+}
+html:not([data-theme="light"]) header#mainHeader nav a {
+    color: #F8FAFC !important; /* Light crisp text */
+}
+html:not([data-theme="light"]) header#mainHeader nav a:hover {
+    background: rgba(255, 255, 255, 0.08) !important; /* Soft light hover capsule */
+    color: #F58220 !important;
+}
+html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
+    background: rgba(245, 130, 32, 0.15) !important; /* Orange glass capsule */
+    border: 1px solid rgba(245, 150, 20, 0.3) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important; /* Inner highlight */
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.1),
+        0 4px 12px rgba(245, 130, 32, 0.15) !important; /* Soft orange glow */
+    color: #F58220 !important;
+}
+
+/* LIGHT MODE - Frosted Clear Glass */
+[data-theme="light"] header#mainHeader nav {
+    background: rgba(255, 255, 255, 0.15) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.7) !important; /* Strong top specular highlight */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.8),
+        inset 0 -10px 20px rgba(255, 255, 255, 0.1),
+        0 12px 35px rgba(0, 0, 0, 0.12) !important; /* Soft ambient shadow */
+}
+[data-theme="light"] header#mainHeader nav a {
+    color: #000000 !important; /* Dark bold text */
+    font-weight: 700 !important;
+}
+[data-theme="light"] header#mainHeader nav a:hover {
+    background: rgba(255, 255, 255, 0.5) !important; /* Milky white hover capsule */
+    color: #D97706 !important;
+}
+[data-theme="light"] header#mainHeader nav a.active-pill {
+    background: rgba(245, 130, 32, 0.15) !important; 
+    border: 1px solid rgba(245, 150, 20, 0.3) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.6),
+        0 4px 12px rgba(245, 130, 32, 0.1) !important;
+    color: #D97706 !important;
+}
+
+
+    /* Restore pill shape to navigation links and active bubbles */
+    header#mainHeader nav a {
+        border-radius: 9999px !important;
+    }
+
+
+    /* Normalize Nav Links Base State */
+    header#mainHeader nav a.nav-pill-link {
+        padding: 6px 12px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.025em !important;
+        white-space: nowrap !important;
+        border-radius: 9999px !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        background: transparent !important;
+        border: 1px solid transparent !important;
+        box-shadow: none !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+    }
+
+    /* Dark Mode Links */
+    html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link {
+        color: #F8FAFC !important;
+    }
+    html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link:hover {
+        background: rgba(245, 130, 32, 0.12) !important;
+        color: #F58220 !important;
+        border-color: rgba(245, 130, 32, 0.4) !important;
+        box-shadow: 0 0 16px rgba(245, 130, 32, 0.25), inset 0 0 8px rgba(245, 130, 32, 0.1) !important;
+        text-shadow: 0 0 8px rgba(245, 130, 32, 0.6) !important;
+    }
+    html:not([data-theme="light"]) header#mainHeader nav a.nav-pill-link.active-pill {
+        background: rgba(245, 130, 32, 0.15) !important;
+        border-color: rgba(245, 150, 20, 0.3) !important;
+        border-top-color: rgba(255, 255, 255, 0.2) !important;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(245, 130, 32, 0.15) !important;
+        color: #F58220 !important;
+    }
+
+    /* Light Mode Links */
+    [data-theme="light"] header#mainHeader nav a.nav-pill-link {
+        color: #0F172A !important;
+    }
+    [data-theme="light"] header#mainHeader nav a.nav-pill-link:hover {
+        background: rgba(245, 130, 32, 0.1) !important;
+        color: #EA580C !important;
+        border-color: rgba(234, 88, 12, 0.4) !important;
+        box-shadow: 0 0 16px rgba(234, 88, 12, 0.15), inset 0 0 8px rgba(234, 88, 12, 0.05) !important;
+        text-shadow: 0 0 1px rgba(234, 88, 12, 0.3) !important;
+    }
+    [data-theme="light"] header#mainHeader nav a.nav-pill-link.active-pill {
+        background: rgba(245, 130, 32, 0.15) !important;
+        border-color: rgba(245, 150, 20, 0.3) !important;
+        border-top-color: rgba(255, 255, 255, 0.7) !important;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 4px 12px rgba(245, 130, 32, 0.1) !important;
+        color: #D97706 !important;
+    }
+
+
+    /* Fix 1: Restore Light Mode Scrolled Header Visibility */
+    html[data-theme="light"] header#mainHeader.header-scrolled {
+        background: rgba(255, 255, 255, 0.92) !important;
+        backdrop-filter: blur(30px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* Fix 2: Match shape of secondary CTA and Badge to the primary CTA (12px / rounded-xl) */
+    .hero-cta-glass, .hero-badge-glass {
+        border-radius: 12px !important; 
+    }
+
+    /* Fix 3: Hide the old horizontal scroll progress bar */
+    #scrollProgressBar {
+        display: none !important;
+    }
+
+
+    /* =========================================
+       SEARCH BAR UI FIX (LIGHT MODE)
+       ========================================= */
+    /* Make the nested search input seamless without an ugly double border */
+    [data-theme="light"] section#locations div.bg-\[\#09090d\] {
+        background-color: rgba(0, 0, 0, 0.03) !important; /* Soft inner pill fill */
+        border-color: transparent !important; /* Remove nested box border */
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.02) !important; /* Subtle inner shadow */
+    }
+    
+    /* Make the dropdown select look like a premium button */
+    [data-theme="light"] section#locations select.bg-\[\#09090d\] {
+        background-color: #FFFFFF !important;
+        border-color: rgba(0, 0, 0, 0.1) !important; /* Soft distinct border */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.03) !important;
+        color: #0F172A !important;
+        font-weight: 600 !important;
+    }
+
+    /* Fix icons and labels contrast */
+    [data-theme="light"] section#locations .text-amber-400 {
+        color: #F58220 !important; /* Primary Orange for Search icon */
+    }
+    [data-theme="light"] section#locations .text-slate-400 {
+        color: #64748B !important; /* Darker slate for DISTRICT label */
+    }
+    [data-theme="light"] section#locations input::placeholder {
+        color: #94A3B8 !important; /* Cleaner placeholder color */
+        font-weight: 500 !important;
+    }
+
+
+    /* Force completely borderless input to override any Tailwind Forms resets */
+    [data-theme="light"] section#locations input {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    [data-theme="light"] section#locations input:focus {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    /* Clean up the dropdown select as well just in case */
+    [data-theme="light"] section#locations select {
+        outline: none !important;
+    }
+    [data-theme="light"] section#locations select:focus {
+        box-shadow: 0 0 0 2px rgba(245, 130, 32, 0.2) !important;
+        border-color: #F58220 !important;
+    }
+
+    /* =========================================
+       ECOSYSTEM CARD TEXT — ALWAYS WHITE
+       Forced regardless of light/dark theme
+       ========================================= */
+    /* Outer text container */
+    .eco-card-text,
+    .eco-card-text * {
+        color: #ffffff !important;
+    }
+    .eco-card-text h3 {
+        color: #ffffff !important;
+        text-shadow: 0 2px 16px rgba(0,0,0,1), 0 1px 4px rgba(0,0,0,0.9) !important;
+    }
+    .eco-card-text p {
+        color: #e2e8f0 !important;
+        text-shadow: 0 1px 10px rgba(0,0,0,0.95) !important;
+    }
+
+</style>
+
+  <!-- Early Theme Initialization to Prevent Flash of Wrong Theme -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('filmcell-theme') || localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="bg-[#09090d] font-sans text-slate-100 antialiased selection:bg-amber-500/25 selection:text-amber-300 relative">
+  <!-- Warm Atmospheric Backdrop -->
+  <div class="portal-backdrop" aria-hidden="true">
+    <div class="backdrop-warm-gradient"></div>
+    <div class="backdrop-orange-glow" id="ambientGlow"></div>
+    <div class="backdrop-subtle-pattern"></div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 1. EXISTING OFFICIAL MP FILM FACILITATION CELL HEADER          -->
+  <!-- ============================================================== -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Single Sleek Header Row: Brand, Back Button & Actions -->
+    <div class="flex items-center justify-between gap-3 sm:gap-4 py-3">
+
+      <!-- Left: Logo & State Emblem Title (reduced gap) -->
+      <a class="flex items-center gap-2.5 sm:gap-3 group shrink-0" href="index.html#films" title="Back to Films Shot in MP">
+        <img alt="Madhya Pradesh Film Facilitation Cell" class="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02] brand-logo shrink-0" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
+        <div class="flex flex-col justify-center leading-none">
+          <span class="font-extrabold text-sm sm:text-base tracking-tight transition-colors leading-tight header-title">MP Film Facilitation Cell</span>
+          <span class="text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5" id="logo-subtext">मध्य प्रदेश शासन | Madhya Pradesh Tourism Board</span>
+        </div>
+      </a>
+
+      <!-- Right side: Back to Portal CTA & Utility Actions -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Back Button replacing horizontal links bar -->
+        <a href="index.html#films" class="back-portal-btn shrink-0" title="Return to Main Portal - Films Section">
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          <span class="hidden sm:inline">Back to Portal</span>
+          <span class="sm:hidden">Back</span>
+        </a>
+
+        <!-- Accessibility Controls -->
+        <div class="hidden xl:flex items-center gap-0.5 rounded-lg px-1.5 py-1 text-[11px] font-semibold header-utility-pill">
+          <button class="header-util-btn px-1 transition-colors" type="button">A-</button>
+          <span class="header-util-divider">|</span>
+          <button class="header-util-btn px-1 transition-colors" type="button">A</button>
+          <span class="header-util-divider">|</span>
+          <button class="header-util-btn px-1 transition-colors" type="button">A+</button>
+        </div>
+
+        <!-- Language Toggle -->
+        <div class="hidden lg:flex items-center rounded-lg p-0.5 text-[11px] font-medium header-utility-pill">
+          <span class="px-2 py-0.5 rounded-md bg-amber-500 text-black font-extrabold shadow-sm">EN</span>
+          <button class="px-2 py-0.5 header-lang-btn transition-colors" type="button">हिन्दी</button>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button onclick="toggleTheme()" class="theme-toggle-btn shrink-0" aria-label="Toggle Theme">
+          <span class="material-symbols-outlined" id="themeToggleIcon">light_mode</span>
+        </button>
+
+        <!-- Producer Login -->
+        <a class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all group shrink-0 producer-login-btn" href="index.html#dashboard">
+          <span class="material-symbols-outlined text-sm text-amber-400 group-hover:scale-110 transition-transform">verified_user</span>
+          <span>Producer Login</span>
+        </a>
+
+        <!-- Apply CTA -->
+        <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-black tracking-wide transition-all shadow-lg hover:scale-[1.02] shrink-0 apply-btn" href="index.html#how-it-works">
+          <span>Apply for Permission</span>
+          <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator Bar -->
+  <div id="scrollProgressBar" class="absolute bottom-0 left-0 h-[2.5px] bg-gradient-to-r from-amber-500 via-orange-400 to-yellow-300 shadow-[0_0_12px_rgba(245,158,11,0.85)] z-50 pointer-events-none transition-all duration-75" style="width: 0%;"></div>
+</header>
+
+  <main>
+    <!-- ============================================================== -->
+    <!-- 2. CINEMATIC FILM GALLERY HERO SECTION                         -->
+    <!-- ============================================================== -->
+    <section class="hero-section" id="heroSection">
+      <div class="hero-layout">
+
+        <!-- Left Column: Official Identity & Dynamic Movie Meta Panel -->
+        <div class="hero-editorial">
+          
+          <!-- Official Cell Eyebrow -->
+          <div class="hero-portal-eyebrow">
+            <span class="eyebrow-pill">FILM FACILITATION CELL</span>
+            <span class="eyebrow-dot">•</span>
+            <span class="eyebrow-dept">MADHYA PRADESH</span>
+          </div>
+
+          <!-- Main Dignified Page Heading -->
+          <h1 class="hero-portal-title">
+            <span class="title-line-1">Stories filmed</span>
+            <span class="title-line-2">in Madhya Pradesh</span>
+          </h1>
+
+          <!-- Concise Supporting Statement -->
+          <p class="hero-portal-statement">
+            Explore films and series that have brought Madhya Pradesh&rsquo;s landscapes, cities, heritage and culture to the screen.
+          </p>
+
+          <!-- Small Statistics Metrics (Official Portal Numbers) -->
+          <div class="portal-hero-stats">
+            <div class="stat-box">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Films &amp; Series</span>
+            </div>
+            <div class="stat-sep" aria-hidden="true"></div>
+            <div class="stat-box">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Shooting Locations</span>
+            </div>
+            <div class="stat-sep" aria-hidden="true"></div>
+            <div class="stat-box">
+              <span class="stat-number">2019–2025</span>
+              <span class="stat-label">Featured Works</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Active Movie Meta Panel (Synced with 3D Carousel) -->
+          <div class="portal-active-movie-card" id="activeMovieInfo">
+            <div class="active-card-header">
+              <div class="active-location-badge">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/>
+                </svg>
+                <span class="badge-text" id="movieLocationBadge">BALAGHAT &amp; BHOOTPALASI FORESTS</span>
+              </div>
+              <span class="active-status-tag" id="movieTagline">SHOT IN MADHYA PRADESH</span>
+            </div>
+
+            <h2 class="active-movie-title" id="movieTitle">SHERNI</h2>
+            
+            <div class="active-movie-specs" id="movieSpecs">
+              <span class="spec-year" id="movieYear">2021</span>
+              <span class="spec-dot">•</span>
+              <span class="spec-genre" id="movieGenre">Thriller · Drama · Feature</span>
+            </div>
+
+            <!-- Short Movie Synopsis Paragraph -->
+            <p class="active-movie-desc" id="movieDescription">
+              Captured amidst the deep teak forests and rugged sanctuary terrain of Balaghat and Raisen, showcasing central India&rsquo;s living wilderness.
+            </p>
+
+            <!-- Portal Informational Navigation CTAs -->
+            <div class="portal-action-group">
+              <a href="#all-films" class="btn btn-portal-primary" id="viewDetailsLink">
+                <span>VIEW FILM DETAILS</span>
+                <span class="btn-arrow">→</span>
+              </a>
+
+              <a href="index.html#locations" class="btn btn-portal-secondary" id="viewLocationsLink">
+                <span>VIEW SHOOTING LOCATIONS</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center-Right: 3D Cinematic Movie Poster Carousel -->
+        <div class="hero-carousel-wrapper" id="heroCarouselWrapper">
+          <div class="carousel-3d-stage" id="carouselStage" aria-label="Featured Movie Posters 3D Carousel" role="region">
+            <div class="carousel-stage-floor" aria-hidden="true"></div>
+            <div class="carousel-ring" id="carouselRing">
+              <!-- Slides are rendered and updated dynamically by JS from moviesData array -->
+            </div>
+          </div>
+
+          <!-- Carousel Controls & Progress -->
+          <div class="carousel-interface">
+            <!-- Navigation Arrows -->
+            <div class="carousel-arrows">
+              <button class="arrow-btn prev-btn" id="prevSlideBtn" aria-label="Previous Movie">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <button class="arrow-btn next-btn" id="nextSlideBtn" aria-label="Next Movie">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Progress Indicator (01 / 09 & animated track) -->
+            <div class="carousel-counter">
+              <span class="counter-current" id="counterCurrent">01</span>
+              <div class="counter-track">
+                <div class="counter-bar" id="counterBar"></div>
+              </div>
+              <span class="counter-total" id="counterTotal">09</span>
+            </div>
+
+            <!-- Autoplay Toggle / Pause indicator -->
+            <button class="carousel-playpause" id="playPauseBtn" aria-label="Pause Slideshow">
+              <span class="pulse-indicator"></span>
+              <span class="playpause-text" id="playPauseText">ROTATING</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================== -->
+      <!-- 3. LOWER SECTION: COMPACT FILM-STRIP NAVIGATION                -->
+      <!-- ============================================================== -->
+      <div class="hero-film-strip-section" id="heroFilmStrip">
+        <div class="film-strip-header">
+          <div class="strip-header-left">
+            <span class="strip-sprocket-icon" aria-hidden="true">🎞️</span>
+            <span class="strip-title">FEATURED WORKS FILMED IN MADHYA PRADESH</span>
+          </div>
+          <div class="strip-hint">
+            <span>SELECT A POSTER TO PREVIEW</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Scrollable Poster Reel -->
+        <div class="film-strip-container" id="filmStripScroll">
+          <div class="film-strip-track" id="filmStripTrack">
+            <!-- Filled dynamically by JavaScript with independent DOM containers -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- 4. ALL FILMS & SERIES CATALOGUE SECTION                        -->
+    <!-- ============================================================== -->
+    <section class="catalogue-section" id="all-films" aria-labelledby="allFilmsTitle">
+      <div class="catalogue-container">
+        
+        <!-- Section Header & Filter/Search Toolbar -->
+        <div class="catalogue-top-bar">
+          <!-- Left: Section Title & Eyebrow -->
+          <div class="catalogue-header">
+            <div class="catalogue-eyebrow">
+              <span class="eyebrow-icon">🎬</span>
+              <span class="eyebrow-text">EXPLORE THE COLLECTION</span>
+            </div>
+            <h2 class="catalogue-title" id="allFilmsTitle">ALL FILMS &amp; SERIES</h2>
+            <p class="catalogue-subtitle">Explore films and series shot across Madhya Pradesh, from historic cities and heritage sites to rural landscapes and forests.</p>
+          </div>
+
+          <!-- Right: Search Bar & Filter Controls -->
+          <div class="catalogue-controls">
+            <!-- Search Box -->
+            <div class="catalogue-search-wrapper">
+              <span class="search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </span>
+              <input 
+                type="text" 
+                id="filmSearchInput" 
+                class="catalogue-search-input" 
+                placeholder="Search by title, location, genre or year..." 
+                aria-label="Search films and series"
+                autocomplete="off"
+              />
+              <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" style="display: none;">
+                &times;
+              </button>
+              <span class="search-kbd-hint" title="Press / to search">/</span>
+            </div>
+
+            <!-- Filter Pills & Selects Toolbar -->
+            <div class="catalogue-filter-toolbar">
+              <div class="filter-pills" role="tablist" aria-label="Film Type Filters">
+                <button class="filter-pill active" data-type="all" role="tab" aria-selected="true">ALL</button>
+                <button class="filter-pill" data-type="Feature Film" role="tab" aria-selected="false">FEATURE FILM</button>
+                <button class="filter-pill" data-type="Web Series" role="tab" aria-selected="false">WEB SERIES</button>
+                <button class="filter-pill" data-type="Documentary" role="tab" aria-selected="false">DOCUMENTARY</button>
+              </div>
+
+              <div class="filter-divider" aria-hidden="true"></div>
+
+              <div class="filter-dropdowns">
+                <!-- Year Filter -->
+                <div class="custom-select-wrapper">
+                  <select id="yearFilterSelect" class="catalogue-select" aria-label="Filter by release year">
+                    <option value="all">ALL YEARS</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                  </select>
+                  <span class="select-caret">▾</span>
+                </div>
+
+                <!-- Sort Control -->
+                <div class="custom-select-wrapper">
+                  <select id="sortFilterSelect" class="catalogue-select" aria-label="Sort films">
+                    <option value="latest">SORT BY: LATEST</option>
+                    <option value="oldest">SORT BY: OLDEST</option>
+                    <option value="az">SORT BY: A–Z</option>
+                    <option value="za">SORT BY: Z–A</option>
+                  </select>
+                  <span class="select-caret">▾</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Results Meta Banner -->
+        <div class="catalogue-results-meta" id="catalogueResultsMeta">
+          <span class="results-count" id="resultsCount">Showing 17 films shot in Madhya Pradesh</span>
+          <span class="active-filter-tags" id="activeFilterTags"></span>
+        </div>
+
+        <!-- Movie Grid Container -->
+        <div class="catalogue-grid" id="catalogueGrid" role="region" aria-live="polite">
+          <!-- Cards dynamically rendered from ALL_FILMS_DATA -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div class="catalogue-empty-state" id="catalogueEmptyState" style="display: none;">
+          <div class="empty-state-icon">🎬</div>
+          <h3 class="empty-state-title">NO FILMS FOUND</h3>
+          <p class="empty-state-text">Try adjusting your search keywords, location queries, or active filter categories.</p>
+          <button class="btn btn-secondary" id="clearAllFiltersBtn">
+            <span>CLEAR ALL FILTERS</span>
+          </button>
+        </div>
+
+        <!-- Load More Trigger Button -->
+        <div class="catalogue-load-more" id="loadMoreContainer">
+          <button class="btn-load-more" id="loadMoreBtn">
+            <span>LOAD MORE FILMS</span>
+            <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 4v12M4 10l6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- 5. FILM DETAIL CINEMATIC MODAL                                 -->
+  <!-- ============================================================== -->
+  <div class="film-modal-overlay" id="filmDetailModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="film-modal-backdrop" id="modalBackdrop"></div>
+    <div class="film-modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close details modal">&times;</button>
+      
+      <div class="modal-content-grid">
+        <!-- Left: Full Poster Frame -->
+        <div class="modal-poster-col">
+          <div class="modal-poster-frame">
+            <img src="" alt="" id="modalPosterImg" class="modal-poster-img" />
+            <div class="modal-poster-badge" id="modalPosterBadge">FILMED IN MADHYA PRADESH</div>
+          </div>
+        </div>
+
+        <!-- Right: Comprehensive Information -->
+        <div class="modal-info-col">
+          <div class="modal-eyebrow">
+            <span class="modal-tag">MADHYA PRADESH FILM CELL</span>
+            <span class="modal-sep">•</span>
+            <span class="modal-type-badge" id="modalTypeBadge">FEATURE FILM</span>
+          </div>
+
+          <h2 class="modal-title" id="modalTitle">FILM TITLE</h2>
+
+          <div class="modal-meta-bar">
+            <span class="modal-year" id="modalYear">2024</span>
+            <span class="modal-sep">•</span>
+            <span class="modal-genres" id="modalGenres">Horror · Comedy · Feature</span>
+          </div>
+
+          <!-- Location Highlight -->
+          <div class="modal-location-banner">
+            <div class="location-banner-label">
+              <span class="loc-pin">📍</span>
+              <span>SHOT IN MADHYA PRADESH</span>
+            </div>
+            <div class="location-banner-places" id="modalShootingLocations">
+              Chanderi, Bhopal, Sehore, Rajgarh
+            </div>
+          </div>
+
+          <!-- Synopsis -->
+          <div class="modal-section-block">
+            <h4 class="modal-block-heading">SYNOPSIS</h4>
+            <p class="modal-description" id="modalDescription">Description...</p>
+          </div>
+
+          <!-- Key Production Credits -->
+          <div class="modal-credits-grid">
+            <div class="credit-item">
+              <span class="credit-label">DIRECTOR</span>
+              <span class="credit-val" id="modalDirector">-</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-label">PRODUCER</span>
+              <span class="credit-val" id="modalProducer">-</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-label">PRODUCTION HOUSE</span>
+              <span class="credit-val" id="modalProductionHouse">-</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-label">GOVT. SUBSIDY</span>
+              <span class="credit-val gold" id="modalSubsidy">Financially Supported</span>
+            </div>
+          </div>
+
+          <!-- Cast Tags -->
+          <div class="modal-section-block" id="modalCastBlock">
+            <h4 class="modal-block-heading">KEY CAST</h4>
+            <div class="modal-cast-tags" id="modalCastTags"></div>
+          </div>
+
+          <!-- Actions -->
+          <div class="modal-actions-group">
+            <button class="btn btn-primary" id="modalExploreBtn">
+              <span>EXPLORE MP SHOOTING LOCATIONS</span>
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="10" x2="16" y2="10"></line>
+                <polyline points="11 5 16 10 11 15"></polyline>
+              </svg>
+            </button>
+            <button class="btn btn-secondary" id="modalCloseActionBtn">
+              <span>CLOSE</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- 6. OFFICIAL MP FILM FACILITATION CELL FOOTER                   -->
+  <!-- ============================================================== -->
+  <footer class="w-full bg-[#12121a] border-t border-white/10 py-12 px-4 md:px-8 xl:px-12">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
+<div class="flex flex-col gap-3 max-w-sm">
+<div class="flex items-center gap-4">
+<img alt="Madhya Pradesh Film Facilitation Cell" class="h-24 w-auto object-contain shrink-0 brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
+<span class="text-xl font-bold text-white leading-tight">MP Film<br>Facilitation Cell</span>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed font-normal">
+          Madhya Pradesh Tourism Board, 6th Floor, Lily Trade Wing, Jahangirabad, Bhopal - 462008 (M.P.). Official Single Window Clearance Portal for Cinema &amp; Television.
+        </p>
+<a class="mt-2 inline-flex w-fit items-center gap-2 px-4 py-2 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-500/20 hover:bg-orange-500 hover:text-white transition-all text-xs font-bold" href="#">
+<span class="material-symbols-outlined text-sm">download</span>
+          Download Film Policy 2025 Rules &amp; Regulations
+        </a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-xs font-medium">
+<div class="flex flex-col gap-2"><span class="font-bold text-white uppercase tracking-wider">Quick Links</span>
+<a class="nav-pill-link" href="#home">Home</a>
+<a class="nav-pill-link" href="#why-mp">Why MP</a>
+<a class="nav-pill-link" href="#locations">Locations</a>
+<a class="nav-pill-link" href="#how-it-works">How It Works</a></div>
+<div class="flex flex-col gap-2"><span class="font-bold text-white uppercase tracking-wider">Resources</span>
+<a class="nav-pill-link" href="#policy">Policy 2025</a><a class="nav-pill-link" href="#cell-members">Cell Members (6.2)</a>
+<a class="nav-pill-link" href="#dashboard">Public Dashboard</a>
+<a class="nav-pill-link" href="#films">Films Shot in MP</a>
+<a class="nav-pill-link" href="#faqs">FAQs</a></div>
+<div class="flex flex-col gap-2">
+<span class="font-bold text-white uppercase tracking-wider">Support</span>
+<span class="text-slate-400">filmcell@mptourism.com</span>
+<span class="text-slate-400">+91 755 2780600</span>
+<span class="text-slate-400">Mon - Fri: 10:00 - 18:00</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+<span>© 2026 Government of Madhya Pradesh. Powered by MPOnline. All Rights Reserved.</span>
+<div class="flex items-center gap-4 font-semibold">
+<a class="nav-pill-link" href="#home">Privacy Policy</a>
+<a class="nav-pill-link" href="#home">Terms of Use</a>
+<a class="nav-pill-link" href="#home">Accessibility</a>
+</div>
+</div>
+</footer>
+
+  <!-- Back to Top Button -->
+  <a aria-label="Back to top" id="backToTopBtn" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-black shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border border-amber-300/40 opacity-0 pointer-events-none" href="#heroSection">
+    <span class="material-symbols-outlined text-2xl font-black group-hover:-translate-y-0.5 transition-transform">arrow_upward</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="resources/js/films-data.js"></script>
+  <script src="resources/js/film-gallery.js"></script>
+
+</body>
+</html>

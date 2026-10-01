@@ -294,7 +294,7 @@
     }
     
     /* Footer */
-    [data-theme="light"] footer {
+    [data-theme="light"] footer.bg-\[\#12121a\] {
          background: #101827 !important;
     }
     [data-theme="light"] footer .text-white { color: #ffffff !important; }
@@ -481,13 +481,13 @@
         font-weight: 700 !important;
     }
 
-    /* 1. Transparent Glass Top Header */
+    /* 1. Frosted Glass Top Header in Light Mode */
     [data-theme="light"] header#mainHeader {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        border-bottom: none !important;
-        box-shadow: none !important;
+        background: rgba(248, 245, 238, 0.88) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02) !important;
     }
     
 
@@ -619,16 +619,7 @@
        SPECIFIC LIGHT MODE HEADER REFINEMENTS
        ========================================= */
        
-    /* 1. Transparent Glass Top Header */
-    [data-theme="light"] header#mainHeader {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        border-bottom: none !important;
-        box-shadow: none !important;
-    }
-    
-
+    /* Top row utilities clean-up in Light Mode */
     /* Top row utilities clean-up */
     [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
         background-color: rgba(255, 255, 255, 0.3) !important;
@@ -714,46 +705,63 @@ header#mainHeader .hidden.lg\:block.border-t {
     }
 
 
-    /* Fix logo width to prevent layout jump on theme toggle */
-    img.brand-logo {
-        width: 130px !important; /* Fixed width */
+    /* Proper logo proportions to eliminate huge artificial gap */
+    header#mainHeader img.brand-logo {
+        height: 48px !important;
+        width: auto !important;
+        max-width: 72px !important;
         object-fit: contain !important;
-        object-position: left center !important;
     }
     @media (max-width: 768px) {
-        img.brand-logo {
-            width: 110px !important;
+        header#mainHeader img.brand-logo {
+            height: 40px !important;
+            max-width: 60px !important;
         }
+    }
+    #mobileMenuPanel img.brand-logo {
+        height: 40px !important;
+        width: auto !important;
+        max-width: 60px !important;
+        object-fit: contain !important;
+    }
+    footer img.brand-logo {
+        height: 80px !important;
+        width: auto !important;
+        max-width: 120px !important;
+        object-fit: contain !important;
     }
 
 
     /* =========================================
-       TRUE BLACK TEXT FOR LIGHT MODE HEADER
+       CLEAN CONTRAST FOR LIGHT MODE HEADER
        ========================================= */
     [data-theme="light"] header#mainHeader .text-white,
     [data-theme="light"] header#mainHeader .text-slate-300,
-    [data-theme="light"] header#mainHeader .text-slate-400,
-    
-    
-    [data-theme="light"] 
+    [data-theme="light"] header#mainHeader .text-slate-400 {
+        color: #101827 !important;
+    }
     
     [data-theme="light"] #logo-subtext {
-        color: #000000 !important;
-        font-weight: 800 !important;
+        color: #526174 !important;
+        font-weight: 600 !important;
     }
     
     [data-theme="light"] header#mainHeader .bg-white\/\[0\.03\] {
-        color: #000000 !important;
+        background-color: #FFFFFF !important;
+        border-color: rgba(0, 0, 0, 0.12) !important;
+        color: #101827 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
     }
     
     [data-theme="light"] header#mainHeader .theme-toggle-btn {
-        color: #000000 !important;
+        background-color: #FFFFFF !important;
+        border-color: rgba(0, 0, 0, 0.12) !important;
+        color: #101827 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
     }
-
-
-    /* Pull logo text closer to the logo image */
-    a.group.shrink-0 > div.hidden.sm\:flex.flex-col {
-        margin-left: -55px !important;
+    [data-theme="light"] header#mainHeader .theme-toggle-btn:hover {
+        background-color: #F1E9DC !important;
+        color: #D85A00 !important;
     }
 
 
@@ -1162,14 +1170,11 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
     <div class="flex items-center justify-between gap-4 py-2.5">
 
       <!-- Logo & State Emblem Title -->
-      <a class="flex items-center gap-3 md:gap-3.5 group shrink-0" href="#home">
+      <a class="flex items-center gap-2.5 sm:gap-3 group shrink-0" href="#home">
         <img alt="Madhya Pradesh Film Facilitation Cell" class="h-12 md:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02] brand-logo" src="resources/Logo_Dark1.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src=this.src.includes('stitch')?'resources/Logo_Dark1.png':'stitch_madhya_pradesh_film_facilitation_portal (3)/Logo_Dark1.png';}">
-        <div class="hidden sm:flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="font-extrabold text-sm md:text-base text-white tracking-tight group-hover:text-amber-400 transition-colors">MP Film Facilitation Cell</span>
-            
-          </div>
-          <span class="text-[11px] text-amber-400/80 font-medium" id="logo-subtext">मध्य प्रदेश शासन | Madhya Pradesh Tourism Board</span>
+        <div class="hidden sm:flex flex-col justify-center leading-tight">
+          <span class="font-extrabold text-sm md:text-base text-white tracking-tight group-hover:text-amber-400 transition-colors leading-tight">MP Film Facilitation Cell</span>
+          <span class="text-[11px] text-amber-400/80 font-medium leading-tight mt-0.5" id="logo-subtext">मध्य प्रदेश शासन | Madhya Pradesh Tourism Board</span>
         </div>
       </a>
 
@@ -1334,11 +1339,11 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
       <span class="material-symbols-outlined text-xl text-orange-500">bar_chart</span>
       <span>Public Dashboard</span>
     </a>
-    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#policy">
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#policy" onclick="toggleMobileMenu(event)">
       <span class="material-symbols-outlined text-xl text-orange-500">article</span>
       <span>Film Policy 2025</span>
     </a>
-    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#films">
+    <a class="menu-link flex items-center gap-4 px-4 py-3.5 rounded-2xl font-medium text-[15px]" href="#films" onclick="toggleMobileMenu(event)">
       <span class="material-symbols-outlined text-xl text-orange-500">movie</span>
       <span>Films Shot in MP</span>
     </a>
@@ -2067,9 +2072,15 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <h2 class="text-3xl sm:text-4xl text-white font-extrabold tracking-tight">Stories Already Told Here</h2>
 <p class="text-slate-300 mt-1">Acclaimed feature films and globally renowned series shot on Madhya Pradesh locations.</p>
 </div>
-<div class="flex items-center gap-1.5 text-slate-400 text-xs font-semibold bg-[#09090d] px-3 py-1.5 rounded-md border border-white/10">
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1.5 text-slate-400 text-xs font-semibold bg-[#09090d] px-3 py-1.5 rounded-md border border-white/10">
 <span class="material-symbols-outlined text-orange-400 text-base">camera_roll</span>
 <span>Over 250+ Titles Documented</span>
+</div>
+<a href="film-gallery.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-black font-extrabold text-xs tracking-wide shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all shrink-0">
+<span>Explore Film Gallery</span>
+<span class="material-symbols-outlined text-sm font-black">arrow_forward</span>
+</a>
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -2145,6 +2156,22 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <p class="text-xs text-slate-300 mt-1">Filmed on the exact Chambal badland terrains of the athlete-turned-rebel’s true saga.</p>
 </div>
 </div>
+</div>
+<!-- Prominent Explore Film Gallery Banner -->
+<div class="mt-8 p-6 rounded-2xl bg-[#12121a] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 hover:border-amber-500/30 transition-all">
+<div class="flex items-center gap-4 text-center sm:text-left">
+<div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/20">
+<span class="material-symbols-outlined text-2xl">movie</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white">Looking for the Complete Film Catalogue?</h4>
+<p class="text-xs text-slate-400">Discover all 20+ films and series shot in Madhya Pradesh with search, genre filters, and shooting location details.</p>
+</div>
+</div>
+<a href="film-gallery.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.06] hover:bg-amber-500 hover:text-black text-amber-400 border border-amber-500/30 hover:border-amber-400 text-xs font-bold transition-all shrink-0">
+<span>Explore Film Gallery</span>
+<span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+</a>
 </div>
 </section>
 <!-- =========================================================================
@@ -2770,7 +2797,7 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
   const mainHeader = document.getElementById('mainHeader') || document.querySelector('header');
   if (mainHeader) {
     function updateHeader() {
-      if (window.scrollY > 150) {
+      if (window.scrollY > 20) {
         mainHeader.classList.add('header-scrolled');
       } else {
         mainHeader.classList.remove('header-scrolled');
@@ -2786,33 +2813,74 @@ html:not([data-theme="light"]) header#mainHeader nav a.active-pill {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll('header#mainHeader nav a');
-    const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const sections = Array.from(navLinks).map(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            try { return document.querySelector(href); } catch(e) { return null; }
+        }
+        return null;
+    }).filter(Boolean);
 
-    // Set initial active pill
-    navLinks[0].classList.add('active-pill');
-
-    const observer = new IntersectionObserver((entries) => {
-        let activeSectionId = null;
-        
-        // Find the most visible section
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                activeSectionId = '#' + entry.target.id;
+    function setActiveLink(activeHref) {
+        if (!activeHref) return;
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === activeHref) {
+                link.classList.add('active-pill');
+            } else {
+                link.classList.remove('active-pill');
             }
         });
+    }
 
-        if (activeSectionId) {
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === activeSectionId) {
-                    link.classList.add('active-pill');
-                } else {
-                    link.classList.remove('active-pill');
-                }
-            });
+    // Set initial active link (either from hash or default to first)
+    if (window.location.hash) {
+        setActiveLink(window.location.hash);
+    } else if (navLinks.length > 0) {
+        navLinks[0].classList.add('active-pill');
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                setActiveLink(href);
+            }
+        });
+    });
+
+    function updateActiveNav() {
+        const scrollY = window.scrollY;
+        const headerOffset = 180;
+        let currentId = null;
+
+        for (let i = 0; i < sections.length; i++) {
+            const sec = sections[i];
+            const top = sec.offsetTop - headerOffset;
+            const bottom = top + sec.offsetHeight;
+            if (scrollY >= top && scrollY < bottom) {
+                currentId = '#' + sec.id;
+                break;
+            }
         }
-    }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 }); // Triggers when element is near top third of screen
 
-    sections.forEach(section => observer.observe(section));
+        if (!currentId && scrollY < 200 && navLinks[0]) {
+            currentId = navLinks[0].getAttribute('href');
+        }
+
+        if ((window.innerHeight + scrollY) >= document.body.offsetHeight - 60 && sections.length > 0) {
+            currentId = '#' + sections[sections.length - 1].id;
+        }
+
+        if (currentId) {
+            setActiveLink(currentId);
+        }
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    window.addEventListener('hashchange', () => {
+        if (window.location.hash) setActiveLink(window.location.hash);
+    });
+    setTimeout(updateActiveNav, 200);
 });
 </script>
 
